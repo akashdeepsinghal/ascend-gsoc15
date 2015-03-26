@@ -1,8 +1,5 @@
 REQUIRE "thermodynamics.a4l";
 
-IMPORT "johnpye/extpy/extpy";
-IMPORT "kchittur/zplot";
-
 MODEL srk(P WILL_BE pressure;
 	T WILL_BE temperature;
 	V WILL_BE molar_volume; 
@@ -38,7 +35,7 @@ MODEL srk(P WILL_BE pressure;
 	eq7: Z = 1.0 + beta - q*beta*(Z - beta)/((Z + eps*beta)*(Z + sigma*beta));
 	eq8: P*V = Z*R*T;
 	eq9: A = q*beta;
-	eq9: f = exp((Z-1)–ln(Z-beta)–q*ln((Z+beta)/Z)); (*fugacity coefficient*)
+	eqA: f = exp((Z-1)-ln(Z-beta)-q*ln((Z+beta)/Z)); (*fugacity coefficient*)
 
 METHODS
     METHOD default_self;
@@ -59,7 +56,6 @@ METHODS
         Z.upper_bound := 10.0;
         Z.nominal := 1.0;
     END values;
-
 END srk;
 
 MODEL testsrk;
@@ -103,7 +99,6 @@ METHODS
 
 END testsrk;
 
-
 MODEL srk_comp(
 	c1 WILL_BE symbol_constant;
 	);
@@ -144,3 +139,9 @@ METHODS
     END on_load;
 
 END srk_comp;
+
+
+
+(* for easy use with 'runqrslv' *)
+MODEL akash_eos REFINES testsrk;
+END akash_eos;
