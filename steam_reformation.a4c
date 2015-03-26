@@ -1,5 +1,5 @@
 REQUIRE "atoms.a4l";
-REQUIRE "akash_eos.a4l";
+REQUIRE "akash_eos.a4c";
 
 MODEL reactor;
 	a0, b0 IS_A mole;
