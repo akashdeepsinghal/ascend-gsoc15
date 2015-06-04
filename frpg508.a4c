@@ -1,0 +1,295 @@
+
+(* This is written in the ASCEND Language ... ASCEND is an
+environment to pose modeling problems and solve the resulting
+equations in an object oriented fashion ... ASCEND is
+copyrighted by Carnegie Mellon University ... the project
+has been directed by Prof. Art Westerberg in the Chemical
+Engineering Department ...*)
+
+(* ASCEND is free software, released under GNU ... and you
+can get it from http://www.cs.cmu.edu/~ascend ... The
+software has been released WITH source code ... it compiles
+under Solaris, Linux and IRIX (SGI) ... thanks to the excellent
+job in putting the software together by the folks at CMU! ...
+and autoconf ... I have no idea of how people compiled things
+before ./configure ! *)
+
+(* This example written by Krishnan Chittur (chitturk@uah.edu)
+Chemical Engineering Department, University of Alabama in Huntsville,
+Huntsville, AL 35899 (205) 890 6850 (V), (205) 890 6839 (FAX) *)
+
+(* The example also contains key comments made by Ben Allan 
+   ballan@cs.cmu.edu - a key player in the development of ASCEND - *)  
+
+(* Look at two different forms for equations 7 and 8 ... the way I 
+had written it originally was NOT the way to do it ... if you 
+use MY equations 7 and 8 - as shown on page 509 in 
+Felder/Rousseau, the problem will work fine for say 
+100 lb-moles BUT NOT for 100 g-moles ... 
+--- read on, look at the explanations -*) 
+
+(* This is Example Problem 10.3-2 from Felder/Rousseau,
+page 508 *)
+
+(* I have written models for the different units in the
+flow sheet and wired them up together *)
+
+(* Here is the strategy.  Write models for the mixer,
+reactor and the separator (equations, data, everything needed
+for that unit.  Then wire up the flowsheet *)
+
+REQUIRE "atoms.a4l";
+
+MODEL mixer;
+
+ fresh_ethane, recycled_ethane, total_ethane IS_A mole;
+
+ eq1: total_ethane = fresh_ethane + recycled_ethane;
+
+METHODS
+    METHOD clear;
+    fresh_ethane.fixed := FALSE;
+    recycled_ethane.fixed := FALSE;
+    total_ethane.fixed := FALSE;
+    END clear;
+
+    METHOD specify;
+    fresh_ethane.fixed := FALSE;
+    recycled_ethane.fixed := FALSE;
+    total_ethane.fixed := TRUE;
+    END specify;
+
+    METHOD values;
+    total_ethane := 100.0 {lb_mole};
+    END values;
+
+    METHOD seqmod;
+    RUN clear;
+    RUN specify;
+    RUN values;
+    END seqmod;
+
+END mixer;
+
+(* Notice what we have done in the mixer model.  We have four
+METHODS - clear, specify, values and something called
+seqmod.  seqmod (as used in the original literature by
+Art Westerberg and group) refers to setting the model in the
+we would in a Sequential Modular Simulation - set all FLAGS
+to false, then set the appropriate FLAGS to true,
+supply values to those variables whose FLAGS are true and
+RUN these METHODS using seqmod.  *)
+
+MODEL reactor;
+
+    in_ethane IS_A mole;
+    out_ethane, out_ethylene, out_acetylene,
+    out_hydrogen IS_A mole;
+    out_total IS_A mole;
+
+    reaction_one_extent, reaction_two_extent IS_A mole;
+
+eq2: out_ethane = in_ethane - reaction_one_extent
+                          - reaction_two_extent;
+eq3: out_ethylene = reaction_one_extent;
+eq4: out_acetylene = reaction_two_extent;
+eq5: out_hydrogen = reaction_one_extent + 2.0*reaction_two_extent;
+eq6: out_total = in_ethane + reaction_one_extent + 2.0*reaction_two_extent;
+
+(* Comments by Ben Allan - thanks  
+ * Avoid division. use the equations from p 510, Felder/Rousseau 
+ * This is an excellent problem demonstrating the difficulties of
+ * scaling that Newton or gradient based solvers have because of finite
+ * precision arithmetic. myeq7 and myeq8 violate two primary rules
+ * of equation-based modeling:
+ * 1) avoid division by other variables being solved for.
+ * 2) to more easily obtain 1), use the equations like:
+ * yb*yd=3.75*ya; yc*yd^2=0.135*ya; and 2 thru 5 p 509.
+ * instead of 'simplifying' to 7,8 which is really 'complicating'.
+ *
+ * The following from p510 (I should have written these to begin 
+   with, Krishnan Chittur! ) 
+ *)
+
+eq7: reaction_one_extent*(reaction_one_extent+2.0*reaction_two_extent)
+     = 3.75*((in_ethane - reaction_one_extent - reaction_two_extent)*
+       (in_ethane + reaction_one_extent + 2.0*reaction_two_extent));
+
+eq8: reaction_two_extent*(reaction_one_extent+2.0*reaction_two_extent)^2
+     = 0.135*((in_ethane - reaction_one_extent - reaction_two_extent)*
+       (in_ethane + reaction_one_extent + 2.0*reaction_two_extent)^2);
+
+(* the equations shown below contain a division which at a poor initial guess
+ * can really screw up that first step, sending Newton off into oblivion.
+   and thus have been commented off ... 
+
+myeq7: reaction_one_extent*(reaction_one_extent+2.0*reaction_two_extent)
+     /((in_ethane - reaction_one_extent - reaction_two_extent)*
+       (in_ethane + reaction_one_extent + 2.0*reaction_two_extent)) = 3.75;
+myeq8: reaction_two_extent*(reaction_one_extent+2.0*reaction_two_extent)^2
+     /((in_ethane - reaction_one_extent - reaction_two_extent)*
+       (in_ethane + reaction_one_extent + 2.0*reaction_two_extent)^2) = 0.135;
+*)
+
+METHODS
+     METHOD clear;
+     in_ethane.fixed := FALSE;
+     out_ethane.fixed := FALSE;
+     out_ethylene.fixed := FALSE;
+     out_acetylene.fixed := FALSE;
+     out_hydrogen.fixed := FALSE;
+     out_total.fixed := FALSE;
+     reaction_one_extent.fixed := FALSE;
+     reaction_two_extent.fixed := FALSE;
+     END clear;
+     METHOD specify;
+     in_ethane.fixed := TRUE;
+     out_ethane.fixed := FALSE;
+     out_ethylene.fixed := FALSE;
+     out_acetylene.fixed := FALSE;
+     out_hydrogen.fixed := FALSE;
+     out_total.fixed := FALSE;
+     reaction_one_extent.fixed := FALSE;
+     reaction_two_extent.fixed := FALSE;
+     END specify;
+
+     METHOD values;
+        (* Parts of this really should be in a method called scale,
+         * and a method called bound, but what me worry?
+         * In the next release we deal with these issues explicitly.
+         *)
+        (* Init vars based on problem physics. newton hates bad init point *)
+        reaction_one_extent := in_ethane* 0.95;
+        reaction_two_extent := in_ethane* 0.05;
+        (* scale vars. newton hates bad scaling *)
+        (* To avoid writing methods like this that thermodynamic and
+         * reaction models are generally written in DIMENSIONLESS equations
+         * (divided by a characteristic flow, for example) rather than
+         * extensive terms.
+         * ASCEND allows either approach. If using extensive approach,
+         * must do the following:
+         *)
+        reaction_one_extent.nominal := reaction_one_extent;
+        reaction_two_extent.nominal := reaction_two_extent;
+        out_ethane.nominal := in_ethane;
+        out_ethylene.nominal := in_ethane;
+        out_acetylene.nominal := in_ethane;
+        out_hydrogen.nominal := in_ethane;
+        out_total.nominal := in_ethane;
+        (* bound vars based on problem physics. newton hates weak bounds *)
+        reaction_one_extent.upper_bound := in_ethane*2;
+        reaction_two_extent.upper_bound := in_ethane*2;
+        (* physically we know the exact upper bound, but newton sometimes
+         * benefits from a little wiggle room. Should really bound the
+         * other variables, too.
+         *)
+     END values;
+
+     METHOD seqmod;
+     RUN clear;
+     RUN specify;
+     RUN values;
+     END seqmod;
+
+END reactor;
+
+(* The reactor model has many more equations, many more flags
+but we approach it in the same way as the MIXER.  Notice that
+there are NO connections yet between the mixer and the
+reactor - yet *)
+
+MODEL separator;
+
+     in_ethane, in_acetylene,
+     in_ethylene, in_hydrogen,
+     out_ethane, out_acetylene,
+     out_ethylene, out_hydrogen,
+     recycled_ethane IS_A mole;
+
+     eq9: out_ethane = 0.95*in_ethane;
+     eq10: in_ethane = out_ethane + recycled_ethane;
+     eq11: out_ethylene = in_ethylene;
+     eq12: out_acetylene = in_acetylene;
+     eq13: out_hydrogen = in_hydrogen;
+
+METHODS
+    METHOD clear;
+    in_ethane.fixed := FALSE;
+    in_ethylene.fixed := FALSE;
+    in_acetylene.fixed := FALSE;
+    in_hydrogen.fixed := FALSE;
+    out_ethane.fixed := FALSE;
+    out_ethylene.fixed := FALSE;
+    out_acetylene.fixed := FALSE;
+    out_hydrogen.fixed := FALSE;
+    recycled_ethane.fixed := FALSE;
+    END clear;
+    METHOD specify;
+    in_ethane.fixed := FALSE;
+    in_ethylene.fixed := FALSE;
+    in_acetylene.fixed := FALSE;
+    in_hydrogen.fixed := FALSE;
+    out_ethane.fixed := FALSE;
+    out_ethylene.fixed := FALSE;
+    out_acetylene.fixed := FALSE;
+    out_hydrogen.fixed := FALSE;
+    recycled_ethane.fixed := FALSE;
+    END specify;
+    METHOD values;
+    END values;
+    METHOD seqmod;
+    RUN clear;
+    RUN specify;
+    RUN values;
+    END seqmod;
+
+END separator;
+
+(* the separator is written similarly ... equations,
+flags set to false or true and running methods to set
+those flags.  Again note that there is NO connection
+between the separator model and the other two *)
+
+(* We start wiring up the model in the model called
+a flowsheet *)
+
+MODEL flowsheet;
+
+    m1 IS_A mixer;
+    r1 IS_A reactor;
+    s1 IS_A separator;
+
+    m1.total_ethane, r1.in_ethane ARE_THE_SAME;
+    m1.recycled_ethane, s1.recycled_ethane ARE_THE_SAME;
+    r1.out_ethane, s1.in_ethane ARE_THE_SAME;
+    r1.out_acetylene, s1.in_acetylene ARE_THE_SAME;
+    r1.out_hydrogen, s1.in_hydrogen ARE_THE_SAME;
+    r1.out_ethylene, s1.in_ethylene ARE_THE_SAME;
+
+METHODS
+    METHOD clear;
+    RUN m1.clear;
+    RUN r1.clear;
+    RUN s1.clear;
+    END clear;
+    METHOD specify;
+    RUN m1.specify;
+    RUN r1.specify;
+    RUN s1.specify;
+    END specify;
+    METHOD values;
+    RUN m1.values;
+    RUN s1.values;
+    RUN r1.values;
+    END values;
+    METHOD seqmod;
+    RUN clear;
+    RUN specify;
+    RUN values;
+    END seqmod;
+END flowsheet;
+
+(* thus model flowsheet contains the logic for the
+problem ... what is connected to what, sets the flags
+and so on ... We compile the flowsheet and solve it *)
+

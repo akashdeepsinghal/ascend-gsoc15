@@ -1,0 +1,478 @@
+(*----------size of printed page------------------------------------*)
+(*Solution for Example Problem 10.3-3 from p510 of  
+  Felder/Rousseau's Book - Elementary Principles of Chemical
+  Processes - 2nd Edition *) 
+
+(* Model developed and written by John R. White, B.S. Chemical
+   Engineering, University of Alabama Huntsville, Fall 1998 - 
+   with _some_ assistance from me kchittur@che.uah.edu *)  
+
+(*  All MW are from Perry's 7th ed. Table 2-1, *)
+(*  except where otherwise stated              *)
+
+REQUIRE "atoms.a4l";
+
+	(*------------------*)
+	(* Acid Charge Tank *)
+	(*------------------*)
+MODEL charge;
+
+Nitric_Acid_Out, Water_Out, Ammonium_Nitrate_Out, Ammonia_Out,
+Ammonium_Nitrate_Recycled_IN, Ammonia_Recycled_IN, Water_Recycled_IN,
+Ammonium_Nitrate_Fines, Nitric_Acid_Feed, Water_Feed IS_A molar_rate;
+
+(* Mass Balances *)
+eqn1: Ammonia_Out = Ammonia_Recycled_IN;
+eqn2: Water_Out = Water_Recycled_IN + Water_Feed;
+eqn3: Ammonium_Nitrate_Out = Ammonium_Nitrate_Fines + Ammonium_Nitrate_Recycled_IN;
+eqn4: Nitric_Acid_Out = Nitric_Acid_Feed;
+
+METHODS
+
+METHOD specify;
+  Nitric_Acid_Feed.fixed := TRUE; (* If a variable is fixed, *)
+  Water_Feed.fixed := TRUE;  (* set this value to TRUE	*)
+END specify;
+
+METHOD values;
+  (* Feed Specifications *)
+  Water_Feed := .405*10970{kg/hr}/18.015{kg/kmol};
+  Nitric_Acid_Feed := .595*10970{kg/hr}/63.02{kg/kmol};
+END values;
+
+METHOD seqmod;
+  RUN specify;
+  RUN values;
+END seqmod;
+
+END charge;
+
+
+	(*----------------*)
+	(* Acid Preheater *)
+	(*----------------*)
+MODEL acidheat;
+
+Nitric_Acid_IN, Ammonia_IN, Water_IN, Ammonium_Nitrate_IN IS_A molar_rate;
+TEMP_IN, TEMP_OUT IS_A temperature;
+Q_IN, Q_HNO3_H2O_liq,Q_HNO3, Q_H2O, Q_NH3, Q_NH4NO3 IS_A energy_rate;
+
+(* Energy Balance *)
+(* Assume NH3 enters as a vapor, all the HNO3 & H2O are vaporized *)
+(* and NH4NO3 remains a liquid                                    *)
+(* Boiling pts;	HNO3 = 86 C     as an aproximation, we will assume  
+		H2O = 100 C     the HNO3/H2O solution boils at 368K
+		NH3 = -33.4 C
+		NH4NO3 = decomposes at 210 C
+	       ** Perry's 7th ed. Table 2-1                       *)
+
+eqn7: Q_IN = Q_HNO3_H2O_liq + Q_HNO3 + Q_H2O + Q_NH3 + Q_NH4NO3;
+eqn8: Q_HNO3_H2O_liq = (Nitric_Acid_IN*63.02{gram/mol}
+	+Water_IN*18.015{gram/mol})*.640{cal/gram/K}*(368{K}-TEMP_IN);
+eqn8a: Q_HNO3 = Nitric_Acid_IN*(9360{cal/mol} + (4.69223*(TEMP_OUT/1000{K}
+	-.368)+36.7973/2*((TEMP_OUT/1000{K})^2-.368^2)
+	-27.6859/3*((TEMP_OUT/1000{K})^3-.368^3)
+	+7.858401/4*((TEMP_OUT/1000{K})^4-.368^4)
+	+.05954/(TEMP_OUT/1000{K}-.368))*1{cal/mol});
+eqn8b: Q_H2O=Water_IN*(9729{cal/mol}+6.93{cal/mol/K}*(TEMP_OUT-368{K})
+	+.00083{cal/mol/K^2}/2*(TEMP_OUT^2-368{K}^2));
+eqn9: Q_NH3 = Ammonia_IN*(6.70{1/K}*(TEMP_OUT-TEMP_IN)
+	+.0063{1/K^2}/2*(TEMP_OUT^2-TEMP_IN^2))*1{cal/mol};
+eqn11: Q_NH4NO3 = Ammonium_Nitrate_IN*31.8{cal/mol/K}*(TEMP_OUT-TEMP_IN);
+
+(* REFERENCES: Cp of NH3 vapor from 300K - 800K = 
+					6.70+.00630*T cal/mole/K
+	       Cp of 60% liquid solution of HNO3 + H2O @ 293K = 
+					.640 cal/gram/K
+	       H_vap of HNO3 = 9360 {cal/mol} 
+		 ** approximated from heats of formation 
+		    Perry's 7th ed. Table 2-220
+	       Delta H of HNO3 vapor from 298K-1200K = 
+			4.692230t+36.79730/2*t^2-27.6859/3*t^3
+			+7.858401/4*t^4+.059540/t-35.10563
+			+32.09994{cal/mol} where t = T/1000
+	       H_vap of H2O = 9729 {cal/mol}
+	       Cp of H2O vapor from 273K-2000K = 
+					6.93+.00083T cal/mole/K
+	       Cp of NH4NO3 crystal from 273K - 293K = 
+					31.8 cal/mole/K
+	      ** From Perry's 7th edition, Cp from Table 2-194, 
+		 H_vap from Table 2-190.  *)
+
+METHODS
+
+METHOD specify;
+  TEMP_IN.fixed := TRUE;
+  TEMP_OUT.fixed := TRUE;
+END specify;
+
+METHOD values;
+  TEMP_IN := 297 {K};
+  TEMP_OUT := 422 {K};
+END values;
+
+METHOD seqmod;
+  RUN specify;
+  RUN values;
+END seqmod;
+
+END acidheat;
+
+
+	(*---------*)
+	(* Reactor *)
+	(*---------*)
+MODEL reactor;
+
+NH3_FEED, Ammonia_IN, Nitric_Acid_IN, Water_IN, Ammonium_Nitrate_IN,
+Ammonia_Out, Ammonium_Nitrate_Out, Water_Out IS_A molar_rate;
+REACT_EXTENT IS_A molar_rate;
+T_OUT, T_IN_MIX, T_IN_NH3 IS_A temperature;
+H_Nitric_Acid_IN, H_Water_IN, H_Ammonia_IN, H_NH3_FEED, H_Ammonium_Nitrate_IN,
+H_Ammonia_Out, H_Water_Out, H_Ammonium_Nitrate_Out,
+Q_IN, H_REACTION, H_PRODUCTS, H_REACTANTS IS_A energy_rate;
+
+(*       Reaction Extent          *)
+(*All HNO3 is used during reaction*)
+eqn12: REACT_EXTENT = Nitric_Acid_IN;
+
+(* NH3 Feed, 5mol% excess *)
+eqn13: NH3_FEED + Ammonia_IN = 1.05 * Nitric_Acid_IN;
+
+(* MASS BALANCE *)
+eqn14: Ammonia_Out = NH3_FEED + Ammonia_IN - REACT_EXTENT;
+eqn15: Water_IN = Water_Out;
+eqn16: Ammonium_Nitrate_Out = Ammonium_Nitrate_IN + REACT_EXTENT;
+
+(* Energy Balance *)
+eqn17: Q_IN = H_REACTANTS + H_REACTION + H_PRODUCTS;
+
+(* Enthalpy of Reactants *)
+eqn22: H_REACTANTS=H_Nitric_Acid_IN+H_Water_IN+H_Ammonia_IN+H_NH3_FEED+H_Ammonium_Nitrate_IN;
+eqn23: H_Nitric_Acid_IN*(.298-T_IN_MIX/1000{K}) =
+	Nitric_Acid_IN*(4.69223*(.298-T_IN_MIX/1000{K})*(.298-T_IN_MIX/1000{K})
+	+36.7973/2*(.298^2-(T_IN_MIX/1000{K})^2)*(.298-T_IN_MIX/1000{K})
+	-27.6859/3*(.298^3-(T_IN_MIX/1000{K})^3)*(.298-T_IN_MIX/1000{K})
+	+7.858401/4*(.298^4-(T_IN_MIX/1000{K})^4)*(.298-T_IN_MIX/1000{K})
+	+.05954)*1{cal/mol};
+eqn23a: H_Water_IN = Water_IN*(6.93{1/K}*(298{K}-T_IN_MIX)
+	+.00083{1/K^2}/2*(298{K}^2-T_IN_MIX^2))*1{cal/mol};
+eqn24: H_Ammonia_IN = Ammonia_IN*(6.70{1/K}*(298{K}-T_IN_MIX)
+	+.0063{1/K^2}/2*(298{K}^2-T_IN_MIX^2))*1{cal/mol};
+eqn25: H_NH3_FEED = NH3_FEED*(6.70{1/K}*(298{K}-T_IN_NH3)
+	+.0063{1/K^2}/2*(298{K}^2-T_IN_NH3^2))*1{cal/mol};
+eqn26: H_Ammonium_Nitrate_IN = Ammonium_Nitrate_IN*31.8{cal/mol/K}*(298{K}-T_IN_MIX);
+(* REFERENCES: Delta H of HNO3 vapor from 298K-1200K = 
+			4.692230t+36.79730/2*t^2-27.6859/3*t^3
+			+7.858401/4*t^4+.059540/t-35.10563
+			+32.09994{cal/mol} where t = T1/1000-T2/1000 
+	      ** from Chase, Davies, et al. 
+	       Cp of H2O vapor from 273K-2000K = 
+					6.93+.00083*T {cal/mol/K}
+	       Cp of NH3 vapor from 300K - 800K = 
+					6.70+.00630*T cal/mole/K
+	       Cp of NH4NO3 liquid from 273K - 293K = 
+					(31.8 cal/mole/K for crystal) 
+	      ** Perry's 7th edition, Table 2-194 *)
+
+(* Heat of Reaction *)
+eqn27: H_REACTION = REACT_EXTENT*((-80890{cal/mol})-(-10960{cal/mol})
+				  -(-31990{cal/mol}));
+(* REFERENCES: H_NH4NO3_liquid = -80890 cal/mol
+	       H_NH3_vapor = -10960 cal/mol
+	       H_HNO3_vapor = -31990 cal/mol
+	      ** Perry's 7th edition, Table 2-220 *)
+
+(* Enthalpy of products *)
+eqn18: H_PRODUCTS = H_Ammonia_Out + H_Water_Out + H_Ammonium_Nitrate_Out;
+eqn19: H_Ammonia_Out = Ammonia_Out*(6.70{1/K}*(T_OUT-298{K})
+	+.0063{1/K^2}/2*(T_OUT^2-298{K}^2))*1{cal/mol};
+eqn20: H_Water_Out = Water_Out*(6.93{1/K}*(T_OUT-298{K})
+	+.00083{1/K^2}/2*(T_OUT^2-298{K}^2))*1{cal/mol};
+eqn21: H_Ammonium_Nitrate_Out = Ammonium_Nitrate_Out*31.8{cal/mol/K}*(T_OUT-298{K});
+(* REFERENCES: Cp of NH3 vapor from 300K - 800K = 
+					6.70+.00630*T cal/mole/K
+	       Cp of H2O vapor from 273K - 2000K = 
+					6.93+.00083*T cal/mole/K
+	       Cp of NH4NO3 liquid from 273K - 293K = 
+					(31.8 cal/mole/K for crystal)
+	      ** Perry's 7th edition, Table 2-194 *)
+METHODS
+
+METHOD specify;
+  T_OUT.fixed := TRUE;
+  T_IN_MIX.fixed := TRUE;(* This is fixed because the temperature *) 
+			 (* out of the acid heater is fixed,      *) 
+			 (* reactor.T_IN_MIX = acidheat.TEMP_OUT  *) 
+  T_IN_NH3.fixed := TRUE;
+END specify;
+
+METHOD values;
+  T_OUT := 511 {K};
+  T_IN_NH3 := 381 {K};
+END values;
+
+METHOD seqmod;
+  RUN specify;
+  RUN values;
+END seqmod;
+
+END reactor;
+
+
+	(*-------------------*)
+	(* Cyclone Seperator *)
+	(*-------------------*)
+MODEL cyclone;
+
+AIR_IN, Ammonia_IN, Ammonium_Nitrate_IN, Water_IN,
+NH4NO3_PRODUCT, Water_Out, Ammonium_Nitrate_Out,
+AIR_OUT, Ammonia_Out IS_A molar_rate;
+
+(* AIR IN, 4.5wt% of total feed *)
+eqn28: AIR_IN*28.964{gram/mol} = .045*(Ammonia_IN*17.03{gram/mol}
+	+Ammonium_Nitrate_IN*80.05{gram/mol}+Water_IN*18.015{gram/mol});
+(* MW of air = 28.964 at earth's surface ** Perry's 7th ed p221 *)
+
+(* MASS BALANCES *)
+eqn29: Ammonia_IN = Ammonia_Out;
+eqn30: Ammonium_Nitrate_IN = NH4NO3_PRODUCT + Ammonium_Nitrate_Out;
+eqn31: Water_IN = Water_Out;
+eqn32: AIR_IN = AIR_OUT;
+
+(* SEPERATION SPECIFICATION *)
+eqn33: Ammonium_Nitrate_Out = .03*Ammonium_Nitrate_IN;
+
+END cyclone;
+
+
+	(*--------------------*)
+	(* Grinders & Screens *)
+	(*--------------------*)
+MODEL grinder;
+
+Ammonium_Nitrate_IN, Ammonium_Nitrate_Fines_RECYCLE, NH4NO3_FINAL_PRODUCT IS_A molar_rate;
+
+(* MASS BALANCE *)
+eqn34: Ammonium_Nitrate_IN = Ammonium_Nitrate_Fines_RECYCLE + NH4NO3_FINAL_PRODUCT;
+
+(* NH4NO3 RECYCLE SPECIFICATION *)
+eqn35: Ammonium_Nitrate_Fines_RECYCLE = .164 * Ammonium_Nitrate_IN;
+
+END grinder;
+
+
+	(*---------------*)
+	(* Air Preheater *)
+	(*---------------*)
+MODEL airheat;
+
+AIR_IN_COLD, AIR_IN, Ammonia_IN, Water_IN, Ammonium_Nitrate_IN IS_A molar_rate;
+T_IN_HOT, T_IN_COLD, T_OUT_HOT, T_OUT_COLD IS_A temperature;
+Q_AIR, Q_NH3, Q_H2O, Q_NH4NO3, Q_AIR_COLD IS_A energy_rate;
+
+(* Energy Balance *)
+eqn36: Q_AIR_COLD = Q_AIR + Q_NH3 + Q_H2O + Q_NH4NO3;
+
+eqn37: Q_AIR_COLD = AIR_IN_COLD*1.987{cal/mol}*
+	(3.355{1/K}*(T_OUT_COLD-T_IN_COLD)
+	+.000575{1/K^2}/2*(T_OUT_COLD^2-T_IN_COLD^2));
+eqn38: Q_AIR = AIR_IN*1.987{cal/mol}*(3.355{1/K}*(T_IN_HOT-T_OUT_HOT)
+	+.000575{1/K^2}/2*(T_IN_HOT^2-T_OUT_HOT^2));
+eqn39: Q_NH3 = Ammonia_IN*(6.70{1/K}*(T_IN_HOT-T_OUT_HOT)
+	+.0063{1/K^2}/2*(T_IN_HOT^2-T_OUT_HOT^2))*1{cal/mol};
+eqn40: Q_H2O = Water_IN*(6.93{1/K}*(T_IN_HOT-T_OUT_HOT)
+	+.00083{1/K^2}/2*(T_IN_HOT^2-T_OUT_HOT^2))*1{cal/mol};
+eqn41: Q_NH4NO3 = Ammonium_Nitrate_IN*31.8{cal/mol/K}*(T_IN_HOT-T_OUT_HOT);
+(* REFERENCES: Cp of AIR from 298K - 2000K = 
+				1.987*(3.355+.000575*T) cal/mole/K
+	      **J.M. Smith & others 5th edition.
+	       Cp of NH3 vapor from 300K - 800K = 
+				6.70+.00630*T cal/mole/K
+	       Cp of H2O vapor from 273K - 2000K = 
+				6.93+.00083*T cal/mole/K
+	       Cp of NH4NO3 liquid from 273K - 293K = 
+				(31.8 cal/mole/K for crystal)
+	      ** Perry's 7th edition.*)
+
+METHODS
+
+METHOD specify;
+  T_IN_HOT.fixed := TRUE;
+  T_IN_COLD.fixed := TRUE;
+  T_OUT_COLD.fixed := TRUE;
+END specify;
+
+METHOD values;
+  T_IN_HOT := 506 {K};
+  T_IN_COLD := 297 {K};
+  T_OUT_COLD := 478 {K};
+END values;
+
+METHOD seqmod;
+  RUN specify;
+  RUN values;
+END seqmod;
+
+END airheat;
+
+
+	(*-------------------*)
+	(* Partial Condenser *)
+	(*-------------------*)
+MODEL condenser;
+
+AIR_IN, Ammonia_IN, Water_IN, Ammonium_Nitrate_IN,
+NH4NO3_LIQUID, NH3_LIQUID, H2O_LIQUID,
+AIR_VAPOR, H2O_VAPOR, NH3_VAPOR IS_A molar_rate;
+y_H2O, y_NH3, x_H2O, x_NH3 IS_A positive_factor;
+P_total, Psat_H2O, Psat_NH3 IS_A pressure;
+A_NH3_H2O, A_H2O_NH3 IS_A factor;
+gamma_H2O, gamma_NH3 IS_A factor;
+Ta IS_A temperature;
+
+(* MASS BALANCE *)
+eqn42: AIR_IN = AIR_VAPOR;
+eqn43: Ammonium_Nitrate_IN = NH4NO3_LIQUID;
+eqn44: Water_IN = H2O_LIQUID + H2O_VAPOR;
+eqn45: Ammonia_IN = NH3_LIQUID + NH3_VAPOR;
+
+(* Equilibrium Calculations *)
+
+(* Vapor & Liquid fractions *)
+eqn46: y_H2O * (AIR_VAPOR + H2O_VAPOR + NH3_VAPOR) = H2O_VAPOR;
+eqn47: y_NH3 * (AIR_VAPOR + H2O_VAPOR + NH3_VAPOR) = NH3_VAPOR;
+eqn48: x_H2O * (NH4NO3_LIQUID + NH3_LIQUID + H2O_LIQUID) = H2O_LIQUID;
+eqn49: x_NH3 * (NH4NO3_LIQUID + NH3_LIQUID + H2O_LIQUID) = NH3_LIQUID;
+
+(* Equilibrium Equations *)
+eqn50: y_H2O = gamma_H2O * x_H2O * Psat_H2O / P_total;
+eqn51: y_NH3 = gamma_NH3 * x_NH3 * Psat_NH3 / P_total;
+
+(* Vapor Pressures from Antoine's Equation,                        *)
+(* Reference: Ohe, 1976 found at http://webbook.nist.gov/chemistry *)
+(* NOTE: Ascend uses certain numerical methods that do not like 
+	 inverses (1/X), Therefore, The Antoine's equation had to 
+	 be altered to remove the 1/Ta. I had to use some algerbra 
+	 tricks, so be sure you can convince yourself that these 
+	 are Antione's equations*)
+eqn52: ln(Psat_H2O/1{bar})/ln(10)*(Ta-198.043{K})
+	= 3.55959*(Ta-198.043{K})-643.748{K};
+eqn53: ln(Psat_NH3/1{bar})/ln(10)*(Ta-10.409{K})
+	= 4.86886*(Ta-10.409{K})-1113.928{K};
+
+
+(* We'll say the H2O/NH3 system is ideal *)
+(* Question: Is this a good assumption? *)
+(* Answer: Well, yes and no. Normally it is not a good assumption,
+	   but we can get away with it because almost all of the 
+           H2O/NH3 is vaporized, so an accurate model is not 
+	   imperative. *)
+eqn54: gamma_H2O = 1;
+eqn55: gamma_NH3 = 1;
+
+METHODS
+
+METHOD specify;
+  P_total.fixed := TRUE;
+END specify;
+
+METHOD values;
+  P_total := 1 {atm};
+END values;
+
+METHOD seqmod;
+  RUN specify;
+  RUN values;
+END seqmod;
+
+END condenser;
+
+
+	(*-----------*)
+	(* FLOWSHEET *)
+	(*-----------*)
+
+(* This ties all the block together into a complete flowsheet.
+   Here we show where the inlet streams come from and where the 
+   outlet streams go.*)
+
+MODEL flowsheet;
+
+charge1 IS_A charge;
+acidheat1 IS_A acidheat;
+reactor1 IS_A reactor;
+cyclone1 IS_A cyclone;
+grinder1 IS_A grinder;
+airheat1 IS_A airheat;
+condenser1 IS_A condenser;
+
+(* Inlets for charge tank *)
+charge1.Ammonium_Nitrate_Recycled_IN, condenser1.NH4NO3_LIQUID ARE_THE_SAME;
+charge1.Ammonium_Nitrate_Fines, grinder1.Ammonium_Nitrate_Fines_RECYCLE ARE_THE_SAME;
+charge1.Ammonia_Recycled_IN, condenser1.NH3_LIQUID ARE_THE_SAME;
+charge1.Water_Recycled_IN, condenser1.H2O_LIQUID ARE_THE_SAME;
+
+(* Inlets for acid preheater *)
+acidheat1.Nitric_Acid_IN, charge1.Nitric_Acid_Out ARE_THE_SAME;
+acidheat1.Ammonia_IN, charge1.Ammonia_Out ARE_THE_SAME;
+acidheat1.Water_IN, charge1.Water_Out ARE_THE_SAME;
+acidheat1.Ammonium_Nitrate_IN, charge1.Ammonium_Nitrate_Out ARE_THE_SAME;
+
+(* Inlets for reactor *)
+reactor1.Ammonia_IN, acidheat1.Ammonia_IN ARE_THE_SAME;
+reactor1.Nitric_Acid_IN, acidheat1.Nitric_Acid_IN ARE_THE_SAME;
+reactor1.Water_IN, acidheat1.Water_IN ARE_THE_SAME;
+reactor1.Ammonium_Nitrate_IN, acidheat1.Ammonium_Nitrate_IN ARE_THE_SAME;
+reactor1.T_IN_MIX, acidheat1.TEMP_OUT ARE_THE_SAME;
+
+(* Inlets for cyclone seperator *)
+cyclone1.Ammonia_IN, reactor1.Ammonia_Out ARE_THE_SAME;
+cyclone1.Ammonium_Nitrate_IN, reactor1.Ammonium_Nitrate_Out ARE_THE_SAME;
+cyclone1.Water_IN, reactor1.Water_Out ARE_THE_SAME;
+
+(* Inlets for grinder *)
+grinder1.Ammonium_Nitrate_IN, cyclone1.NH4NO3_PRODUCT ARE_THE_SAME;
+
+(* Inlet for air preheater *)
+airheat1.AIR_IN_COLD, cyclone1.AIR_OUT ARE_THE_SAME;
+airheat1.AIR_IN, cyclone1.AIR_IN ARE_THE_SAME;
+airheat1.Ammonia_IN, cyclone1.Ammonia_Out ARE_THE_SAME;
+airheat1.Water_IN, cyclone1.Water_Out ARE_THE_SAME;
+airheat1.Ammonium_Nitrate_IN, cyclone1.Ammonium_Nitrate_Out ARE_THE_SAME;
+
+(* Inlet for condenser *)
+condenser1.AIR_IN, airheat1.AIR_IN ARE_THE_SAME;
+condenser1.Ammonia_IN, airheat1.Ammonia_IN ARE_THE_SAME;
+condenser1.Water_IN, airheat1.Water_IN ARE_THE_SAME;
+condenser1.Ammonium_Nitrate_IN, airheat1.Ammonium_Nitrate_IN ARE_THE_SAME;
+condenser1.Ta, airheat1.T_OUT_HOT ARE_THE_SAME;
+
+METHODS
+
+METHOD clear;
+END clear;
+
+METHOD specify;
+  RUN charge1.specify;
+  RUN acidheat1.specify;
+  RUN reactor1.specify;
+  RUN airheat1.specify;
+  RUN condenser1.specify;
+END specify;
+
+METHOD values;
+  RUN charge1.values;
+  RUN acidheat1.values;
+  RUN reactor1.values;
+  RUN airheat1.values;
+  RUN condenser1.values;
+END values;
+
+METHOD seqmod;
+  RUN clear;
+  RUN specify;
+  RUN values;
+END seqmod;
+
+END flowsheet;
