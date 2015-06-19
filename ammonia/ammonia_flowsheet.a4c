@@ -20,61 +20,8 @@ Chemical Engineering Department, IIT Bombay in Mumabai *)
 (*This example is motivated from models/kchittur/frpg508.a4c by Prof. Krishnan Chittur *)
 
 REQUIRE "atoms.a4l";
-MODEL mixer;
 
- fresh_methane, recycled_methane, total_methane IS_A mole;
- fresh_steam, recycled_steam, total_steam IS_A mole;
-
- eq1: total_methane = fresh_methane + recycled_methane;
- eq2: total_steam = fresh_steam + recycled_steam;
- eq3: fresh_methane = fresh_steam;
- eq4: recycled_methane = recycled_steam;
-
-
-METHODS
-    METHOD clear;
-    fresh_methane.fixed := FALSE;
-    recycled_methane.fixed := FALSE;
-    total_methane.fixed := FALSE;
-
-    fresh_steam.fixed := FALSE;
-    recycled_steam.fixed := FALSE;
-    total_steam.fixed := FALSE;
-    END clear;
-
-    METHOD specify;
-    fresh_methane.fixed := FALSE;
-    recycled_methane.fixed := FALSE;
-    total_methane.fixed := TRUE;
-
-    fresh_steam.fixed := FALSE;
-    recycled_steam.fixed := FALSE;
-    total_steam.fixed := TRUE;
-    END specify;
-
-    METHOD values;
-    total_methane := 100.0 {mole};
-    total_steam := 100.0 {mole};
-    END values;
-
-    METHOD seqmod;
-    RUN clear;
-    RUN specify;
-    RUN values;
-    END seqmod;
-
-END mixer;
-
-(* Notice what we have done in the mixer model.  We have four
-METHODS - clear, specify, values and something called
-seqmod.  seqmod (as used in the original literature by
-Art Westerberg and group) refers to setting the model in the
-we would in a Sequential Modular Simulation - set all FLAGS
-to false, then set the appropriate FLAGS to true,
-supply values to those variables whose FLAGS are true and
-RUN these METHODS using seqmod.  *)
-
-MODEL reactor;
+MODEL reactor_smr1;
 
     in_methane IS_A mole;
     in_steam IS_A mole;
@@ -83,18 +30,18 @@ MODEL reactor;
     out_total IS_A mole;
 
 (*  For now, we are working only on Steam-reformation steap and not the Water-gas-shift reaction
-    So only reaction_one_extent is useful.
+    So only smr1_extent is useful.
 *)
 
-    reaction_one_extent IS_A mole;
+    smr1_extent IS_A mole;
 
-eq5: out_methane = in_methane - reaction_one_extent;
-eq6: out_steam = in_steam - reaction_one_extent;
-eq7: out_carbonmonoxide = reaction_one_extent;
-eq8: out_hydrogen = 3.0*reaction_one_extent;
-eq9: out_total = in_methane + in_steam + 2.0*reaction_one_extent;
+eq5: out_methane = in_methane - smr1_extent;
+eq6: out_steam = in_steam - smr1_extent;
+eq7: out_carbonmonoxide = smr1_extent;
+eq8: out_hydrogen = 3.0*smr1_extent;
+eq9: out_total = in_methane + in_steam + 2.0*smr1_extent;
 
-eq10: reaction_one_extent*(reaction_one_extent*3)^3 = 1617.2*((out_total^2)*(out_methane)*(out_steam);
+eq10: smr1_extent*(smr1_extent*3)^3 = 1617.2*(out_total^2)*(out_methane)*(out_steam);
 
 
 METHODS
@@ -106,7 +53,7 @@ METHODS
      out_carbonmonoxide.fixed := FALSE;
      out_hydrogen.fixed := FALSE;
      out_total.fixed := FALSE;
-     reaction_one_extent.fixed := FALSE;
+     smr1_extent.fixed := FALSE;
      END clear;
 
      METHOD specify;
@@ -117,20 +64,20 @@ METHODS
      out_carbonmonoxide.fixed := FALSE;
      out_hydrogen.fixed := FALSE;
      out_total.fixed := FALSE;
-     reaction_one_extent.fixed := FALSE;
+     smr1_extent.fixed := FALSE;
      END specify;
 
      METHOD values;
-        reaction_one_extent := in_methane* 0.9;
+        smr1_extent := in_methane* 0.9;
 
-        reaction_one_extent.nominal := reaction_one_extent;
+        smr1_extent.nominal := smr1_extent;
         out_methane.nominal := in_methane;
         out_carbonmonoxide.nominal := in_methane;
         out_steam.nominal := in_steam;
         out_hydrogen.nominal := in_methane;
         out_total.nominal := in_methane;
 
-        reaction_one_extent.upper_bound := in_methane*2;
+        smr1_extent.upper_bound := in_methane*2;
      END values;
 
      METHOD seqmod;
@@ -139,7 +86,90 @@ METHODS
      RUN values;
      END seqmod;
 
-END reactor;
+END reactor_smr1;
+
+
+MODEL reactor_smr2;
+
+    in_methane IS_A mole;
+    in_steam IS_A mole;
+    in_carbonmonoxide IS_A mole;
+    in_hydrogen IS_A mole;
+    in_oxygen IS_A mole;
+    in_nitrogen IS_A mole;
+
+    out_methane IS_A mole;
+    out_steam IS_A mole;
+    out_carbonmonoxide IS_A mole;
+    out_hydrogen IS_A mole;
+    out_oxygen IS_A mole;
+    out_nitrogen IS_A mole;
+    
+    out_total IS_A mole;
+
+    smr2_extent IS_A mole;
+
+eq5: out_methane = 0;
+eq6: smr2_extent = in_methane;
+
+
+eq6: out_steam = in_steam - smr2_extent;
+eq7: out_carbonmonoxide = smr2_extent;
+eq8: out_hydrogen = 3.0*smr2_extent;
+eq9: out_total = in_methane + in_steam + 2.0*smr2_extent;
+
+eq10: smr2_extent*(smr2_extent*3)^3 = 1617.2*(out_total^2)*(out_methane)*(out_steam);
+
+
+METHODS
+     METHOD clear;
+     in_methane.fixed := FALSE;
+     out_methane.fixed := FALSE;
+     in_steam.fixed := FALSE;
+     out_steam.fixed := FALSE;
+     out_carbonmonoxide.fixed := FALSE;
+     out_hydrogen.fixed := FALSE;
+     out_total.fixed := FALSE;
+     smr2_extent.fixed := FALSE;
+     END clear;
+
+     METHOD specify;
+     in_methane.fixed := TRUE;
+     out_methane.fixed := FALSE;
+     in_steam.fixed := TRUE;
+     out_steam.fixed := FALSE;
+     out_carbonmonoxide.fixed := FALSE;
+     out_hydrogen.fixed := FALSE;
+     out_total.fixed := FALSE;
+     smr2_extent.fixed := FALSE;
+     END specify;
+
+     METHOD values;
+        smr2_extent := in_methane* 0.9;
+
+        smr2_extent.nominal := smr2_extent;
+        out_methane.nominal := in_methane;
+        out_carbonmonoxide.nominal := in_methane;
+        out_steam.nominal := in_steam;
+        out_hydrogen.nominal := in_methane;
+        out_total.nominal := in_methane;
+
+        smr2_extent.upper_bound := in_methane*2;
+     END values;
+
+     METHOD seqmod;
+     RUN clear;
+     RUN specify;
+     RUN values;
+     END seqmod;
+
+END reactor_smr2;
+
+
+
+
+
+
 
 MODEL separator;
 
@@ -166,6 +196,7 @@ METHODS
     recycled_methane.fixed := FALSE;
     recycled_steam.fixed := FALSE;
     END clear;
+
     METHOD specify;
     in_methane.fixed := FALSE;
     in_steam.fixed := FALSE;
@@ -180,8 +211,10 @@ METHODS
     recycled_methane.fixed := FALSE;
     recycled_steam.fixed := FALSE;
     END specify;
+
     METHOD values;
     END values;
+    
     METHOD seqmod;
     RUN clear;
     RUN specify;
@@ -200,7 +233,7 @@ between the separator model and the other two *)
 MODEL flowsheet;
 
     m1 IS_A mixer;
-    r1 IS_A reactor;
+    r1 IS_A reactor_smr;
     s1 IS_A separator;
 
     m1.total_methane, r1.in_methane ARE_THE_SAME;
