@@ -242,38 +242,37 @@ END catalyzer;
 MODEL mixer;
 
  in_nitrogen, in_hydrogen IS_A mole;
+ recycled_nitrogen, recycled_hydrogen IS_A mole;
  out_nitrogen, out_hydrogen, out_ammonia IS_A mole;
 
- eq1: total_methane = fresh_methane + recycled_methane;
- eq2: total_steam = fresh_steam + recycled_steam;
- eq3: fresh_methane = fresh_steam;
- eq4: recycled_methane = recycled_steam;
+ eq1: out_nitrogen = in_nitrogen + recycled_nitrogen;
+ eq2: out_hydrogen = in_hydrogen + recycled_hydrogen;
 
 
 METHODS
     METHOD clear;
-    fresh_methane.fixed := FALSE;
-    recycled_methane.fixed := FALSE;
-    total_methane.fixed := FALSE;
+    in_nitrogen.fixed := FALSE;
+    recycled_nitrogen.fixed := FALSE;
+    out_nitrogen.fixed := FALSE;
 
-    fresh_steam.fixed := FALSE;
-    recycled_steam.fixed := FALSE;
-    total_steam.fixed := FALSE;
+    in_hydrogen.fixed := FALSE;
+    recycled_hydrogen.fixed := FALSE;
+    out_hydrogen.fixed := FALSE;
     END clear;
 
     METHOD specify;
-    fresh_methane.fixed := FALSE;
-    recycled_methane.fixed := FALSE;
-    total_methane.fixed := TRUE;
+    in_nitrogen.fixed := FALSE;
+    recycled_nitrogen.fixed := FALSE;
+    out_nitrogen.fixed := TRUE;
 
-    fresh_steam.fixed := FALSE;
-    recycled_steam.fixed := FALSE;
-    total_steam.fixed := TRUE;
+    in_hydrogen.fixed := FALSE;
+    recycled_hydrogen.fixed := FALSE;
+    out_hydrogen.fixed := TRUE;
     END specify;
 
     METHOD values;
-    total_methane := 100.0 {mole};
-    total_steam := 100.0 {mole};
+    out_nitrogen := 100.0 {mole};
+    out_hydrogen := 300.0 {mole};
     END values;
 
     METHOD seqmod;
