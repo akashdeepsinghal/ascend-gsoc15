@@ -357,22 +357,20 @@ END reactor_ammonia;
 
 MODEL separator;
 
-     in_methane, in_steam, in_carbonmonoxide, in_hydrogen, out_methane, out_steam, out_carbonmonoxide, out_hydrogen, recycled_methane, recycled_steam IS_A mole;
+    in_nitrogen IS_A mole;
+    in_hydrogen IS_A mole;
+    in_ammonia IS_A mole;
+
+    out_nitrogen IS_A mole;
+    out_hydrogen IS_A mole;
+    out_ammonia IS_A mole;
+
+    recycled_nitrogen IS_A mole;
+    recycled_hydrogen IS_A mole;
 
     out_total_main IS_A mole;
     out_total_recycle IS_A mole;
 
-(*
-     eq11: out_methane = 0.9*in_methane;
-     eq12: in_methane = out_methane + recycled_methane;
-     eq13: out_steam = in_steam;
-     eq14: out_carbonmonoxide = in_carbonmonoxide;
-     eq15: out_hydrogen = in_hydrogen;
-*)
-
-
-
-//TO BE SHIFTED TO SEPARATOR
 (*
     Assuming the separator to be SMB, which separates Ammonia from the mixture completely and 
     separates Nitrogen and Hydrogen to recycle back into the mixer and then reactor_ammonia
@@ -381,35 +379,45 @@ MODEL separator;
 eq9: out_total_main = out_ammonia; (*Out stream contains only final Ammonia, which is to be cooled and compressed(fluidized) to be stored *)
 eq9: out_total_recycle = out_nitrogen + out_hydrogen;
 
+eq9: in_nitrogen = out_nitrogen + recycled_nitrogen;
+eq9: in_hydrogen = out_hydrogen + recycled_hydrogen;
+eq9: out_ammonia = in_ammonia;
+
+
+
 METHODS
     METHOD clear;
-    in_methane.fixed := FALSE;
-    in_steam.fixed := FALSE;
-    in_carbonmonoxide.fixed := FALSE;
-    in_hydrogen.fixed := FALSE;
+    in_nitrogen.fixed := FALSE;
+    out_nitrogen.fixed := FALSE;
 
-    out_methane.fixed := FALSE;
-    out_steam.fixed := FALSE;
-    out_carbonmonoxide.fixed := FALSE;
+    in_hydrogen.fixed := FALSE;
     out_hydrogen.fixed := FALSE;
 
-    recycled_methane.fixed := FALSE;
-    recycled_steam.fixed := FALSE;
+    in_ammonia.fixed : FALSE;
+    out_ammonia.fixed := FALSE;
+
+    recycled_nitrogen.fixed := FALSE;
+    recycled_hydrogen.fixed := FALSE;
+
+    out_total_main.fixed := FALSE;
+    out_total_recycle.fixed : TRUE;
     END clear;
 
     METHOD specify;
-    in_methane.fixed := FALSE;
-    in_steam.fixed := FALSE;
-    in_carbonmonoxide.fixed := FALSE;
-    in_hydrogen.fixed := FALSE;
+    in_nitrogen.fixed := FALSE;
+    out_nitrogen.fixed := FALSE;
 
-    out_methane.fixed := FALSE;
-    out_steam.fixed := FALSE;
-    out_carbonmonoxide.fixed := FALSE;
+    in_hydrogen.fixed := FALSE;
     out_hydrogen.fixed := FALSE;
 
-    recycled_methane.fixed := FALSE;
-    recycled_steam.fixed := FALSE;
+    in_ammonia.fixed : FALSE;
+    out_ammonia.fixed := FALSE;
+
+    recycled_nitrogen.fixed := FALSE;
+    recycled_hydrogen.fixed := FALSE;
+
+    out_total_main.fixed := FALSE;
+    out_total_recycle.fixed : TRUE;
     END specify;
 
     METHOD values;
@@ -428,7 +436,7 @@ flags set to false or true and running methods to set
 those flags.  Again note that there is NO connection
 between the separator model and the other two *)
 
-(* We start wiring up the model in the model called a flowsheet *)
+(* Now is the time to wire up the complete set of models into one model. *)
 
 MODEL flowsheet;
 
