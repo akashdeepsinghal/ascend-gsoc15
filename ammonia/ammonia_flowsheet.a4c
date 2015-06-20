@@ -112,35 +112,52 @@ eq5: out_nitrogen = in_nitrogen; (*Nitrogen is not undergoing any reaction*)
 eq7: out_carbonmonoxide = 2.0*smr2_extent;
 eq8: out_hydrogen = 4.0*smr2_extent;
 
-(*WRONG!!*)
-eq9: out_total = in_methane + in_steam + 2.0*smr2_extent;
+eq9: out_total = out_nitrogen + out_hydrogen + out_carbonmonoxide;
 
 
 
 METHODS
-     METHOD clear;
-     in_methane.fixed := FALSE;
-     out_methane.fixed := FALSE;
-     in_steam.fixed := FALSE;
-     out_steam.fixed := FALSE;
-     out_carbonmonoxide.fixed := FALSE;
-     out_hydrogen.fixed := FALSE;
-     out_total.fixed := FALSE;
-     smr2_extent.fixed := FALSE;
-     END clear;
+    METHOD clear;
+        in_methane.fixed := FALSE;
+        out_methane.fixed := FALSE;
 
-     METHOD specify;
-     in_methane.fixed := TRUE;
-     out_methane.fixed := FALSE;
-     in_steam.fixed := TRUE;
-     out_steam.fixed := FALSE;
-     out_carbonmonoxide.fixed := FALSE;
-     out_hydrogen.fixed := FALSE;
-     out_total.fixed := FALSE;
-     smr2_extent.fixed := FALSE;
-     END specify;
+        in_carbonmonoxide.fixed := FALSE;
+        out_carbonmonoxide.fixed := FALSE;
 
-     METHOD values;
+        in_hydrogen.fixed := FALSE;
+        out_hydrogen.fixed := FALSE;
+
+        in_oxygen.fixed := FALSE;
+        out_oxygen.fixed := FALSE;
+
+        in_nitrogen.fixed := FALSE;
+        out_nitrogen.fixed := FALSE;
+
+        out_total.fixed := FALSE;
+        smr2_extent.fixed := FALSE;
+    END clear;
+
+    METHOD specify;
+        in_methane.fixed := FALSE;
+        out_methane.fixed := FALSE;
+
+        in_carbonmonoxide.fixed := FALSE;
+        out_carbonmonoxide.fixed := FALSE;
+
+        in_hydrogen.fixed := FALSE;
+        out_hydrogen.fixed := FALSE;
+
+        in_oxygen.fixed := FALSE;
+        out_oxygen.fixed := FALSE;
+
+        in_nitrogen.fixed := FALSE;
+        out_nitrogen.fixed := FALSE;
+
+        out_total.fixed := FALSE;
+        smr2_extent.fixed := FALSE;
+    END specify;
+
+    METHOD values;
         smr2_extent := in_methane/2;
 
         smr2_extent.nominal := smr2_extent;
@@ -151,13 +168,13 @@ METHODS
         out_total.nominal := in_methane;
 
         smr2_extent.upper_bound := in_methane*2;
-     END values;
+    END values;
 
-     METHOD seqmod;
-     RUN clear;
-     RUN specify;
-     RUN values;
-     END seqmod;
+    METHOD seqmod;
+        RUN clear;
+        RUN specify;
+        RUN values;
+    END seqmod;
 
 END reactor_smr2;
 
@@ -238,8 +255,11 @@ METHODS
 
 END catalyzer;
 
+//Here come the separator part!!!
 
-MODEL mixer;
+
+
+MODEL mixer_ammonia;
 
  in_nitrogen, in_hydrogen IS_A mole;
  recycled_nitrogen, recycled_hydrogen IS_A mole;
@@ -281,7 +301,7 @@ METHODS
     RUN values;
     END seqmod;
 
-END mixer;
+END mixer_ammonia;
 
 
 
@@ -355,7 +375,7 @@ END reactor_ammonia;
 
 
 
-MODEL separator;
+MODEL separator_ammonia;
 
     in_nitrogen IS_A mole;
     in_hydrogen IS_A mole;
@@ -429,7 +449,7 @@ METHODS
     RUN values;
     END seqmod;
 
-END separator;
+END separator_ammonia;
 
 (* the separator is written similarly ... equations,
 flags set to false or true and running methods to set
