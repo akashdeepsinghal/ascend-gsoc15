@@ -30,13 +30,13 @@ MODEL reactor_smr1;
     out_total IS_A mole;
     smr1_extent IS_A mole;
 
-eq5: out_methane = in_methane - smr1_extent;
-eq6: out_steam = in_steam - smr1_extent;
-eq7: out_carbonmonoxide = smr1_extent;
-eq8: out_hydrogen = 3.0*smr1_extent;
-eq9: out_total = in_methane + in_steam + 2.0*smr1_extent;
+eq1: out_methane = in_methane - smr1_extent;
+eq2: out_steam = in_steam - smr1_extent;
+eq3: out_carbonmonoxide = smr1_extent;
+eq4: out_hydrogen = 3.0*smr1_extent;
+eq5: out_total = out_methane + out_steam + out_carbondioxide + out_ammonia;
 
-eq10: smr1_extent*(smr1_extent*3)^3 = 1617.2*(out_total^2)*(out_methane)*(out_steam);
+eq6: smr1_extent*(smr1_extent*3)^3 = 1617.2*(out_total^2)*(out_methane)*(out_steam);
 
 
 METHODS
@@ -52,9 +52,9 @@ METHODS
      END clear;
 
      METHOD specify;
-     in_methane.fixed := TRUE;
+     in_methane.fixed := FALSE;
      out_methane.fixed := FALSE;
-     in_steam.fixed := TRUE;
+     in_steam.fixed := FALSE;
      out_steam.fixed := FALSE;
      out_carbonmonoxide.fixed := FALSE;
      out_hydrogen.fixed := FALSE;
@@ -102,17 +102,17 @@ MODEL reactor_smr2;
 
     smr2_extent IS_A mole;
 
-eq5: out_methane = 0;
-eq5: out_oxygen = 0;
-eq5: in_oxygen = in_methane/2;
-eq5: in_nitrogen = 4*in_oxygen;
-eq5: out_nitrogen = in_nitrogen; (*Nitrogen is not undergoing any reaction*)
+eq7: out_methane = 0;
+eq8: out_oxygen = 0;
+eq9: in_oxygen = in_methane/2;
+eq10: in_nitrogen = 4*in_oxygen; (*Assuming air consists of 80% Nitrogen and 20% Oxygen*)
+eq11: out_nitrogen = in_nitrogen; (*Nitrogen is not undergoing any reaction*)
 
 
-eq7: out_carbonmonoxide = 2.0*smr2_extent;
-eq8: out_hydrogen = 4.0*smr2_extent;
+eq12: out_carbonmonoxide = 2.0*smr2_extent;
+eq13: out_hydrogen = 4.0*smr2_extent;
 
-eq9: out_total = out_nitrogen + out_hydrogen + out_carbonmonoxide;
+eq14: out_total = out_nitrogen + out_hydrogen + out_carbonmonoxide;
 
 
 
@@ -163,7 +163,7 @@ METHODS
         smr2_extent.nominal := smr2_extent;
         out_methane.nominal := in_methane;
         out_carbonmonoxide.nominal := in_methane;
-        out_steam.nominal := in_steam;
+        out_nitrogen.nominal := in_nitrogen;
         out_hydrogen.nominal := in_methane;
         out_total.nominal := in_methane;
 
@@ -179,8 +179,10 @@ METHODS
 END reactor_smr2;
 
 
+(* Catalyzer acts as Water-gas shift reactor *)
+
 MODEL catalyzer;
-    
+
     in_carbonmonoxide IS_A mole;
     in_hydrogen IS_A mole;
     in_nitrogen IS_A mole;
@@ -194,58 +196,53 @@ MODEL catalyzer;
     out_main IS_A mole;
     out_purge IS_A mole;
 
+eq15: out_nitrogen = in_nitrogen; (*Nitrogen is not undergoing any reaction*)
+eq16: out_hydrogen = in_hydrogen + in_carbonmonoxide;
+eq17: out_carbondioxide = in_carbonmonoxide;
+eq18: out_steam = in_steam - in_carbonmonoxide;
 
-
-
-eq5: out_methane = 0;
-eq5: out_oxygen = 0;
-eq5: in_oxygen = in_methane/2;
-eq5: in_nitrogen = 4*in_oxygen;
-eq5: out_nitrogen = in_nitrogen; (*Nitrogen is not undergoing any reaction*)
-eq5: out_hydrogen = in_hydrogen + in_carbonmonoxide; (*Hydrogen is not undergoing any reaction*)
-eq7: out_carbondioxide = in_carbonmonoxide;
-eq9: out_steam = in_steam - in_carbonmonoxide;
-
-eq9: out_main = out_nitrogen + out_hydrogen;
-eq9: out_purge = out_carbondioxide + out_steam;
+eq19: out_main = out_nitrogen + out_hydrogen;
+eq20: out_purge = out_carbondioxide + out_steam;
 
 
 
 METHODS
-     METHOD clear;
-     in_methane.fixed := FALSE;
-     out_methane.fixed := FALSE;
-     in_steam.fixed := FALSE;
-     out_steam.fixed := FALSE;
-     out_carbonmonoxide.fixed := FALSE;
-     out_hydrogen.fixed := FALSE;
-     out_total.fixed := FALSE;
-     smr2_extent.fixed := FALSE;
-     END clear;
+    METHOD clear;
+        in_carbonmonoxide.fixed := FALSE;
+        in_hydrogen.fixed := FALSE;
+        in_nitrogen.fixed := FALSE;
+        in_steam.fixed := FALSE;
 
-     METHOD specify;
-     in_methane.fixed := TRUE;
-     out_methane.fixed := FALSE;
-     in_steam.fixed := TRUE;
-     out_steam.fixed := FALSE;
-     out_carbonmonoxide.fixed := FALSE;
-     out_hydrogen.fixed := FALSE;
-     out_total.fixed := FALSE;
-     smr2_extent.fixed := FALSE;
-     END specify;
+        out_carbondioxide.fixed := FALSE;
+        out_hydrogen.fixed := FALSE;
+        out_nitrogen.fixed := FALSE;
+        out_steam.fixed := FALSE;
 
-     METHOD values;
-        smr2_extent := in_methane/2;
+        out_total.fixed := FALSE;
+    END clear;
 
-        smr2_extent.nominal := smr2_extent;
-        out_methane.nominal := in_methane;
-        out_carbonmonoxide.nominal := in_methane;
+    METHOD specify;
+        in_carbonmonoxide.fixed := FALSE;
+        in_hydrogen.fixed := FALSE;
+        in_nitrogen.fixed := FALSE;
+        in_steam.fixed := FALSE;
+
+        out_carbondioxide.fixed := FALSE;
+        out_hydrogen.fixed := FALSE;
+        out_nitrogen.fixed := FALSE;
+        out_steam.fixed := FALSE;
+
+        out_total.fixed := FALSE;
+    END specify;
+
+    METHOD values;
+        out_carbondioxide.nominal := in_carbonmonoxide;
+        out_hydrogen.nominal := in_carbonmonoxide;
+        out_nitrogen.nominal := in_nitrogen;
         out_steam.nominal := in_steam;
-        out_hydrogen.nominal := in_methane;
-        out_total.nominal := in_methane;
 
-        smr2_extent.upper_bound := in_methane*2;
-     END values;
+        out_total.nominal := in_carbonmonoxide;
+    END values;
 
      METHOD seqmod;
      RUN clear;
@@ -254,8 +251,6 @@ METHODS
      END seqmod;
 
 END catalyzer;
-
-//Here come the separator part!!!
 
 
 
@@ -302,9 +297,6 @@ METHODS
     END seqmod;
 
 END mixer_ammonia;
-
-
-
 
 
 MODEL reactor_ammonia;
