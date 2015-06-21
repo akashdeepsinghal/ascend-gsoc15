@@ -1,5 +1,6 @@
-# Steam Reformation
+#GSOC'15 ASCEND : Chemical Engineering specific models
 ---
+## Steam Reformation
 ####Abstract
 Steam reforming is the process of production of Hydrogen(mainly) , Carbon Monoxide and other important products by the reaction of hydrocarbons with steam. In case of methane-steam-reforming, methane is used as the hydrocarbon and as a resultant, syngas (CO + H2) is produced. Our purpose is to write a functional ASCEND model for methane steam reformation.
 
