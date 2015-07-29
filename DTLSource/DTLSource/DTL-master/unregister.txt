@@ -1,0 +1,6 @@
+C:
+pause
+cd C:\Windows\Microsoft.NET\Framework\v4.0.30319
+pause
+regasm.exe /u I:\Project\DTL-master\DTL-master\DWSIM\bin\Debug\DTL.dll \tlb:I:\Project\DTL-master\DTL-master\DWSIM\bin\Debug\DTL.tlb
+cd C:\Windows\Microsoft.NET\Framework\v4.0.30319

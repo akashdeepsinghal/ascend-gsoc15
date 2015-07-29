@@ -1,0 +1,17 @@
+D:\DTLSource\DTL-master\DTLTest\bin\Debug\DTLTest.exe.config
+D:\DTLSource\DTL-master\DTLTest\bin\Debug\DTLTest.exe
+D:\DTLSource\DTL-master\DTLTest\bin\Debug\DTLTest.pdb
+D:\DTLSource\DTL-master\DTLTest\bin\Debug\DTLTest.xml
+D:\DTLSource\DTL-master\DTLTest\bin\Debug\Cudafy.NET.dll
+D:\DTLSource\DTL-master\DTLTest\bin\Debug\DTL.dll
+D:\DTLSource\DTL-master\DTLTest\bin\Debug\Cureos.Numerics.dll
+D:\DTLSource\DTL-master\DTLTest\bin\Debug\Mapack.dll
+D:\DTLSource\DTL-master\DTLTest\bin\Debug\FileHelpers.dll
+D:\DTLSource\DTL-master\DTLTest\bin\Debug\DTL.pdb
+D:\DTLSource\DTL-master\DTLTest\bin\Debug\DTL.xml
+D:\DTLSource\DTL-master\DTLTest\obj\Debug\DTLTest.vbprojResolveAssemblyReference.cache
+D:\DTLSource\DTL-master\DTLTest\obj\Debug\DTLTest.Resources.resources
+D:\DTLSource\DTL-master\DTLTest\obj\Debug\DTLTest.vbproj.GenerateResource.Cache
+D:\DTLSource\DTL-master\DTLTest\obj\Debug\DTLTest.exe
+D:\DTLSource\DTL-master\DTLTest\obj\Debug\DTLTest.xml
+D:\DTLSource\DTL-master\DTLTest\obj\Debug\DTLTest.pdb
