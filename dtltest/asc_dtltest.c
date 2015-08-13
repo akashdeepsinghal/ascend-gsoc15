@@ -22,7 +22,7 @@ ASC_EXPORT int dtltest_register(){
 
 	(void)CONSOLE_DEBUG("EVALUATION FUNCTION AT %p",dtltest_compprop_calc);
 
-	result += CreateUserFunctionBlackBox("add_one"
+	result += CreateUserFunctionBlackBox("compprop"
 		, dtltest_compprop_prepare
 		, dtltest_compprop_calc /* value */
 		, (ExtBBoxFunc*)NULL /* deriv */

@@ -298,49 +298,6 @@ void antoine2(double mw[], const char *comp)
 
 }
 
-double calcP(char *comp, char *property, char *propType, double T0){
-	double guess[6], Tguess[6], P;
-	int i;
-	guess[1] = 132300;
-	guess[0] = 122310;
-	/*clock_t time1 =clock();
-	clock_t end;
-	printf("%f", time1);*/
-	for (i = 0; i < 2; i++)
-	{
-		Tguess[i] = Property(comp, property, propType, guess[i]);
-		/* end = clock();
-		printf("time ra time: %f\n", ((double)(end -	time1)) / CLOCKS_PER_SEC);*/
-	}
-
-	for (i = 2; i < 6; i++){
-		if (fabs(Tguess[i - 1] - 339) > 0.01){
-			guess[i] = guess[i - 1] - (Tguess[i - 1] - T0) * ((guess[i - 1] - guess[i - 2]) / (Tguess[i - 1] - Tguess[i - 2]));
-			Tguess[i] = Property(comp, property, propType, guess[i]);
-			/*end = clock();
-			printf("final time: %f\n", ((double)(end - time1)) / CLOCKS_PER_SEC);*/
-		}
-		else {
-			P = guess[i - 1]; printf("Pfinal else wala: %f\n", P);
-			double T = Property(comp, property, propType, guess[i]);
-			/*end = clock();
-			printf("final time: %f\n", ((double)(end - time1))/CLOCKS_PER_SEC);
-			printf("\n\n%f", T);*/
-
-			return P;
-
-		}
-	}
-
-	P = guess[5];
-	/*printf("Pfinal: %f", P);
-	double T = Property(comp, "boilingPointTemperature", "constPDepProp", P);
-	printf("\n\n%f", T);
-	printf("%f", time(NULL) - time1); */
-	return P;
-}
-
-
 
 void Stream_Properties(char *proppack, char *compounds1, char *compounds2, double T, double P, double molefractions1, double molefractions2, double Results[])
 {

@@ -6,7 +6,7 @@ MODEL dtltest;
 	y IS_A factor;
 	x IS_A factor;
 
-	do_addone: add_one(
+	comp_prop: compprop(
 		x : INPUT; 
 		y : OUTPUT
 	);
