@@ -1,0 +1,2597 @@
+﻿// Created by Microsoft (R) C/C++ Compiler Version 10.00.30319.01 (2924188f).
+//
+// c:\users\rahul jain\documents\visual studio 2010\projects\testcom\testcom\debug\dtl.tlh
+//
+// C++ source equivalent of Win32 type library C:/DTLSource/DTLSource/DTL-master/DWSIM/bin/Debug/DTL.tlb
+// compiler-generated file created 08/12/15 at 02:14:36 - DO NOT EDIT!
+
+//
+// Cross-referenced type libraries:
+//
+//  #import "C:\Windows\Microsoft.NET\Framework\v4.0.30319\mscorlib.tlb"
+//
+
+#pragma once
+#pragma pack(push, 8)
+
+#include <comdef.h>
+
+namespace DTL {
+
+//
+// Forward references and typedefs
+//
+
+struct __declspec(uuid("3fa25e7a-c06d-4743-8e7c-066b82f83210"))
+/* LIBID */ __DTL;
+struct /* coclass */ Calculator;
+struct __declspec(uuid("0ea44ede-ad65-435c-b8cc-0d1146bd182b"))
+/* dual interface */ _Calculator;
+struct /* coclass */ Substancia;
+struct /* coclass */ DTL_DTL_ClassesBasicasTermodinamica_Fase;
+enum PhaseName;
+enum ReactionType;
+enum ReactionBasis;
+struct /* coclass */ TemperatureDependentProperties;
+struct /* coclass */ PressureDependentProperties;
+struct /* coclass */ SinglePhaseMixtureProperties;
+struct /* coclass */ TwoPhaseMixtureProperties;
+struct /* coclass */ InteractionParameter;
+struct /* coclass */ ConstantProperties;
+struct /* coclass */ ConstantPropertiesCollection;
+struct /* coclass */ UNIFACGroupCollection;
+struct /* coclass */ ElementCollection;
+struct /* coclass */ ChemSepNameIDPair;
+struct /* coclass */ ChemSep;
+struct /* coclass */ DWSIM;
+struct /* coclass */ Biodiesel;
+struct /* coclass */ UserDB;
+struct /* coclass */ UserIPDB;
+struct /* coclass */ Electrolyte;
+struct Complex;
+struct /* coclass */ MathEx;
+struct /* coclass */ Brent;
+struct /* coclass */ funcdelegate;
+struct /* coclass */ BrentMinimize;
+struct /* coclass */ Broyden;
+struct /* coclass */ bulirschstoer;
+struct /* coclass */ fdelegate;
+struct /* coclass */ MatLib;
+struct /* coclass */ igammaf;
+struct /* coclass */ gammaf;
+struct /* coclass */ Common;
+struct /* coclass */ lbfgs;
+struct /* coclass */ funcgraddelegate;
+struct /* coclass */ newiterdelegate;
+struct /* coclass */ lbfgsb;
+struct /* coclass */ levenbergmarquardt;
+struct /* coclass */ funcvecjacdelegate;
+struct /* coclass */ Determinant;
+struct /* coclass */ Inverse;
+struct /* coclass */ TRInverse;
+struct /* coclass */ rsolve;
+struct /* coclass */ lu;
+struct /* coclass */ yves;
+enum NormOrder;
+struct /* coclass */ SolveNonLinearError;
+struct /* coclass */ App;
+struct /* coclass */ Unidades;
+struct /* coclass */ UnidadesSI;
+struct /* coclass */ UnidadesSI_Deriv1;
+struct /* coclass */ UnidadesSI_Deriv2;
+struct /* coclass */ UnidadesSI_Deriv3;
+struct /* coclass */ UnidadesSI_Deriv4;
+struct /* coclass */ UnidadesINGLES;
+struct /* coclass */ UnidadesCGS;
+struct /* coclass */ Conversor;
+struct /* coclass */ FlashAlgorithm;
+struct /* coclass */ BostonBrittInsideOut;
+struct /* coclass */ BostonFournierInsideOut3P;
+struct /* coclass */ GibbsMinimization3P;
+enum numsolver;
+enum ObjFuncType;
+struct /* coclass */ DWSIMDefault;
+struct /* coclass */ NestedLoops3P;
+struct /* coclass */ NestedLoops3PV2;
+struct /* coclass */ NestedLoops3PV3;
+struct /* coclass */ NestedLoopsImmiscible;
+struct /* coclass */ NestedLoopsSLE;
+struct /* coclass */ SimpleLLE;
+struct /* coclass */ ThermoPlug;
+struct /* coclass */ MichelsenFlash;
+enum ErrorCode;
+enum FallbackType;
+enum DTL_DTL_SimulationObjects_PropertyPackages_Fase;
+enum State;
+enum FlashSpec;
+enum ThermoProperty;
+enum PackageType;
+enum FlashMethod;
+enum Parameter;
+struct /* coclass */ PropertyPackage;
+struct /* coclass */ PhaseInfo;
+struct /* coclass */ ComStreamWrapper;
+struct /* coclass */ HenryParam;
+struct /* coclass */ ChaoSeaderPropertyPackage;
+struct /* coclass */ CS;
+struct /* coclass */ GraysonStreedPropertyPackage;
+struct /* coclass */ GS;
+struct /* coclass */ LKP_IPData;
+struct /* coclass */ LeeKeslerPlocker;
+struct /* coclass */ LKPPropertyPackage;
+struct /* coclass */ Modfac;
+struct /* coclass */ ModfacGroups;
+struct /* coclass */ ModfacGroup;
+struct /* coclass */ MODFACPropertyPackage;
+struct /* coclass */ NISTMFAC;
+struct /* coclass */ NistModfacGroups;
+struct /* coclass */ NISTMFACPropertyPackage;
+struct /* coclass */ NRTL_IPData;
+struct /* coclass */ ObjectConverter;
+struct /* coclass */ NRTL;
+struct /* coclass */ NRTLPropertyPackage;
+struct /* coclass */ PR_IPData;
+struct /* coclass */ PengRobinson;
+struct /* coclass */ PR;
+struct /* coclass */ PengRobinsonPropertyPackage;
+struct /* coclass */ LeeKesler;
+struct /* coclass */ PengRobinsonLKPropertyPackage;
+struct /* coclass */ PRSV2VL;
+struct /* coclass */ PRSV2Param;
+struct /* coclass */ PRSV2_IPData;
+struct /* coclass */ PRSV2;
+struct /* coclass */ PRSV2PropertyPackage;
+struct /* coclass */ PRSV2VLPropertyPackage;
+struct /* coclass */ Ideal;
+struct /* coclass */ RaoultPropertyPackage;
+struct /* coclass */ DTL_DTL_SimulationObjects_PropertyPackages_Auxiliary_SRK;
+struct /* coclass */ DTL_DTL_SimulationObjects_PropertyPackages_ThermoPlugs_SRK;
+struct /* coclass */ SRKPropertyPackage;
+struct /* coclass */ IAPWS_IF97;
+struct /* coclass */ SteamTablesPropertyPackage;
+struct /* coclass */ Unifac;
+struct /* coclass */ UnifacLL;
+struct /* coclass */ UnifacGroups;
+struct /* coclass */ UnifacGroupsLL;
+struct /* coclass */ UnifacGroup;
+struct /* coclass */ UNIFACPropertyPackage;
+struct /* coclass */ UNIFACLLPropertyPackage;
+struct /* coclass */ UNIQUAC_IPData;
+struct /* coclass */ UNIQUAC;
+struct /* coclass */ UNIQUACPropertyPackage;
+enum eCapePhaseStatus;
+struct /* coclass */ funcdelegate_2;
+struct /* coclass */ funcgraddelegate_2;
+struct /* coclass */ newiterdelegate_2;
+struct __declspec(uuid("06bc0985-e229-3b16-89f0-3f3831490833"))
+/* dual interface */ _Substancia;
+struct __declspec(uuid("6d98db00-3d85-3597-b9ac-28b0b75e5cad"))
+/* dual interface */ _DTL_DTL_ClassesBasicasTermodinamica_Fase;
+struct __declspec(uuid("7758ee1f-e5e5-3d63-9513-1d3edec511cf"))
+/* dual interface */ _TemperatureDependentProperties;
+struct __declspec(uuid("ce2aa662-c45e-3590-a2fd-a31a1e5ebe9e"))
+/* dual interface */ _PressureDependentProperties;
+struct __declspec(uuid("31038d7a-0626-35ed-8d8a-48f84a012c1d"))
+/* dual interface */ _SinglePhaseMixtureProperties;
+struct __declspec(uuid("41620e07-f6d9-36a1-a7d5-aae1cdbcadae"))
+/* dual interface */ _TwoPhaseMixtureProperties;
+struct __declspec(uuid("beb64e1c-4cdc-37b3-939f-d67e0258321f"))
+/* dual interface */ _InteractionParameter;
+struct __declspec(uuid("d2b6460a-f4c3-3e84-86e7-1a66471418ed"))
+/* dual interface */ _ConstantProperties;
+struct __declspec(uuid("84f3d50d-56f9-3043-8ab0-d53acfc7746f"))
+/* dual interface */ _ConstantPropertiesCollection;
+struct __declspec(uuid("45e9fa36-bec5-386d-8392-9bcfaaa69d64"))
+/* dual interface */ _UNIFACGroupCollection;
+struct __declspec(uuid("6f45668a-88e4-3d99-972d-abb3ee6d9fba"))
+/* dual interface */ _ElementCollection;
+struct __declspec(uuid("6dd49d99-fc85-3e5f-9549-17d2be6de023"))
+/* dual interface */ _ChemSepNameIDPair;
+struct __declspec(uuid("a9606df6-4d17-3aa3-a9b4-8820b609c28e"))
+/* dual interface */ _ChemSep;
+struct __declspec(uuid("e646d6b1-f85e-3a95-929f-71aec8409d07"))
+/* dual interface */ _DWSIM;
+struct __declspec(uuid("329ab126-befa-3728-aac9-3c9a81a9d157"))
+/* dual interface */ _Biodiesel;
+struct __declspec(uuid("038c9a66-8d86-3863-bb89-5e53e835176d"))
+/* dual interface */ _UserDB;
+struct __declspec(uuid("78b4c3ef-44c8-368a-9b27-9699a5d7fd60"))
+/* dual interface */ _UserIPDB;
+struct __declspec(uuid("9bf5e86e-8d7b-34b2-87f8-f8285226ff80"))
+/* dual interface */ _Electrolyte;
+struct __declspec(uuid("82df6e0d-ee9c-3a6e-9e16-47198bd3858c"))
+/* dual interface */ _MathEx;
+struct __declspec(uuid("76123ae8-fcb2-36a2-b423-7e332160b48e"))
+/* dual interface */ _Brent;
+struct __declspec(uuid("6d95b837-3d16-36cd-925e-2638883454a8"))
+/* dual interface */ _funcdelegate;
+struct __declspec(uuid("d05b6bad-bd11-3f93-be44-db61aa62e7ab"))
+/* dual interface */ _BrentMinimize;
+struct __declspec(uuid("3632dd92-75f7-3b12-bcf4-719920b5dd08"))
+/* dual interface */ _funcdelegate_2;
+struct __declspec(uuid("dfdac568-23cd-3f91-80e1-d4425fab9e4d"))
+/* dual interface */ _Broyden;
+struct __declspec(uuid("5a73bab4-ebf4-362d-aabf-2954df1a831d"))
+/* dual interface */ _bulirschstoer;
+struct __declspec(uuid("d42fc17f-c754-37e9-970c-f168410e8321"))
+/* dual interface */ _fdelegate;
+struct __declspec(uuid("dbc7b42e-6d04-3a6c-84ad-e220898a0254"))
+/* dual interface */ _MatLib;
+struct __declspec(uuid("41b194d8-a81c-3485-9b15-d8d7bf8e9983"))
+/* dual interface */ _igammaf;
+struct __declspec(uuid("6c2e146a-cd27-3c46-a4e6-fe1ec67fa33d"))
+/* dual interface */ _gammaf;
+struct __declspec(uuid("becaf2c2-a6ad-3709-80b3-607019186207"))
+/* dual interface */ _Common;
+struct __declspec(uuid("d0209991-ab54-3c80-bac8-7b7f3dcaef16"))
+/* dual interface */ _lbfgs;
+struct __declspec(uuid("8c24490d-e3ac-3d33-8d97-8f5a83ceb0ae"))
+/* dual interface */ _funcgraddelegate;
+struct __declspec(uuid("de554272-dfbc-3cf6-b468-a48211f9e3ab"))
+/* dual interface */ _newiterdelegate;
+struct __declspec(uuid("e7ab779f-b139-3511-941b-c9ab551848b3"))
+/* dual interface */ _lbfgsb;
+struct __declspec(uuid("30c0814e-3263-392e-ba18-33331287375b"))
+/* dual interface */ _funcgraddelegate_2;
+struct __declspec(uuid("c99770de-c74d-363b-bfb4-3605a081ce2d"))
+/* dual interface */ _newiterdelegate_2;
+struct __declspec(uuid("bd88835f-0c4a-3d38-8ea2-f3a93e3a158e"))
+/* dual interface */ _levenbergmarquardt;
+struct __declspec(uuid("1631ea7e-8805-3fde-9ccd-3b5a19b1fc21"))
+/* dual interface */ _funcvecjacdelegate;
+struct __declspec(uuid("d0682da4-580d-37cc-be34-aeeb1e6c2028"))
+/* dual interface */ _Determinant;
+struct __declspec(uuid("33e4f097-6603-3dd8-bdbe-b57258c7cff5"))
+/* dual interface */ _Inverse;
+struct __declspec(uuid("634b659d-5e11-3cd5-bf19-c11327fa5cc2"))
+/* dual interface */ _TRInverse;
+struct __declspec(uuid("039b1959-b2d8-36ee-875a-9d2145919fd5"))
+/* dual interface */ _rsolve;
+struct __declspec(uuid("2aa5f385-fa1f-3e1b-8606-3814f63d7cd0"))
+/* dual interface */ _lu;
+struct __declspec(uuid("48782514-fd5e-3d2d-812c-6b76a3e7e094"))
+/* dual interface */ _yves;
+struct __declspec(uuid("5750c14e-cf60-3560-b980-517970648369"))
+/* dual interface */ _SolveNonLinearError;
+struct __declspec(uuid("278d3891-a751-3098-9079-1e1221473399"))
+/* dual interface */ _App;
+struct __declspec(uuid("d508ff47-ba2b-333f-bc20-5d611b04f2c3"))
+/* dual interface */ _Unidades;
+struct __declspec(uuid("8eef9abe-c274-379b-bd61-d35a9e450660"))
+/* dual interface */ _UnidadesSI;
+struct __declspec(uuid("04744202-dded-3e71-a7d9-2f71bf03e8f6"))
+/* dual interface */ _UnidadesSI_Deriv1;
+struct __declspec(uuid("38270eb7-ce21-3e57-b70c-68bc3d436a50"))
+/* dual interface */ _UnidadesSI_Deriv2;
+struct __declspec(uuid("519acee0-20f2-344c-9c12-fd0996787b92"))
+/* dual interface */ _UnidadesSI_Deriv3;
+struct __declspec(uuid("3106479b-07d7-355c-9fea-effe4079a83c"))
+/* dual interface */ _UnidadesSI_Deriv4;
+struct __declspec(uuid("77e19fe1-04dd-3f21-9b07-0efbe288f864"))
+/* dual interface */ _UnidadesINGLES;
+struct __declspec(uuid("d0c214a8-c5c0-3f29-a8bd-ba7ac2ca8170"))
+/* dual interface */ _UnidadesCGS;
+struct __declspec(uuid("e3570e2a-fce3-34d8-9133-9d8a868fd2b8"))
+/* dual interface */ _Conversor;
+struct __declspec(uuid("b272bbf0-506c-3c6b-bb53-a78e075a9f07"))
+/* dual interface */ _FlashAlgorithm;
+struct __declspec(uuid("0e3260ee-0555-38ad-95af-23e05929437f"))
+/* dual interface */ _BostonBrittInsideOut;
+struct __declspec(uuid("2ae9809d-b934-3d42-a295-fa351e65cc40"))
+/* dual interface */ _BostonFournierInsideOut3P;
+struct __declspec(uuid("957df91c-d1c7-38d3-9378-877ea96552fe"))
+/* dual interface */ _GibbsMinimization3P;
+struct __declspec(uuid("97a758bc-b34b-35fa-a601-82dde1195a28"))
+/* dual interface */ _DWSIMDefault;
+struct __declspec(uuid("816c205c-2026-3787-9329-b58ae7317cc6"))
+/* dual interface */ _NestedLoops3P;
+struct __declspec(uuid("3a3311b6-5b60-35be-8d84-e1f406d7ca37"))
+/* dual interface */ _NestedLoops3PV2;
+struct __declspec(uuid("4328c00d-f0c3-38f5-9959-9d5c1ee9b3e1"))
+/* dual interface */ _NestedLoops3PV3;
+struct __declspec(uuid("6ce643af-1dc7-3a25-adbe-edb93fea72dc"))
+/* dual interface */ _NestedLoopsImmiscible;
+struct __declspec(uuid("828654aa-1c87-3639-a7c7-b33ee6ec9369"))
+/* dual interface */ _NestedLoopsSLE;
+struct __declspec(uuid("16177286-a9b6-3cb7-9597-e7ec68a4c783"))
+/* dual interface */ _SimpleLLE;
+struct __declspec(uuid("d7ef4782-8903-3088-93f4-00d447a4d9fb"))
+/* dual interface */ _ThermoPlug;
+struct __declspec(uuid("b7a41e0e-8538-32b1-bce4-4f3e77d7b68c"))
+/* dual interface */ _MichelsenFlash;
+struct __declspec(uuid("4c871702-00f8-3f12-8c2d-dfe89e482d73"))
+/* dual interface */ _PropertyPackage;
+struct __declspec(uuid("403caafb-be38-3df0-9063-98e7ea946a4b"))
+/* dual interface */ _PhaseInfo;
+struct __declspec(uuid("1f8e00c0-f138-321a-8f6a-651c6eae3942"))
+/* dual interface */ _ComStreamWrapper;
+struct __declspec(uuid("404d8615-3f5b-3089-adc4-5f3efa8afbf0"))
+/* dual interface */ _HenryParam;
+struct __declspec(uuid("95de211b-8976-32ed-81a1-0dcd72911670"))
+/* dual interface */ _ChaoSeaderPropertyPackage;
+struct __declspec(uuid("0325f10a-0dd5-3855-b3a7-7ff7add225f5"))
+/* dual interface */ _CS;
+struct __declspec(uuid("1fb88a22-de03-34e9-b26a-903b3d164219"))
+/* dual interface */ _GraysonStreedPropertyPackage;
+struct __declspec(uuid("64cf3938-2520-3591-b050-2461d657e21d"))
+/* dual interface */ _GS;
+struct __declspec(uuid("9bad26e7-9cb9-303c-a2cd-a50e8bc8b95c"))
+/* dual interface */ _LKP_IPData;
+struct __declspec(uuid("9afcca6e-a773-336a-bc2a-06a7e8216fb9"))
+/* dual interface */ _LeeKeslerPlocker;
+struct __declspec(uuid("aacd907b-d75c-3b05-b76e-48adaacedce7"))
+/* dual interface */ _LKPPropertyPackage;
+struct __declspec(uuid("9189efed-95e4-37f1-9ce3-ce36fe7a4182"))
+/* dual interface */ _Modfac;
+struct __declspec(uuid("54dfb9dc-1853-3c52-a711-a9a3cf8987fa"))
+/* dual interface */ _ModfacGroups;
+struct __declspec(uuid("4a40b34a-b6dd-35a0-ac50-a121dabd415b"))
+/* dual interface */ _ModfacGroup;
+struct __declspec(uuid("782e555a-8a51-3c5c-b816-5c0c8bc6e2bc"))
+/* dual interface */ _MODFACPropertyPackage;
+struct __declspec(uuid("6c9a30a9-7118-3981-a25d-7826848a92a2"))
+/* dual interface */ _NISTMFAC;
+struct __declspec(uuid("187daf2c-d09e-3aaa-8225-f08971a940fd"))
+/* dual interface */ _NistModfacGroups;
+struct __declspec(uuid("ab499969-e65b-3e34-b57a-f04a78d2712f"))
+/* dual interface */ _NISTMFACPropertyPackage;
+struct __declspec(uuid("03f96f8b-4a5e-39d8-81c1-bfe5a49cdde3"))
+/* dual interface */ _NRTL_IPData;
+struct __declspec(uuid("9eba3776-719b-33e4-94f3-0f063ab04554"))
+/* dual interface */ _ObjectConverter;
+struct __declspec(uuid("25bea463-2215-3fdd-af83-e29497c9f2e6"))
+/* dual interface */ _NRTL;
+struct __declspec(uuid("a0435aa3-942f-3672-8144-88af45446fe0"))
+/* dual interface */ _NRTLPropertyPackage;
+struct __declspec(uuid("3d7cee9d-edaf-3aaf-9248-de65fd82a180"))
+/* dual interface */ _PR_IPData;
+struct __declspec(uuid("558c9a5c-58d2-327b-8b2f-36284a69eda7"))
+/* dual interface */ _PengRobinson;
+struct __declspec(uuid("6d5421ca-f5cd-3a5a-b889-cc144755f980"))
+/* dual interface */ _PR;
+struct __declspec(uuid("0b5cadbe-5be8-34d8-beb5-cb459752f6c2"))
+/* dual interface */ _PengRobinsonPropertyPackage;
+struct __declspec(uuid("374fd6c6-6f5f-30ba-baba-7f381425bd8e"))
+/* dual interface */ _LeeKesler;
+struct __declspec(uuid("fb111269-ef89-3ff7-a347-524a52b3767c"))
+/* dual interface */ _PengRobinsonLKPropertyPackage;
+struct __declspec(uuid("fc6e5277-597f-32d5-a4f0-1cd177b8e962"))
+/* dual interface */ _PRSV2VL;
+struct __declspec(uuid("95a95ab4-6648-3656-8122-39f670601513"))
+/* dual interface */ _PRSV2Param;
+struct __declspec(uuid("87337280-b01d-30b5-be0e-a4d106c4f996"))
+/* dual interface */ _PRSV2_IPData;
+struct __declspec(uuid("1972d0a0-8c2b-33d8-a7bc-19bdc88c9a0e"))
+/* dual interface */ _PRSV2;
+struct __declspec(uuid("12a01d94-8c7c-3599-a71e-8afb6a399503"))
+/* dual interface */ _PRSV2PropertyPackage;
+struct __declspec(uuid("83d4f2fa-4a63-3e5c-92bc-cd09544c2090"))
+/* dual interface */ _PRSV2VLPropertyPackage;
+struct __declspec(uuid("d89207d0-9278-3e1e-8f7c-9613212670b1"))
+/* dual interface */ _Ideal;
+struct __declspec(uuid("b902d444-f065-3fdb-a9c0-b10bc34fe83a"))
+/* dual interface */ _RaoultPropertyPackage;
+struct __declspec(uuid("15248854-6b60-3b85-a421-50e630b18277"))
+/* dual interface */ _DTL_DTL_SimulationObjects_PropertyPackages_Auxiliary_SRK;
+struct __declspec(uuid("33394485-fcff-3d4f-ad90-582c31b74aa6"))
+/* dual interface */ _DTL_DTL_SimulationObjects_PropertyPackages_ThermoPlugs_SRK;
+struct __declspec(uuid("85e477f5-02b5-3a4d-ac1d-ed5322be3a7d"))
+/* dual interface */ _SRKPropertyPackage;
+struct __declspec(uuid("7ee2f5d9-0a56-371c-b698-66d0b341c260"))
+/* dual interface */ _IAPWS_IF97;
+struct __declspec(uuid("9bbd811f-241c-369d-bbb7-c26dcf9b3c7f"))
+/* dual interface */ _SteamTablesPropertyPackage;
+struct __declspec(uuid("0ac45879-f7be-332a-a82c-3fe9ec5ecad1"))
+/* dual interface */ _Unifac;
+struct __declspec(uuid("bd2fba1b-91ab-3398-9dd3-c2fc3fa92551"))
+/* dual interface */ _UnifacLL;
+struct __declspec(uuid("d3f3cd84-6f86-3bca-9244-c8004eb8753a"))
+/* dual interface */ _UnifacGroups;
+struct __declspec(uuid("abb61af6-e208-3e58-a07a-e9645c609312"))
+/* dual interface */ _UnifacGroupsLL;
+struct __declspec(uuid("48183de3-2bee-3750-b365-9d8324b96e91"))
+/* dual interface */ _UnifacGroup;
+struct __declspec(uuid("c6783e75-ad9d-386a-bd6b-9466b2a15dfb"))
+/* dual interface */ _UNIFACPropertyPackage;
+struct __declspec(uuid("a4c97f69-3802-3ed4-96f2-4e83e3f70295"))
+/* dual interface */ _UNIFACLLPropertyPackage;
+struct __declspec(uuid("cc4780ba-21d3-38c9-86b9-e4890029a5c5"))
+/* dual interface */ _UNIQUAC_IPData;
+struct __declspec(uuid("94661c8a-0667-3845-a245-562ece849b3d"))
+/* dual interface */ _UNIQUAC;
+struct __declspec(uuid("f8a8dff4-4ace-3eef-9aca-b4d34bb64f16"))
+/* dual interface */ _UNIQUACPropertyPackage;
+
+//
+// Smart pointer typedef declarations
+//
+
+_COM_SMARTPTR_TYPEDEF(_Substancia, __uuidof(_Substancia));
+_COM_SMARTPTR_TYPEDEF(_DTL_DTL_ClassesBasicasTermodinamica_Fase, __uuidof(_DTL_DTL_ClassesBasicasTermodinamica_Fase));
+_COM_SMARTPTR_TYPEDEF(_TemperatureDependentProperties, __uuidof(_TemperatureDependentProperties));
+_COM_SMARTPTR_TYPEDEF(_PressureDependentProperties, __uuidof(_PressureDependentProperties));
+_COM_SMARTPTR_TYPEDEF(_SinglePhaseMixtureProperties, __uuidof(_SinglePhaseMixtureProperties));
+_COM_SMARTPTR_TYPEDEF(_TwoPhaseMixtureProperties, __uuidof(_TwoPhaseMixtureProperties));
+_COM_SMARTPTR_TYPEDEF(_InteractionParameter, __uuidof(_InteractionParameter));
+_COM_SMARTPTR_TYPEDEF(_ConstantProperties, __uuidof(_ConstantProperties));
+_COM_SMARTPTR_TYPEDEF(_ConstantPropertiesCollection, __uuidof(_ConstantPropertiesCollection));
+_COM_SMARTPTR_TYPEDEF(_UNIFACGroupCollection, __uuidof(_UNIFACGroupCollection));
+_COM_SMARTPTR_TYPEDEF(_ElementCollection, __uuidof(_ElementCollection));
+_COM_SMARTPTR_TYPEDEF(_ChemSepNameIDPair, __uuidof(_ChemSepNameIDPair));
+_COM_SMARTPTR_TYPEDEF(_ChemSep, __uuidof(_ChemSep));
+_COM_SMARTPTR_TYPEDEF(_DWSIM, __uuidof(_DWSIM));
+_COM_SMARTPTR_TYPEDEF(_Biodiesel, __uuidof(_Biodiesel));
+_COM_SMARTPTR_TYPEDEF(_UserDB, __uuidof(_UserDB));
+_COM_SMARTPTR_TYPEDEF(_UserIPDB, __uuidof(_UserIPDB));
+_COM_SMARTPTR_TYPEDEF(_Electrolyte, __uuidof(_Electrolyte));
+_COM_SMARTPTR_TYPEDEF(_MathEx, __uuidof(_MathEx));
+_COM_SMARTPTR_TYPEDEF(_Brent, __uuidof(_Brent));
+_COM_SMARTPTR_TYPEDEF(_funcdelegate, __uuidof(_funcdelegate));
+_COM_SMARTPTR_TYPEDEF(_BrentMinimize, __uuidof(_BrentMinimize));
+_COM_SMARTPTR_TYPEDEF(_funcdelegate_2, __uuidof(_funcdelegate_2));
+_COM_SMARTPTR_TYPEDEF(_Broyden, __uuidof(_Broyden));
+_COM_SMARTPTR_TYPEDEF(_bulirschstoer, __uuidof(_bulirschstoer));
+_COM_SMARTPTR_TYPEDEF(_fdelegate, __uuidof(_fdelegate));
+_COM_SMARTPTR_TYPEDEF(_MatLib, __uuidof(_MatLib));
+_COM_SMARTPTR_TYPEDEF(_igammaf, __uuidof(_igammaf));
+_COM_SMARTPTR_TYPEDEF(_gammaf, __uuidof(_gammaf));
+_COM_SMARTPTR_TYPEDEF(_Common, __uuidof(_Common));
+_COM_SMARTPTR_TYPEDEF(_lbfgs, __uuidof(_lbfgs));
+_COM_SMARTPTR_TYPEDEF(_funcgraddelegate, __uuidof(_funcgraddelegate));
+_COM_SMARTPTR_TYPEDEF(_newiterdelegate, __uuidof(_newiterdelegate));
+_COM_SMARTPTR_TYPEDEF(_lbfgsb, __uuidof(_lbfgsb));
+_COM_SMARTPTR_TYPEDEF(_funcgraddelegate_2, __uuidof(_funcgraddelegate_2));
+_COM_SMARTPTR_TYPEDEF(_newiterdelegate_2, __uuidof(_newiterdelegate_2));
+_COM_SMARTPTR_TYPEDEF(_levenbergmarquardt, __uuidof(_levenbergmarquardt));
+_COM_SMARTPTR_TYPEDEF(_funcvecjacdelegate, __uuidof(_funcvecjacdelegate));
+_COM_SMARTPTR_TYPEDEF(_Determinant, __uuidof(_Determinant));
+_COM_SMARTPTR_TYPEDEF(_Inverse, __uuidof(_Inverse));
+_COM_SMARTPTR_TYPEDEF(_TRInverse, __uuidof(_TRInverse));
+_COM_SMARTPTR_TYPEDEF(_rsolve, __uuidof(_rsolve));
+_COM_SMARTPTR_TYPEDEF(_lu, __uuidof(_lu));
+_COM_SMARTPTR_TYPEDEF(_yves, __uuidof(_yves));
+_COM_SMARTPTR_TYPEDEF(_SolveNonLinearError, __uuidof(_SolveNonLinearError));
+_COM_SMARTPTR_TYPEDEF(_App, __uuidof(_App));
+_COM_SMARTPTR_TYPEDEF(_Unidades, __uuidof(_Unidades));
+_COM_SMARTPTR_TYPEDEF(_UnidadesSI, __uuidof(_UnidadesSI));
+_COM_SMARTPTR_TYPEDEF(_UnidadesSI_Deriv1, __uuidof(_UnidadesSI_Deriv1));
+_COM_SMARTPTR_TYPEDEF(_UnidadesSI_Deriv2, __uuidof(_UnidadesSI_Deriv2));
+_COM_SMARTPTR_TYPEDEF(_UnidadesSI_Deriv3, __uuidof(_UnidadesSI_Deriv3));
+_COM_SMARTPTR_TYPEDEF(_UnidadesSI_Deriv4, __uuidof(_UnidadesSI_Deriv4));
+_COM_SMARTPTR_TYPEDEF(_UnidadesINGLES, __uuidof(_UnidadesINGLES));
+_COM_SMARTPTR_TYPEDEF(_UnidadesCGS, __uuidof(_UnidadesCGS));
+_COM_SMARTPTR_TYPEDEF(_Conversor, __uuidof(_Conversor));
+_COM_SMARTPTR_TYPEDEF(_FlashAlgorithm, __uuidof(_FlashAlgorithm));
+_COM_SMARTPTR_TYPEDEF(_BostonBrittInsideOut, __uuidof(_BostonBrittInsideOut));
+_COM_SMARTPTR_TYPEDEF(_BostonFournierInsideOut3P, __uuidof(_BostonFournierInsideOut3P));
+_COM_SMARTPTR_TYPEDEF(_GibbsMinimization3P, __uuidof(_GibbsMinimization3P));
+_COM_SMARTPTR_TYPEDEF(_DWSIMDefault, __uuidof(_DWSIMDefault));
+_COM_SMARTPTR_TYPEDEF(_NestedLoops3P, __uuidof(_NestedLoops3P));
+_COM_SMARTPTR_TYPEDEF(_NestedLoops3PV2, __uuidof(_NestedLoops3PV2));
+_COM_SMARTPTR_TYPEDEF(_NestedLoops3PV3, __uuidof(_NestedLoops3PV3));
+_COM_SMARTPTR_TYPEDEF(_NestedLoopsImmiscible, __uuidof(_NestedLoopsImmiscible));
+_COM_SMARTPTR_TYPEDEF(_NestedLoopsSLE, __uuidof(_NestedLoopsSLE));
+_COM_SMARTPTR_TYPEDEF(_SimpleLLE, __uuidof(_SimpleLLE));
+_COM_SMARTPTR_TYPEDEF(_ThermoPlug, __uuidof(_ThermoPlug));
+_COM_SMARTPTR_TYPEDEF(_MichelsenFlash, __uuidof(_MichelsenFlash));
+_COM_SMARTPTR_TYPEDEF(_PropertyPackage, __uuidof(_PropertyPackage));
+_COM_SMARTPTR_TYPEDEF(_Calculator, __uuidof(_Calculator));
+_COM_SMARTPTR_TYPEDEF(_PhaseInfo, __uuidof(_PhaseInfo));
+_COM_SMARTPTR_TYPEDEF(_ComStreamWrapper, __uuidof(_ComStreamWrapper));
+_COM_SMARTPTR_TYPEDEF(_HenryParam, __uuidof(_HenryParam));
+_COM_SMARTPTR_TYPEDEF(_ChaoSeaderPropertyPackage, __uuidof(_ChaoSeaderPropertyPackage));
+_COM_SMARTPTR_TYPEDEF(_CS, __uuidof(_CS));
+_COM_SMARTPTR_TYPEDEF(_GraysonStreedPropertyPackage, __uuidof(_GraysonStreedPropertyPackage));
+_COM_SMARTPTR_TYPEDEF(_GS, __uuidof(_GS));
+_COM_SMARTPTR_TYPEDEF(_LKP_IPData, __uuidof(_LKP_IPData));
+_COM_SMARTPTR_TYPEDEF(_LeeKeslerPlocker, __uuidof(_LeeKeslerPlocker));
+_COM_SMARTPTR_TYPEDEF(_LKPPropertyPackage, __uuidof(_LKPPropertyPackage));
+_COM_SMARTPTR_TYPEDEF(_Modfac, __uuidof(_Modfac));
+_COM_SMARTPTR_TYPEDEF(_ModfacGroups, __uuidof(_ModfacGroups));
+_COM_SMARTPTR_TYPEDEF(_ModfacGroup, __uuidof(_ModfacGroup));
+_COM_SMARTPTR_TYPEDEF(_MODFACPropertyPackage, __uuidof(_MODFACPropertyPackage));
+_COM_SMARTPTR_TYPEDEF(_NISTMFAC, __uuidof(_NISTMFAC));
+_COM_SMARTPTR_TYPEDEF(_NistModfacGroups, __uuidof(_NistModfacGroups));
+_COM_SMARTPTR_TYPEDEF(_NISTMFACPropertyPackage, __uuidof(_NISTMFACPropertyPackage));
+_COM_SMARTPTR_TYPEDEF(_NRTL_IPData, __uuidof(_NRTL_IPData));
+_COM_SMARTPTR_TYPEDEF(_ObjectConverter, __uuidof(_ObjectConverter));
+_COM_SMARTPTR_TYPEDEF(_NRTL, __uuidof(_NRTL));
+_COM_SMARTPTR_TYPEDEF(_NRTLPropertyPackage, __uuidof(_NRTLPropertyPackage));
+_COM_SMARTPTR_TYPEDEF(_PR_IPData, __uuidof(_PR_IPData));
+_COM_SMARTPTR_TYPEDEF(_PengRobinson, __uuidof(_PengRobinson));
+_COM_SMARTPTR_TYPEDEF(_PR, __uuidof(_PR));
+_COM_SMARTPTR_TYPEDEF(_PengRobinsonPropertyPackage, __uuidof(_PengRobinsonPropertyPackage));
+_COM_SMARTPTR_TYPEDEF(_LeeKesler, __uuidof(_LeeKesler));
+_COM_SMARTPTR_TYPEDEF(_PengRobinsonLKPropertyPackage, __uuidof(_PengRobinsonLKPropertyPackage));
+_COM_SMARTPTR_TYPEDEF(_PRSV2VL, __uuidof(_PRSV2VL));
+_COM_SMARTPTR_TYPEDEF(_PRSV2Param, __uuidof(_PRSV2Param));
+_COM_SMARTPTR_TYPEDEF(_PRSV2_IPData, __uuidof(_PRSV2_IPData));
+_COM_SMARTPTR_TYPEDEF(_PRSV2, __uuidof(_PRSV2));
+_COM_SMARTPTR_TYPEDEF(_PRSV2PropertyPackage, __uuidof(_PRSV2PropertyPackage));
+_COM_SMARTPTR_TYPEDEF(_PRSV2VLPropertyPackage, __uuidof(_PRSV2VLPropertyPackage));
+_COM_SMARTPTR_TYPEDEF(_Ideal, __uuidof(_Ideal));
+_COM_SMARTPTR_TYPEDEF(_RaoultPropertyPackage, __uuidof(_RaoultPropertyPackage));
+_COM_SMARTPTR_TYPEDEF(_DTL_DTL_SimulationObjects_PropertyPackages_Auxiliary_SRK, __uuidof(_DTL_DTL_SimulationObjects_PropertyPackages_Auxiliary_SRK));
+_COM_SMARTPTR_TYPEDEF(_DTL_DTL_SimulationObjects_PropertyPackages_ThermoPlugs_SRK, __uuidof(_DTL_DTL_SimulationObjects_PropertyPackages_ThermoPlugs_SRK));
+_COM_SMARTPTR_TYPEDEF(_SRKPropertyPackage, __uuidof(_SRKPropertyPackage));
+_COM_SMARTPTR_TYPEDEF(_IAPWS_IF97, __uuidof(_IAPWS_IF97));
+_COM_SMARTPTR_TYPEDEF(_SteamTablesPropertyPackage, __uuidof(_SteamTablesPropertyPackage));
+_COM_SMARTPTR_TYPEDEF(_Unifac, __uuidof(_Unifac));
+_COM_SMARTPTR_TYPEDEF(_UnifacLL, __uuidof(_UnifacLL));
+_COM_SMARTPTR_TYPEDEF(_UnifacGroups, __uuidof(_UnifacGroups));
+_COM_SMARTPTR_TYPEDEF(_UnifacGroupsLL, __uuidof(_UnifacGroupsLL));
+_COM_SMARTPTR_TYPEDEF(_UnifacGroup, __uuidof(_UnifacGroup));
+_COM_SMARTPTR_TYPEDEF(_UNIFACPropertyPackage, __uuidof(_UNIFACPropertyPackage));
+_COM_SMARTPTR_TYPEDEF(_UNIFACLLPropertyPackage, __uuidof(_UNIFACLLPropertyPackage));
+_COM_SMARTPTR_TYPEDEF(_UNIQUAC_IPData, __uuidof(_UNIQUAC_IPData));
+_COM_SMARTPTR_TYPEDEF(_UNIQUAC, __uuidof(_UNIQUAC));
+_COM_SMARTPTR_TYPEDEF(_UNIQUACPropertyPackage, __uuidof(_UNIQUACPropertyPackage));
+
+//
+// Type library items
+//
+
+struct __declspec(uuid("5f2b671e-fa61-401e-8d14-71fb5b328f9b"))
+Calculator;
+    // interface _Object
+    // [ default ] interface _Calculator
+
+struct __declspec(uuid("c62913ef-02af-3d3b-8cd7-5f894ce3babd"))
+Substancia;
+    // [ default ] interface _Substancia
+    // interface _Object
+
+struct __declspec(uuid("41089dfd-3b46-33bc-9ccb-76e7b035dcc0"))
+DTL_DTL_ClassesBasicasTermodinamica_Fase;
+    // [ default ] interface _DTL_DTL_ClassesBasicasTermodinamica_Fase
+    // interface _Object
+
+enum __declspec(uuid("6e89d792-501c-34c0-9003-37d1bf8aaa39"))
+PhaseName
+{
+    PhaseName_Liquid = 0,
+    PhaseName_Vapor = 1,
+    PhaseName_Mixture = 2
+};
+
+enum __declspec(uuid("1c1fdee9-1294-31ef-8cab-dc37431ead98"))
+ReactionType
+{
+    ReactionType_Equilibrium = 0,
+    ReactionType_Kinetic = 1,
+    ReactionType_Heterogeneous_Catalytic = 2,
+    ReactionType_Conversion = 3
+};
+
+enum __declspec(uuid("8d9bf19b-dc0e-33c4-8b88-1bd15f9feb56"))
+ReactionBasis
+{
+    ReactionBasis_Activity = 0,
+    ReactionBasis_Fugacity = 1,
+    ReactionBasis_MolarConc = 2,
+    ReactionBasis_MassConc = 3,
+    ReactionBasis_MolarFrac = 4,
+    ReactionBasis_MassFrac = 5,
+    ReactionBasis_PartialPress = 6
+};
+
+struct __declspec(uuid("4457c827-79da-3a98-8d1d-7bed96ff6cf9"))
+TemperatureDependentProperties;
+    // [ default ] interface _TemperatureDependentProperties
+    // interface _Object
+
+struct __declspec(uuid("8f1afe2f-bc4a-3f10-a442-313c9c5da1a0"))
+PressureDependentProperties;
+    // [ default ] interface _PressureDependentProperties
+    // interface _Object
+
+struct __declspec(uuid("d8b9bbe3-8eea-31d0-a985-b32178db5113"))
+SinglePhaseMixtureProperties;
+    // [ default ] interface _SinglePhaseMixtureProperties
+    // interface _Object
+
+struct __declspec(uuid("6dfe631e-2916-33a2-9c0f-5bde27044308"))
+TwoPhaseMixtureProperties;
+    // [ default ] interface _TwoPhaseMixtureProperties
+    // interface _Object
+
+struct __declspec(uuid("b248e407-65f5-3cae-9fe2-ff84c8c753d9"))
+InteractionParameter;
+    // [ default ] interface _InteractionParameter
+    // interface _Object
+    // interface ICloneable
+
+struct __declspec(uuid("d8fdee12-7eb3-35b8-8468-b0b3652ce18f"))
+ConstantProperties;
+    // [ default ] interface _ConstantProperties
+    // interface _Object
+    // interface ICloneable
+
+struct __declspec(uuid("f9030cc9-dd83-34a8-b621-d95b81be79a4"))
+ConstantPropertiesCollection;
+    // [ default ] interface _ConstantPropertiesCollection
+    // interface _Object
+
+struct __declspec(uuid("164b4de1-4c0d-3b4e-8264-b9efaea26fcc"))
+UNIFACGroupCollection;
+    // [ default ] interface _UNIFACGroupCollection
+    // interface _Object
+
+struct __declspec(uuid("2015126b-ebc4-3e15-b5dc-c48bb6255622"))
+ElementCollection;
+    // [ default ] interface _ElementCollection
+    // interface _Object
+
+struct __declspec(uuid("8122af78-8c05-3921-971a-d947211ece85"))
+ChemSepNameIDPair;
+    // [ default ] interface _ChemSepNameIDPair
+    // interface _Object
+    // interface ICloneable
+
+struct __declspec(uuid("725cc037-f04c-31e4-b3c9-a0c7e93285bd"))
+ChemSep;
+    // [ default ] interface _ChemSep
+    // interface _Object
+
+struct __declspec(uuid("3ecf73af-c66c-3f5e-8c50-d0b357acef36"))
+DWSIM;
+    // [ default ] interface _DWSIM
+    // interface _Object
+
+struct __declspec(uuid("d161a21c-8dfc-389b-8222-108bb330652a"))
+Biodiesel;
+    // [ default ] interface _Biodiesel
+    // interface _Object
+
+struct __declspec(uuid("41ba9ccb-de41-3546-b58b-389c086f8738"))
+UserDB;
+    // [ default ] interface _UserDB
+    // interface _Object
+
+struct __declspec(uuid("e92c15a9-7f0f-3e5d-a88f-5d09598fa10d"))
+UserIPDB;
+    // [ default ] interface _UserIPDB
+    // interface _Object
+
+struct __declspec(uuid("c2d16cab-5119-3c1c-850b-f8859e788351"))
+Electrolyte;
+    // [ default ] interface _Electrolyte
+    // interface _Object
+
+#pragma pack(push, 8)
+
+struct __declspec(uuid("6eeb9b24-a8b6-358e-b6f2-9b431277df4d"))
+Complex
+{
+    double x;
+    double y;
+};
+
+#pragma pack(pop)
+
+struct __declspec(uuid("ccfce234-6c3f-30d5-bd64-21920f534f5d"))
+MathEx;
+    // [ default ] interface _MathEx
+    // interface _Object
+
+struct __declspec(uuid("3be08637-51a7-34f9-8f6a-d900a6d4b02b"))
+Brent;
+    // [ default ] interface _Brent
+    // interface _Object
+
+struct __declspec(uuid("fba98527-5633-3f01-a3a9-87d52bc1a901"))
+funcdelegate;
+    // [ default ] interface _funcdelegate
+    // interface _Delegate
+    // interface _Object
+    // interface ICloneable
+    // interface ISerializable
+
+struct __declspec(uuid("52b1311c-f734-3145-b339-3cc7d64d4eeb"))
+BrentMinimize;
+    // [ default ] interface _BrentMinimize
+    // interface _Object
+
+struct __declspec(uuid("5ca1b53b-04b7-3e91-abba-82a765b471b6"))
+Broyden;
+    // [ default ] interface _Broyden
+    // interface _Object
+
+struct __declspec(uuid("594dc4a9-50a3-383a-8aac-731068820110"))
+bulirschstoer;
+    // [ default ] interface _bulirschstoer
+    // interface _Object
+
+struct __declspec(uuid("c6676eed-9adb-311d-bd72-97421e48a066"))
+fdelegate;
+    // [ default ] interface _fdelegate
+    // interface _Delegate
+    // interface _Object
+    // interface ICloneable
+    // interface ISerializable
+
+struct __declspec(uuid("ded59535-e550-3c16-9819-d3971104aaf0"))
+MatLib;
+    // [ default ] interface _MatLib
+    // interface _Object
+
+struct __declspec(uuid("0b6a64f6-f9ad-3e64-8288-d14a705cd0f8"))
+igammaf;
+    // [ default ] interface _igammaf
+    // interface _Object
+
+struct __declspec(uuid("2a968eb7-0149-391f-b9c9-9201f71225b7"))
+gammaf;
+    // [ default ] interface _gammaf
+    // interface _Object
+
+struct __declspec(uuid("6dcb0204-1b97-3f66-ac4c-a3bc50cfc87f"))
+Common;
+    // [ default ] interface _Common
+    // interface _Object
+
+struct __declspec(uuid("adcd17c2-77ec-313a-9648-a52517f04603"))
+lbfgs;
+    // [ default ] interface _lbfgs
+    // interface _Object
+
+struct __declspec(uuid("4c83f15d-aeee-380b-a97e-fd607263465c"))
+funcgraddelegate;
+    // [ default ] interface _funcgraddelegate
+    // interface _Delegate
+    // interface _Object
+    // interface ICloneable
+    // interface ISerializable
+
+struct __declspec(uuid("89175212-4085-31b6-b356-6157c911b8fe"))
+newiterdelegate;
+    // [ default ] interface _newiterdelegate
+    // interface _Delegate
+    // interface _Object
+    // interface ICloneable
+    // interface ISerializable
+
+struct __declspec(uuid("e5233778-53fd-3a61-9b42-cc353a959c2c"))
+lbfgsb;
+    // [ default ] interface _lbfgsb
+    // interface _Object
+
+struct __declspec(uuid("5b0ce00f-cef5-3e18-896e-2792019ce844"))
+levenbergmarquardt;
+    // [ default ] interface _levenbergmarquardt
+    // interface _Object
+
+struct __declspec(uuid("7b20f99e-5894-3e88-aa67-663de809426e"))
+funcvecjacdelegate;
+    // [ default ] interface _funcvecjacdelegate
+    // interface _Delegate
+    // interface _Object
+    // interface ICloneable
+    // interface ISerializable
+
+struct __declspec(uuid("9ea688ea-2064-3a4d-9269-439ad3299223"))
+Determinant;
+    // [ default ] interface _Determinant
+    // interface _Object
+
+struct __declspec(uuid("0ebd03ca-a2f8-3384-b651-a2dd91598d88"))
+Inverse;
+    // [ default ] interface _Inverse
+    // interface _Object
+
+struct __declspec(uuid("0551ee7c-0f3d-3523-bd97-e56b1dc2b09b"))
+TRInverse;
+    // [ default ] interface _TRInverse
+    // interface _Object
+
+struct __declspec(uuid("18e5b092-d50d-39d5-bf2f-d2304d874bef"))
+rsolve;
+    // [ default ] interface _rsolve
+    // interface _Object
+
+struct __declspec(uuid("2b5a5f37-7098-321d-934e-dd7f5efae83e"))
+lu;
+    // [ default ] interface _lu
+    // interface _Object
+
+struct __declspec(uuid("ad2dae32-025f-3d04-97d8-9fd77ed72182"))
+yves;
+    // [ default ] interface _yves
+    // interface _Object
+
+enum __declspec(uuid("feb23ca8-3f50-3417-a1ca-baa9941ed6ca"))
+NormOrder
+{
+    NormOrder_AbsoluteValue = 1,
+    NormOrder_Euclidean = 2,
+    NormOrder_Max = 16
+};
+
+struct __declspec(uuid("1019ca6a-5bc2-306f-bd26-02adf49846b3"))
+SolveNonLinearError;
+    // [ default ] interface _SolveNonLinearError
+    // interface _Delegate
+    // interface _Object
+    // interface ICloneable
+    // interface ISerializable
+
+struct __declspec(uuid("da9b6bd8-0c19-30d6-9670-8ea0bb47c21d"))
+App;
+    // [ default ] interface _App
+    // interface _Object
+
+struct __declspec(uuid("0c7394c4-5e55-3648-b31c-59c79e784138"))
+Unidades;
+    // [ default ] interface _Unidades
+    // interface _Object
+
+struct __declspec(uuid("195f849a-c01c-36b5-8bc6-d5dc37787711"))
+UnidadesSI;
+    // [ default ] interface _UnidadesSI
+    // interface _Object
+
+struct __declspec(uuid("21c2523d-81aa-37cb-89f4-c70fb2701bcb"))
+UnidadesSI_Deriv1;
+    // [ default ] interface _UnidadesSI_Deriv1
+    // interface _Object
+
+struct __declspec(uuid("1027717e-b1b5-33d9-901f-e5425b82d95c"))
+UnidadesSI_Deriv2;
+    // [ default ] interface _UnidadesSI_Deriv2
+    // interface _Object
+
+struct __declspec(uuid("b7261633-39d8-3b22-a16c-d5e00d1664f7"))
+UnidadesSI_Deriv3;
+    // [ default ] interface _UnidadesSI_Deriv3
+    // interface _Object
+
+struct __declspec(uuid("a5b3cbc2-bd70-33ae-9690-e0c9473d9d62"))
+UnidadesSI_Deriv4;
+    // [ default ] interface _UnidadesSI_Deriv4
+    // interface _Object
+
+struct __declspec(uuid("62cfb573-a5f3-3851-a5fd-02ce179f1d96"))
+UnidadesINGLES;
+    // [ default ] interface _UnidadesINGLES
+    // interface _Object
+
+struct __declspec(uuid("15c811f6-7aa8-38ae-8fa0-f9a43c143935"))
+UnidadesCGS;
+    // [ default ] interface _UnidadesCGS
+    // interface _Object
+
+struct __declspec(uuid("adae7349-d1bf-3ad8-b691-8e51a9e5cb5f"))
+Conversor;
+    // [ default ] interface _Conversor
+    // interface _Object
+
+struct __declspec(uuid("6ff17e01-f31e-3566-9253-88457b2b5ad9"))
+FlashAlgorithm;
+    // [ default ] interface _FlashAlgorithm
+    // interface _Object
+
+struct __declspec(uuid("14b68bdc-174b-371f-a545-992b596a19e5"))
+BostonBrittInsideOut;
+    // [ default ] interface _BostonBrittInsideOut
+    // interface _Object
+
+struct __declspec(uuid("82216b3e-dc98-37c1-ae43-afcbe8a8edcc"))
+BostonFournierInsideOut3P;
+    // [ default ] interface _BostonFournierInsideOut3P
+    // interface _Object
+
+struct __declspec(uuid("f9d38765-254b-38d5-8682-4d35d6db8d7b"))
+GibbsMinimization3P;
+    // [ default ] interface _GibbsMinimization3P
+    // interface _Object
+
+enum __declspec(uuid("525273dd-ccb1-37b9-abf6-b2fbf8c78f5a"))
+numsolver
+{
+    numsolver_Limited_Memory_BGFS = 0,
+    numsolver_Truncated_Newton = 1,
+    numsolver_Simplex = 2,
+    numsolver_IPOPT = 3
+};
+
+enum __declspec(uuid("d0dc875d-17ac-3b2b-9012-7f67e8bec0fe"))
+ObjFuncType
+{
+    ObjFuncType_MinGibbs = 0,
+    ObjFuncType_BubblePointT = 1,
+    ObjFuncType_BubblePointP = 2,
+    ObjFuncType_DewPointT = 3,
+    ObjFuncType_DewPointP = 4
+};
+
+struct __declspec(uuid("c23ba1ff-8ab8-39bd-b616-de2345c59ce9"))
+DWSIMDefault;
+    // [ default ] interface _DWSIMDefault
+    // interface _Object
+
+struct __declspec(uuid("de588c74-c763-3ce9-87b7-0085f80efe38"))
+NestedLoops3P;
+    // [ default ] interface _NestedLoops3P
+    // interface _Object
+
+struct __declspec(uuid("5c3323b9-454d-3b1b-ae7b-67becbe6f55d"))
+NestedLoops3PV2;
+    // [ default ] interface _NestedLoops3PV2
+    // interface _Object
+
+struct __declspec(uuid("bb745087-fcb5-390c-85f5-b77a6b397d3c"))
+NestedLoops3PV3;
+    // [ default ] interface _NestedLoops3PV3
+    // interface _Object
+
+struct __declspec(uuid("0c36194d-281d-39cd-9f54-6a025caec206"))
+NestedLoopsImmiscible;
+    // [ default ] interface _NestedLoopsImmiscible
+    // interface _Object
+
+struct __declspec(uuid("acbb2ef2-6f59-380b-abad-bdaa9dc58ba8"))
+NestedLoopsSLE;
+    // [ default ] interface _NestedLoopsSLE
+    // interface _Object
+
+struct __declspec(uuid("c64d38f6-e0d5-3692-ba4c-c20f35355ca1"))
+SimpleLLE;
+    // [ default ] interface _SimpleLLE
+    // interface _Object
+
+struct __declspec(uuid("325608a4-fc50-3511-8fa2-1faac2e00617"))
+ThermoPlug;
+    // [ default ] interface _ThermoPlug
+    // interface _Object
+
+struct __declspec(uuid("d2b66eae-9902-3416-b8e2-cf365e891226"))
+MichelsenFlash;
+    // [ default ] interface _MichelsenFlash
+    // interface _Object
+
+enum __declspec(uuid("47750e38-5b8a-3271-9ab3-63c2fa207a4d"))
+ErrorCode
+{
+    ErrorCode_MaximumIterationsReached = 0,
+    ErrorCode_IterationDiverged = 1
+};
+
+enum __declspec(uuid("53221508-5f35-35a2-8f02-bee6fe55a35f"))
+FallbackType
+{
+    FallbackType_VL = 0,
+    FallbackType_VLL = 1
+};
+
+enum __declspec(uuid("69de7c12-0939-38bd-a513-7d173ad67b66"))
+DTL_DTL_SimulationObjects_PropertyPackages_Fase
+{
+    DTL_DTL_SimulationObjects_PropertyPackages_Fase_Liquid = 0,
+    DTL_DTL_SimulationObjects_PropertyPackages_Fase_Liquid1 = 1,
+    DTL_DTL_SimulationObjects_PropertyPackages_Fase_Liquid2 = 2,
+    DTL_DTL_SimulationObjects_PropertyPackages_Fase_Liquid3 = 3,
+    DTL_DTL_SimulationObjects_PropertyPackages_Fase_Aqueous = 4,
+    DTL_DTL_SimulationObjects_PropertyPackages_Fase_Vapor = 5,
+    DTL_DTL_SimulationObjects_PropertyPackages_Fase_Solid = 6,
+    DTL_DTL_SimulationObjects_PropertyPackages_Fase_Mixture = 7
+};
+
+enum __declspec(uuid("e16d472d-32ac-366d-a8d8-ff7329bf51b2"))
+State
+{
+    State_Liquid = 0,
+    State_Vapor = 1,
+    State_Solid = 2
+};
+
+enum __declspec(uuid("0ed7a84c-14f9-3e0b-932e-7f0f10630dab"))
+FlashSpec
+{
+    FlashSpec_P = 0,
+    FlashSpec_T = 1,
+    FlashSpec_S = 2,
+    FlashSpec_H = 3,
+    FlashSpec_V = 4,
+    FlashSpec_U = 5,
+    FlashSpec_VAP = 6
+};
+
+enum __declspec(uuid("4ee66b24-0360-34a8-85f9-f4eb942ad2c3"))
+ThermoProperty
+{
+    ThermoProperty_ActivityCoefficient = 0,
+    ThermoProperty_Fugacity = 1,
+    ThermoProperty_FugacityCoefficient = 2
+};
+
+enum __declspec(uuid("bc5f61a5-dd95-3728-aefe-1b43de21d6f8"))
+PackageType
+{
+    PackageType_EOS = 0,
+    PackageType_ActivityCoefficient = 1,
+    PackageType_ChaoSeader = 2,
+    PackageType_VaporPressure = 3,
+    PackageType_Miscelaneous = 4,
+    PackageType_CorrespondingStates = 5,
+    PackageType_CAPEOPEN = 6
+};
+
+enum __declspec(uuid("a63d28d6-a4ba-36ae-b7a7-a17638215917"))
+FlashMethod
+{
+    FlashMethod_GlobalSetting = 2,
+    FlashMethod_DWSIMDefault = 0,
+    FlashMethod_InsideOut = 1,
+    FlashMethod_InsideOut3P = 3,
+    FlashMethod_GibbsMin2P = 4,
+    FlashMethod_GibbsMin3P = 5,
+    FlashMethod_NestedLoops3P = 6,
+    FlashMethod_NestedLoopsSLE = 7,
+    FlashMethod_NestedLoopsImmiscible = 8,
+    FlashMethod_SimpleLLE = 9,
+    FlashMethod_NestedLoopsSLE_SS = 10,
+    FlashMethod_NestedLoops3PV2 = 11,
+    FlashMethod_NestedLoops3PV3 = 12
+};
+
+enum __declspec(uuid("79b8e8b5-361a-32f5-955b-29decaf7a45d"))
+Parameter
+{
+    Parameter_PHFlash_Internal_Loop_Tolerance = 0,
+    Parameter_PSFlash_Internal_Loop_Tolerance = 1,
+    Parameter_PHFlash_External_Loop_Tolerance = 2,
+    Parameter_PSFlash_External_Loop_Tolerance = 3,
+    Parameter_PHFlash_Maximum_Number_Of_External_Iterations = 4,
+    Parameter_PSFlash_Maximum_Number_Of_External_Iterations = 5,
+    Parameter_PHFlash_Maximum_Number_Of_Internal_Iterations = 6,
+    Parameter_PSFlash_Maximum_Number_Of_Internal_Iterations = 7,
+    Parameter_PTFlash_Maximum_Number_Of_External_Iterations = 8,
+    Parameter_PTFlash_Maximum_Number_Of_Internal_Iterations = 9,
+    Parameter_PTFlash_External_Loop_Tolerance = 10,
+    Parameter_PTFlash_Internal_Loop_Tolerance = 11,
+    Parameter_FlashAlgorithmFastMode = 12
+};
+
+struct __declspec(uuid("a60d9423-8fbc-32b3-af8b-f5f02bd17906"))
+PropertyPackage;
+    // [ default ] interface _PropertyPackage
+    // interface _Object
+    // interface ICloneable
+    // interface IDisposable
+
+struct __declspec(uuid("c103e780-6bd9-3e20-a165-a27f37f51e3a"))
+PhaseInfo;
+    // [ default ] interface _PhaseInfo
+    // interface _Object
+
+struct __declspec(uuid("0ec26784-ca47-3180-918b-ae66d93f4479"))
+ComStreamWrapper;
+    // [ default ] interface _ComStreamWrapper
+    // interface _Object
+    // interface IDisposable
+
+struct __declspec(uuid("82cb5d18-2d93-3607-b19f-d72f7955f870"))
+HenryParam;
+    // [ default ] interface _HenryParam
+    // interface _Object
+
+struct __declspec(uuid("8079d263-219c-4df6-bb7d-d034dee9c464"))
+ChaoSeaderPropertyPackage;
+    // [ default ] interface _ChaoSeaderPropertyPackage
+    // interface _Object
+    // interface ICloneable
+    // interface IDisposable
+
+struct __declspec(uuid("03436744-efce-3641-9238-c3265b5e7d0a"))
+CS;
+    // [ default ] interface _CS
+    // interface _Object
+
+struct __declspec(uuid("5c1eefab-8e68-48d5-8d63-69304b47ce7f"))
+GraysonStreedPropertyPackage;
+    // [ default ] interface _GraysonStreedPropertyPackage
+    // interface _Object
+    // interface ICloneable
+    // interface IDisposable
+
+struct __declspec(uuid("f27a8cf2-f922-39ef-9c87-e26fdc6be984"))
+GS;
+    // [ default ] interface _GS
+    // interface _Object
+
+struct __declspec(uuid("63c7bdf9-68be-3627-bb1c-f29f217e29dc"))
+LKP_IPData;
+    // [ default ] interface _LKP_IPData
+    // interface _Object
+    // interface ICloneable
+
+struct __declspec(uuid("615d2596-a56e-3cc5-8bd4-6eed722aa54e"))
+LeeKeslerPlocker;
+    // [ default ] interface _LeeKeslerPlocker
+    // interface _Object
+
+struct __declspec(uuid("df7c2420-1fbb-4b35-9d87-6ecf530fed7a"))
+LKPPropertyPackage;
+    // [ default ] interface _LKPPropertyPackage
+    // interface _Object
+    // interface ICloneable
+    // interface IDisposable
+
+struct __declspec(uuid("0314bf5c-d023-3cc6-b95a-3a8e49b71d86"))
+Modfac;
+    // [ default ] interface _Modfac
+    // interface _Object
+
+struct __declspec(uuid("06d4086b-af7e-382c-bd1c-fd049d8c32dd"))
+ModfacGroups;
+    // [ default ] interface _ModfacGroups
+    // interface _Object
+
+struct __declspec(uuid("19eb685e-36e8-3611-87ad-4c6bf433fc7b"))
+ModfacGroup;
+    // [ default ] interface _ModfacGroup
+    // interface _Object
+
+struct __declspec(uuid("519eb917-0b2e-4ac1-9af2-2d1a2a55011f"))
+MODFACPropertyPackage;
+    // [ default ] interface _MODFACPropertyPackage
+    // interface _Object
+    // interface ICloneable
+    // interface IDisposable
+
+struct __declspec(uuid("5346cdee-98b7-3bbf-9f6c-480761bce2ac"))
+NISTMFAC;
+    // [ default ] interface _NISTMFAC
+    // interface _Object
+
+struct __declspec(uuid("272b7c6f-813a-373a-aaa3-6015c46733bb"))
+NistModfacGroups;
+    // [ default ] interface _NistModfacGroups
+    // interface _Object
+
+struct __declspec(uuid("519eb917-0b2e-4ac1-9af2-2d1a2a55067f"))
+NISTMFACPropertyPackage;
+    // [ default ] interface _NISTMFACPropertyPackage
+    // interface _Object
+    // interface ICloneable
+    // interface IDisposable
+
+struct __declspec(uuid("27e73e57-4bf1-3a3c-b866-edb8b6eabde7"))
+NRTL_IPData;
+    // [ default ] interface _NRTL_IPData
+    // interface _Object
+    // interface ICloneable
+
+struct __declspec(uuid("c0669f2e-06a4-3618-9e16-8cf63a6ae779"))
+ObjectConverter;
+    // [ default ] interface _ObjectConverter
+    // interface _Object
+
+struct __declspec(uuid("0e474dc6-feec-316e-8cc5-aa42a2991ed3"))
+NRTL;
+    // [ default ] interface _NRTL
+    // interface _Object
+
+struct __declspec(uuid("d42f0157-5750-4c89-a94e-634a04701568"))
+NRTLPropertyPackage;
+    // [ default ] interface _NRTLPropertyPackage
+    // interface _Object
+    // interface ICloneable
+    // interface IDisposable
+
+struct __declspec(uuid("077776dd-4fb9-3449-8a02-918fbbe02019"))
+PR_IPData;
+    // [ default ] interface _PR_IPData
+    // interface _Object
+    // interface ICloneable
+
+struct __declspec(uuid("3c3e5d6a-cb1b-39d6-bb17-308419d018a6"))
+PengRobinson;
+    // [ default ] interface _PengRobinson
+    // interface _Object
+
+struct __declspec(uuid("e9cf0de6-cc45-36e6-b46f-982c91ac8723"))
+PR;
+    // [ default ] interface _PR
+    // interface _Object
+
+struct __declspec(uuid("2a322ab7-2256-495d-86c7-797ad19fde22"))
+PengRobinsonPropertyPackage;
+    // [ default ] interface _PengRobinsonPropertyPackage
+    // interface _Object
+    // interface ICloneable
+    // interface IDisposable
+
+struct __declspec(uuid("f016f3b0-33fb-3698-bc84-fe2230dc0893"))
+LeeKesler;
+    // [ default ] interface _LeeKesler
+    // interface _Object
+
+struct __declspec(uuid("8544e0dc-5d07-44e5-8ac9-77efb1acd911"))
+PengRobinsonLKPropertyPackage;
+    // [ default ] interface _PengRobinsonLKPropertyPackage
+    // interface _Object
+    // interface ICloneable
+    // interface IDisposable
+
+struct __declspec(uuid("7a54865d-11fe-3080-9c6f-cd7593456d3b"))
+PRSV2VL;
+    // [ default ] interface _PRSV2VL
+    // interface _Object
+
+struct __declspec(uuid("8b8868bb-589f-325b-a7c7-a965534fb1bb"))
+PRSV2Param;
+    // [ default ] interface _PRSV2Param
+    // interface _Object
+
+struct __declspec(uuid("b58c4ced-0438-3cac-b57c-79ba96a7db04"))
+PRSV2_IPData;
+    // [ default ] interface _PRSV2_IPData
+    // interface _Object
+    // interface ICloneable
+
+struct __declspec(uuid("71a0692d-83fd-36c3-8402-73553e03c7a9"))
+PRSV2;
+    // [ default ] interface _PRSV2
+    // interface _Object
+
+struct __declspec(uuid("2e821a14-64d2-30d0-84bb-6609565431fa"))
+PRSV2PropertyPackage;
+    // [ default ] interface _PRSV2PropertyPackage
+    // interface _Object
+    // interface ICloneable
+    // interface IDisposable
+
+struct __declspec(uuid("1918d29f-5630-35d1-a2ff-f018243a243f"))
+PRSV2VLPropertyPackage;
+    // [ default ] interface _PRSV2VLPropertyPackage
+    // interface _Object
+    // interface ICloneable
+    // interface IDisposable
+
+struct __declspec(uuid("a771a811-c0f2-37a7-a88d-8499470bac4f"))
+Ideal;
+    // [ default ] interface _Ideal
+    // interface _Object
+
+struct __declspec(uuid("407a13ec-1c55-462a-aea4-9709b11367b0"))
+RaoultPropertyPackage;
+    // [ default ] interface _RaoultPropertyPackage
+    // interface _Object
+    // interface ICloneable
+    // interface IDisposable
+
+struct __declspec(uuid("f15467fb-df27-3c0f-ad86-c9c3445cb86b"))
+DTL_DTL_SimulationObjects_PropertyPackages_Auxiliary_SRK;
+    // [ default ] interface _DTL_DTL_SimulationObjects_PropertyPackages_Auxiliary_SRK
+    // interface _Object
+
+struct __declspec(uuid("daa7c845-e36c-36a0-becb-13c782b090d9"))
+DTL_DTL_SimulationObjects_PropertyPackages_ThermoPlugs_SRK;
+    // [ default ] interface _DTL_DTL_SimulationObjects_PropertyPackages_ThermoPlugs_SRK
+    // interface _Object
+
+struct __declspec(uuid("920d043c-f640-4cca-b301-228e773d4e35"))
+SRKPropertyPackage;
+    // [ default ] interface _SRKPropertyPackage
+    // interface _Object
+    // interface ICloneable
+    // interface IDisposable
+
+struct __declspec(uuid("5631d33a-5e3f-3400-9409-932afb6fd088"))
+IAPWS_IF97;
+    // [ default ] interface _IAPWS_IF97
+    // interface _Object
+
+struct __declspec(uuid("170d6e8a-8880-4bf9-b7a0-e4a3fdbfd589"))
+SteamTablesPropertyPackage;
+    // [ default ] interface _SteamTablesPropertyPackage
+    // interface _Object
+    // interface ICloneable
+    // interface IDisposable
+
+struct __declspec(uuid("b1222edb-eecc-361f-86ff-a17c2342af6b"))
+Unifac;
+    // [ default ] interface _Unifac
+    // interface _Object
+
+struct __declspec(uuid("3accefbd-8e64-305c-936a-6d844e0dff41"))
+UnifacLL;
+    // [ default ] interface _UnifacLL
+    // interface _Object
+
+struct __declspec(uuid("e46dc718-a847-356f-a1ff-571a850ee0b9"))
+UnifacGroups;
+    // [ default ] interface _UnifacGroups
+    // interface _Object
+
+struct __declspec(uuid("92049716-f03f-3133-8ea2-5b56ca9cf4e9"))
+UnifacGroupsLL;
+    // [ default ] interface _UnifacGroupsLL
+    // interface _Object
+
+struct __declspec(uuid("8fb4187c-e032-373c-b61e-319d234908fb"))
+UnifacGroup;
+    // [ default ] interface _UnifacGroup
+    // interface _Object
+
+struct __declspec(uuid("b20e8a1d-6cb5-43a1-87e2-148ebb25235a"))
+UNIFACPropertyPackage;
+    // [ default ] interface _UNIFACPropertyPackage
+    // interface _Object
+    // interface ICloneable
+    // interface IDisposable
+
+struct __declspec(uuid("e48b580b-82e4-4bd7-841a-647a24a447b5"))
+UNIFACLLPropertyPackage;
+    // [ default ] interface _UNIFACLLPropertyPackage
+    // interface _Object
+    // interface ICloneable
+    // interface IDisposable
+
+struct __declspec(uuid("754cb384-a9aa-3d91-bede-039568522367"))
+UNIQUAC_IPData;
+    // [ default ] interface _UNIQUAC_IPData
+    // interface _Object
+    // interface ICloneable
+
+struct __declspec(uuid("1f939ae9-0eee-3294-ae6d-aec21d282801"))
+UNIQUAC;
+    // [ default ] interface _UNIQUAC
+    // interface _Object
+
+struct __declspec(uuid("5265f953-8825-4a80-9112-a3b68c329e4c"))
+UNIQUACPropertyPackage;
+    // [ default ] interface _UNIQUACPropertyPackage
+    // interface _Object
+    // interface ICloneable
+    // interface IDisposable
+
+enum __declspec(uuid("b401b77b-7967-38a3-81ed-55be6968c9a0"))
+eCapePhaseStatus
+{
+    eCapePhaseStatus_CAPE_UNKNOWNPHASESTATUS = 0,
+    eCapePhaseStatus_CAPE_ATEQUILIBRIUM = 1,
+    eCapePhaseStatus_CAPE_ESTIMATES = 2
+};
+
+struct __declspec(uuid("e776046d-e3b2-3b0b-aa38-0a0cc7baa170"))
+funcdelegate_2;
+    // [ default ] interface _funcdelegate_2
+    // interface _Delegate
+    // interface _Object
+    // interface ICloneable
+    // interface ISerializable
+
+struct __declspec(uuid("92d0736f-d5d8-3d3a-8986-bc3eec2d1111"))
+funcgraddelegate_2;
+    // [ default ] interface _funcgraddelegate_2
+    // interface _Delegate
+    // interface _Object
+    // interface ICloneable
+    // interface ISerializable
+
+struct __declspec(uuid("232c4508-5b5e-3019-87e6-ec024410c3c9"))
+newiterdelegate_2;
+    // [ default ] interface _newiterdelegate_2
+    // interface _Delegate
+    // interface _Object
+    // interface ICloneable
+    // interface ISerializable
+
+struct __declspec(uuid("06bc0985-e229-3b16-89f0-3f3831490833"))
+_Substancia : IDispatch
+{};
+
+struct __declspec(uuid("6d98db00-3d85-3597-b9ac-28b0b75e5cad"))
+_DTL_DTL_ClassesBasicasTermodinamica_Fase : IDispatch
+{};
+
+struct __declspec(uuid("7758ee1f-e5e5-3d63-9513-1d3edec511cf"))
+_TemperatureDependentProperties : IDispatch
+{};
+
+struct __declspec(uuid("ce2aa662-c45e-3590-a2fd-a31a1e5ebe9e"))
+_PressureDependentProperties : IDispatch
+{};
+
+struct __declspec(uuid("31038d7a-0626-35ed-8d8a-48f84a012c1d"))
+_SinglePhaseMixtureProperties : IDispatch
+{};
+
+struct __declspec(uuid("41620e07-f6d9-36a1-a7d5-aae1cdbcadae"))
+_TwoPhaseMixtureProperties : IDispatch
+{};
+
+struct __declspec(uuid("beb64e1c-4cdc-37b3-939f-d67e0258321f"))
+_InteractionParameter : IDispatch
+{};
+
+struct __declspec(uuid("d2b6460a-f4c3-3e84-86e7-1a66471418ed"))
+_ConstantProperties : IDispatch
+{};
+
+struct __declspec(uuid("84f3d50d-56f9-3043-8ab0-d53acfc7746f"))
+_ConstantPropertiesCollection : IDispatch
+{};
+
+struct __declspec(uuid("45e9fa36-bec5-386d-8392-9bcfaaa69d64"))
+_UNIFACGroupCollection : IDispatch
+{};
+
+struct __declspec(uuid("6f45668a-88e4-3d99-972d-abb3ee6d9fba"))
+_ElementCollection : IDispatch
+{};
+
+struct __declspec(uuid("6dd49d99-fc85-3e5f-9549-17d2be6de023"))
+_ChemSepNameIDPair : IDispatch
+{};
+
+struct __declspec(uuid("a9606df6-4d17-3aa3-a9b4-8820b609c28e"))
+_ChemSep : IDispatch
+{};
+
+struct __declspec(uuid("e646d6b1-f85e-3a95-929f-71aec8409d07"))
+_DWSIM : IDispatch
+{};
+
+struct __declspec(uuid("329ab126-befa-3728-aac9-3c9a81a9d157"))
+_Biodiesel : IDispatch
+{};
+
+struct __declspec(uuid("038c9a66-8d86-3863-bb89-5e53e835176d"))
+_UserDB : IDispatch
+{};
+
+struct __declspec(uuid("78b4c3ef-44c8-368a-9b27-9699a5d7fd60"))
+_UserIPDB : IDispatch
+{};
+
+struct __declspec(uuid("9bf5e86e-8d7b-34b2-87f8-f8285226ff80"))
+_Electrolyte : IDispatch
+{};
+
+struct __declspec(uuid("82df6e0d-ee9c-3a6e-9e16-47198bd3858c"))
+_MathEx : IDispatch
+{};
+
+struct __declspec(uuid("76123ae8-fcb2-36a2-b423-7e332160b48e"))
+_Brent : IDispatch
+{};
+
+struct __declspec(uuid("6d95b837-3d16-36cd-925e-2638883454a8"))
+_funcdelegate : IDispatch
+{};
+
+struct __declspec(uuid("d05b6bad-bd11-3f93-be44-db61aa62e7ab"))
+_BrentMinimize : IDispatch
+{};
+
+struct __declspec(uuid("3632dd92-75f7-3b12-bcf4-719920b5dd08"))
+_funcdelegate_2 : IDispatch
+{};
+
+struct __declspec(uuid("dfdac568-23cd-3f91-80e1-d4425fab9e4d"))
+_Broyden : IDispatch
+{};
+
+struct __declspec(uuid("5a73bab4-ebf4-362d-aabf-2954df1a831d"))
+_bulirschstoer : IDispatch
+{};
+
+struct __declspec(uuid("d42fc17f-c754-37e9-970c-f168410e8321"))
+_fdelegate : IDispatch
+{};
+
+struct __declspec(uuid("dbc7b42e-6d04-3a6c-84ad-e220898a0254"))
+_MatLib : IDispatch
+{};
+
+struct __declspec(uuid("41b194d8-a81c-3485-9b15-d8d7bf8e9983"))
+_igammaf : IDispatch
+{};
+
+struct __declspec(uuid("6c2e146a-cd27-3c46-a4e6-fe1ec67fa33d"))
+_gammaf : IDispatch
+{};
+
+struct __declspec(uuid("becaf2c2-a6ad-3709-80b3-607019186207"))
+_Common : IDispatch
+{};
+
+struct __declspec(uuid("d0209991-ab54-3c80-bac8-7b7f3dcaef16"))
+_lbfgs : IDispatch
+{};
+
+struct __declspec(uuid("8c24490d-e3ac-3d33-8d97-8f5a83ceb0ae"))
+_funcgraddelegate : IDispatch
+{};
+
+struct __declspec(uuid("de554272-dfbc-3cf6-b468-a48211f9e3ab"))
+_newiterdelegate : IDispatch
+{};
+
+struct __declspec(uuid("e7ab779f-b139-3511-941b-c9ab551848b3"))
+_lbfgsb : IDispatch
+{};
+
+struct __declspec(uuid("30c0814e-3263-392e-ba18-33331287375b"))
+_funcgraddelegate_2 : IDispatch
+{};
+
+struct __declspec(uuid("c99770de-c74d-363b-bfb4-3605a081ce2d"))
+_newiterdelegate_2 : IDispatch
+{};
+
+struct __declspec(uuid("bd88835f-0c4a-3d38-8ea2-f3a93e3a158e"))
+_levenbergmarquardt : IDispatch
+{};
+
+struct __declspec(uuid("1631ea7e-8805-3fde-9ccd-3b5a19b1fc21"))
+_funcvecjacdelegate : IDispatch
+{};
+
+struct __declspec(uuid("d0682da4-580d-37cc-be34-aeeb1e6c2028"))
+_Determinant : IDispatch
+{};
+
+struct __declspec(uuid("33e4f097-6603-3dd8-bdbe-b57258c7cff5"))
+_Inverse : IDispatch
+{};
+
+struct __declspec(uuid("634b659d-5e11-3cd5-bf19-c11327fa5cc2"))
+_TRInverse : IDispatch
+{};
+
+struct __declspec(uuid("039b1959-b2d8-36ee-875a-9d2145919fd5"))
+_rsolve : IDispatch
+{};
+
+struct __declspec(uuid("2aa5f385-fa1f-3e1b-8606-3814f63d7cd0"))
+_lu : IDispatch
+{};
+
+struct __declspec(uuid("48782514-fd5e-3d2d-812c-6b76a3e7e094"))
+_yves : IDispatch
+{};
+
+struct __declspec(uuid("5750c14e-cf60-3560-b980-517970648369"))
+_SolveNonLinearError : IDispatch
+{};
+
+struct __declspec(uuid("278d3891-a751-3098-9079-1e1221473399"))
+_App : IDispatch
+{};
+
+struct __declspec(uuid("d508ff47-ba2b-333f-bc20-5d611b04f2c3"))
+_Unidades : IDispatch
+{};
+
+struct __declspec(uuid("8eef9abe-c274-379b-bd61-d35a9e450660"))
+_UnidadesSI : IDispatch
+{};
+
+struct __declspec(uuid("04744202-dded-3e71-a7d9-2f71bf03e8f6"))
+_UnidadesSI_Deriv1 : IDispatch
+{};
+
+struct __declspec(uuid("38270eb7-ce21-3e57-b70c-68bc3d436a50"))
+_UnidadesSI_Deriv2 : IDispatch
+{};
+
+struct __declspec(uuid("519acee0-20f2-344c-9c12-fd0996787b92"))
+_UnidadesSI_Deriv3 : IDispatch
+{};
+
+struct __declspec(uuid("3106479b-07d7-355c-9fea-effe4079a83c"))
+_UnidadesSI_Deriv4 : IDispatch
+{};
+
+struct __declspec(uuid("77e19fe1-04dd-3f21-9b07-0efbe288f864"))
+_UnidadesINGLES : IDispatch
+{};
+
+struct __declspec(uuid("d0c214a8-c5c0-3f29-a8bd-ba7ac2ca8170"))
+_UnidadesCGS : IDispatch
+{};
+
+struct __declspec(uuid("e3570e2a-fce3-34d8-9133-9d8a868fd2b8"))
+_Conversor : IDispatch
+{};
+
+struct __declspec(uuid("b272bbf0-506c-3c6b-bb53-a78e075a9f07"))
+_FlashAlgorithm : IDispatch
+{};
+
+struct __declspec(uuid("0e3260ee-0555-38ad-95af-23e05929437f"))
+_BostonBrittInsideOut : IDispatch
+{};
+
+struct __declspec(uuid("2ae9809d-b934-3d42-a295-fa351e65cc40"))
+_BostonFournierInsideOut3P : IDispatch
+{};
+
+struct __declspec(uuid("957df91c-d1c7-38d3-9378-877ea96552fe"))
+_GibbsMinimization3P : IDispatch
+{};
+
+struct __declspec(uuid("97a758bc-b34b-35fa-a601-82dde1195a28"))
+_DWSIMDefault : IDispatch
+{};
+
+struct __declspec(uuid("816c205c-2026-3787-9329-b58ae7317cc6"))
+_NestedLoops3P : IDispatch
+{};
+
+struct __declspec(uuid("3a3311b6-5b60-35be-8d84-e1f406d7ca37"))
+_NestedLoops3PV2 : IDispatch
+{};
+
+struct __declspec(uuid("4328c00d-f0c3-38f5-9959-9d5c1ee9b3e1"))
+_NestedLoops3PV3 : IDispatch
+{};
+
+struct __declspec(uuid("6ce643af-1dc7-3a25-adbe-edb93fea72dc"))
+_NestedLoopsImmiscible : IDispatch
+{};
+
+struct __declspec(uuid("828654aa-1c87-3639-a7c7-b33ee6ec9369"))
+_NestedLoopsSLE : IDispatch
+{};
+
+struct __declspec(uuid("16177286-a9b6-3cb7-9597-e7ec68a4c783"))
+_SimpleLLE : IDispatch
+{};
+
+struct __declspec(uuid("d7ef4782-8903-3088-93f4-00d447a4d9fb"))
+_ThermoPlug : IDispatch
+{};
+
+struct __declspec(uuid("b7a41e0e-8538-32b1-bce4-4f3e77d7b68c"))
+_MichelsenFlash : IDispatch
+{};
+
+struct __declspec(uuid("4c871702-00f8-3f12-8c2d-dfe89e482d73"))
+_PropertyPackage : IDispatch
+{};
+
+struct __declspec(uuid("0ea44ede-ad65-435c-b8cc-0d1146bd182b"))
+_Calculator : IDispatch
+{
+    //
+    // Raw methods provided by interface
+    //
+
+      virtual HRESULT __stdcall Initialize ( ) = 0;
+      virtual HRESULT __stdcall Initialize_2 (
+        /*[in]*/ SAFEARRAY * userdbs ) = 0;
+      virtual HRESULT __stdcall EnableParallelProcessing ( ) = 0;
+      virtual HRESULT __stdcall DisableParallelProcessing ( ) = 0;
+      virtual HRESULT __stdcall EnableGPUProcessing ( ) = 0;
+      virtual HRESULT __stdcall DisableGPUProcessing ( ) = 0;
+      virtual HRESULT __stdcall InitComputeDevice ( ) = 0;
+      virtual HRESULT __stdcall InitComputeDevice_2 (
+        /*[in]*/ long CudafyTarget,
+        /*[in]*/ long DeviceID ) = 0;
+      virtual HRESULT __stdcall SetDebugLevel (
+        /*[in]*/ long level ) = 0;
+      virtual HRESULT __stdcall GetCompoundConstProp (
+        /*[in]*/ BSTR compound,
+        /*[in]*/ BSTR prop,
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetCompoundTDepProp (
+        /*[in]*/ BSTR compound,
+        /*[in]*/ BSTR prop,
+        /*[in]*/ double temperature,
+        /*[out,retval]*/ double * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetCompoundPDepProp (
+        /*[in]*/ BSTR compound,
+        /*[in]*/ BSTR prop,
+        /*[in]*/ double pressure,
+        /*[out,retval]*/ BSTR * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetCompoundConstPropList (
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetCompoundTDepPropList (
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetCompoundPDepPropList (
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall CalcProp (
+        /*[in]*/ BSTR proppack,
+        /*[in]*/ BSTR prop,
+        /*[in]*/ BSTR basis,
+        /*[in]*/ BSTR phaselabel,
+        /*[in]*/ SAFEARRAY * compounds,
+        /*[in]*/ double temperature,
+        /*[in]*/ double pressure,
+        /*[in]*/ SAFEARRAY * molefractions,
+        /*[in]*/ VARIANT ip1,
+        /*[in]*/ VARIANT ip2,
+        /*[in]*/ VARIANT ip3,
+        /*[in]*/ VARIANT ip4,
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall CalcProp_2 (
+        /*[in]*/ struct _PropertyPackage * proppack,
+        /*[in]*/ BSTR prop,
+        /*[in]*/ BSTR basis,
+        /*[in]*/ BSTR phaselabel,
+        /*[in]*/ SAFEARRAY * compounds,
+        /*[in]*/ double temperature,
+        /*[in]*/ double pressure,
+        /*[in]*/ SAFEARRAY * molefractions,
+        /*[in]*/ VARIANT ip1,
+        /*[in]*/ VARIANT ip2,
+        /*[in]*/ VARIANT ip3,
+        /*[in]*/ VARIANT ip4,
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall CalcTwoPhaseProp (
+        /*[in]*/ BSTR proppack,
+        /*[in]*/ BSTR prop,
+        /*[in]*/ BSTR basis,
+        /*[in]*/ BSTR phaselabel1,
+        /*[in]*/ BSTR phaselabel2,
+        /*[in]*/ SAFEARRAY * compounds,
+        /*[in]*/ double temperature,
+        /*[in]*/ double pressure,
+        /*[in]*/ SAFEARRAY * molefractions1,
+        /*[in]*/ SAFEARRAY * molefractions2,
+        /*[in]*/ VARIANT ip1,
+        /*[in]*/ VARIANT ip2,
+        /*[in]*/ VARIANT ip3,
+        /*[in]*/ VARIANT ip4,
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall CalcTwoPhaseProp_2 (
+        /*[in]*/ struct _PropertyPackage * proppack,
+        /*[in]*/ BSTR prop,
+        /*[in]*/ BSTR basis,
+        /*[in]*/ BSTR phaselabel1,
+        /*[in]*/ BSTR phaselabel2,
+        /*[in]*/ SAFEARRAY * compounds,
+        /*[in]*/ double temperature,
+        /*[in]*/ double pressure,
+        /*[in]*/ SAFEARRAY * molefractions1,
+        /*[in]*/ SAFEARRAY * molefractions2,
+        /*[in]*/ VARIANT ip1,
+        /*[in]*/ VARIANT ip2,
+        /*[in]*/ VARIANT ip3,
+        /*[in]*/ VARIANT ip4,
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetPropPackList (
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetPropPackInstance (
+        /*[in]*/ BSTR proppackname,
+        /*[out,retval]*/ struct _PropertyPackage * * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetPropList (
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetTwoPhasePropList (
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetPhaseList (
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetCompoundList (
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall PTFlash (
+        /*[in]*/ BSTR proppack,
+        /*[in]*/ long flashalg,
+        /*[in]*/ double P,
+        /*[in]*/ double T,
+        /*[in]*/ SAFEARRAY * compounds,
+        /*[in]*/ SAFEARRAY * molefractions,
+        /*[in]*/ VARIANT ip1,
+        /*[in]*/ VARIANT ip2,
+        /*[in]*/ VARIANT ip3,
+        /*[in]*/ VARIANT ip4,
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall PHFlash (
+        /*[in]*/ BSTR proppack,
+        /*[in]*/ long flashalg,
+        /*[in]*/ double P,
+        /*[in]*/ double H,
+        /*[in]*/ SAFEARRAY * compounds,
+        /*[in]*/ SAFEARRAY * molefractions,
+        /*[in]*/ VARIANT ip1,
+        /*[in]*/ VARIANT ip2,
+        /*[in]*/ VARIANT ip3,
+        /*[in]*/ VARIANT ip4,
+        /*[in]*/ double InitialTemperatureEstimate,
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall PSFlash (
+        /*[in]*/ BSTR proppack,
+        /*[in]*/ long flashalg,
+        /*[in]*/ double P,
+        /*[in]*/ double S,
+        /*[in]*/ SAFEARRAY * compounds,
+        /*[in]*/ SAFEARRAY * molefractions,
+        /*[in]*/ VARIANT ip1,
+        /*[in]*/ VARIANT ip2,
+        /*[in]*/ VARIANT ip3,
+        /*[in]*/ VARIANT ip4,
+        /*[in]*/ double InitialTemperatureEstimate,
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall PVFFlash (
+        /*[in]*/ BSTR proppack,
+        /*[in]*/ long flashalg,
+        /*[in]*/ double P,
+        /*[in]*/ double VF,
+        /*[in]*/ SAFEARRAY * compounds,
+        /*[in]*/ SAFEARRAY * molefractions,
+        /*[in]*/ VARIANT ip1,
+        /*[in]*/ VARIANT ip2,
+        /*[in]*/ VARIANT ip3,
+        /*[in]*/ VARIANT ip4,
+        /*[in]*/ double InitialTemperatureEstimate,
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall TVFFlash (
+        /*[in]*/ BSTR proppack,
+        /*[in]*/ long flashalg,
+        /*[in]*/ double T,
+        /*[in]*/ double VF,
+        /*[in]*/ SAFEARRAY * compounds,
+        /*[in]*/ SAFEARRAY * molefractions,
+        /*[in]*/ VARIANT ip1,
+        /*[in]*/ VARIANT ip2,
+        /*[in]*/ VARIANT ip3,
+        /*[in]*/ VARIANT ip4,
+        /*[in]*/ double InitialPressureEstimate,
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall PTFlash_2 (
+        /*[in]*/ struct _PropertyPackage * proppack,
+        /*[in]*/ long flashalg,
+        /*[in]*/ double P,
+        /*[in]*/ double T,
+        /*[in]*/ SAFEARRAY * compounds,
+        /*[in]*/ SAFEARRAY * molefractions,
+        /*[in]*/ VARIANT ip1,
+        /*[in]*/ VARIANT ip2,
+        /*[in]*/ VARIANT ip3,
+        /*[in]*/ VARIANT ip4,
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall PHFlash_2 (
+        /*[in]*/ struct _PropertyPackage * proppack,
+        /*[in]*/ long flashalg,
+        /*[in]*/ double P,
+        /*[in]*/ double H,
+        /*[in]*/ SAFEARRAY * compounds,
+        /*[in]*/ SAFEARRAY * molefractions,
+        /*[in]*/ VARIANT ip1,
+        /*[in]*/ VARIANT ip2,
+        /*[in]*/ VARIANT ip3,
+        /*[in]*/ VARIANT ip4,
+        /*[in]*/ double InitialTemperatureEstimate,
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall PSFlash_2 (
+        /*[in]*/ struct _PropertyPackage * proppack,
+        /*[in]*/ long flashalg,
+        /*[in]*/ double P,
+        /*[in]*/ double S,
+        /*[in]*/ SAFEARRAY * compounds,
+        /*[in]*/ SAFEARRAY * molefractions,
+        /*[in]*/ VARIANT ip1,
+        /*[in]*/ VARIANT ip2,
+        /*[in]*/ VARIANT ip3,
+        /*[in]*/ VARIANT ip4,
+        /*[in]*/ double InitialTemperatureEstimate,
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall PVFFlash_2 (
+        /*[in]*/ struct _PropertyPackage * proppack,
+        /*[in]*/ long flashalg,
+        /*[in]*/ double P,
+        /*[in]*/ double VF,
+        /*[in]*/ SAFEARRAY * compounds,
+        /*[in]*/ SAFEARRAY * molefractions,
+        /*[in]*/ VARIANT ip1,
+        /*[in]*/ VARIANT ip2,
+        /*[in]*/ VARIANT ip3,
+        /*[in]*/ VARIANT ip4,
+        /*[in]*/ double InitialTemperatureEstimate,
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall TVFFlash_2 (
+        /*[in]*/ struct _PropertyPackage * proppack,
+        /*[in]*/ long flashalg,
+        /*[in]*/ double T,
+        /*[in]*/ double VF,
+        /*[in]*/ SAFEARRAY * compounds,
+        /*[in]*/ SAFEARRAY * molefractions,
+        /*[in]*/ VARIANT ip1,
+        /*[in]*/ VARIANT ip2,
+        /*[in]*/ VARIANT ip3,
+        /*[in]*/ VARIANT ip4,
+        /*[in]*/ double InitialPressureEstimate,
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetModelList (
+        /*[out,retval]*/ struct _ArrayList * * pRetVal ) = 0;
+      virtual HRESULT __stdcall GetInteractionParameterSet (
+        /*[in]*/ BSTR Model,
+        /*[in]*/ BSTR Compound1,
+        /*[in]*/ BSTR Compound2,
+        /*[out,retval]*/ SAFEARRAY * * pRetVal ) = 0;
+};
+
+struct __declspec(uuid("403caafb-be38-3df0-9063-98e7ea946a4b"))
+_PhaseInfo : IDispatch
+{};
+
+struct __declspec(uuid("1f8e00c0-f138-321a-8f6a-651c6eae3942"))
+_ComStreamWrapper : IDispatch
+{};
+
+struct __declspec(uuid("404d8615-3f5b-3089-adc4-5f3efa8afbf0"))
+_HenryParam : IDispatch
+{};
+
+struct __declspec(uuid("95de211b-8976-32ed-81a1-0dcd72911670"))
+_ChaoSeaderPropertyPackage : IDispatch
+{};
+
+struct __declspec(uuid("0325f10a-0dd5-3855-b3a7-7ff7add225f5"))
+_CS : IDispatch
+{};
+
+struct __declspec(uuid("1fb88a22-de03-34e9-b26a-903b3d164219"))
+_GraysonStreedPropertyPackage : IDispatch
+{};
+
+struct __declspec(uuid("64cf3938-2520-3591-b050-2461d657e21d"))
+_GS : IDispatch
+{};
+
+struct __declspec(uuid("9bad26e7-9cb9-303c-a2cd-a50e8bc8b95c"))
+_LKP_IPData : IDispatch
+{};
+
+struct __declspec(uuid("9afcca6e-a773-336a-bc2a-06a7e8216fb9"))
+_LeeKeslerPlocker : IDispatch
+{};
+
+struct __declspec(uuid("aacd907b-d75c-3b05-b76e-48adaacedce7"))
+_LKPPropertyPackage : IDispatch
+{};
+
+struct __declspec(uuid("9189efed-95e4-37f1-9ce3-ce36fe7a4182"))
+_Modfac : IDispatch
+{};
+
+struct __declspec(uuid("54dfb9dc-1853-3c52-a711-a9a3cf8987fa"))
+_ModfacGroups : IDispatch
+{};
+
+struct __declspec(uuid("4a40b34a-b6dd-35a0-ac50-a121dabd415b"))
+_ModfacGroup : IDispatch
+{};
+
+struct __declspec(uuid("782e555a-8a51-3c5c-b816-5c0c8bc6e2bc"))
+_MODFACPropertyPackage : IDispatch
+{};
+
+struct __declspec(uuid("6c9a30a9-7118-3981-a25d-7826848a92a2"))
+_NISTMFAC : IDispatch
+{};
+
+struct __declspec(uuid("187daf2c-d09e-3aaa-8225-f08971a940fd"))
+_NistModfacGroups : IDispatch
+{};
+
+struct __declspec(uuid("ab499969-e65b-3e34-b57a-f04a78d2712f"))
+_NISTMFACPropertyPackage : IDispatch
+{};
+
+struct __declspec(uuid("03f96f8b-4a5e-39d8-81c1-bfe5a49cdde3"))
+_NRTL_IPData : IDispatch
+{};
+
+struct __declspec(uuid("9eba3776-719b-33e4-94f3-0f063ab04554"))
+_ObjectConverter : IDispatch
+{};
+
+struct __declspec(uuid("25bea463-2215-3fdd-af83-e29497c9f2e6"))
+_NRTL : IDispatch
+{};
+
+struct __declspec(uuid("a0435aa3-942f-3672-8144-88af45446fe0"))
+_NRTLPropertyPackage : IDispatch
+{};
+
+struct __declspec(uuid("3d7cee9d-edaf-3aaf-9248-de65fd82a180"))
+_PR_IPData : IDispatch
+{};
+
+struct __declspec(uuid("558c9a5c-58d2-327b-8b2f-36284a69eda7"))
+_PengRobinson : IDispatch
+{};
+
+struct __declspec(uuid("6d5421ca-f5cd-3a5a-b889-cc144755f980"))
+_PR : IDispatch
+{};
+
+struct __declspec(uuid("0b5cadbe-5be8-34d8-beb5-cb459752f6c2"))
+_PengRobinsonPropertyPackage : IDispatch
+{};
+
+struct __declspec(uuid("374fd6c6-6f5f-30ba-baba-7f381425bd8e"))
+_LeeKesler : IDispatch
+{};
+
+struct __declspec(uuid("fb111269-ef89-3ff7-a347-524a52b3767c"))
+_PengRobinsonLKPropertyPackage : IDispatch
+{};
+
+struct __declspec(uuid("fc6e5277-597f-32d5-a4f0-1cd177b8e962"))
+_PRSV2VL : IDispatch
+{};
+
+struct __declspec(uuid("95a95ab4-6648-3656-8122-39f670601513"))
+_PRSV2Param : IDispatch
+{};
+
+struct __declspec(uuid("87337280-b01d-30b5-be0e-a4d106c4f996"))
+_PRSV2_IPData : IDispatch
+{};
+
+struct __declspec(uuid("1972d0a0-8c2b-33d8-a7bc-19bdc88c9a0e"))
+_PRSV2 : IDispatch
+{};
+
+struct __declspec(uuid("12a01d94-8c7c-3599-a71e-8afb6a399503"))
+_PRSV2PropertyPackage : IDispatch
+{};
+
+struct __declspec(uuid("83d4f2fa-4a63-3e5c-92bc-cd09544c2090"))
+_PRSV2VLPropertyPackage : IDispatch
+{};
+
+struct __declspec(uuid("d89207d0-9278-3e1e-8f7c-9613212670b1"))
+_Ideal : IDispatch
+{};
+
+struct __declspec(uuid("b902d444-f065-3fdb-a9c0-b10bc34fe83a"))
+_RaoultPropertyPackage : IDispatch
+{};
+
+struct __declspec(uuid("15248854-6b60-3b85-a421-50e630b18277"))
+_DTL_DTL_SimulationObjects_PropertyPackages_Auxiliary_SRK : IDispatch
+{};
+
+struct __declspec(uuid("33394485-fcff-3d4f-ad90-582c31b74aa6"))
+_DTL_DTL_SimulationObjects_PropertyPackages_ThermoPlugs_SRK : IDispatch
+{};
+
+struct __declspec(uuid("85e477f5-02b5-3a4d-ac1d-ed5322be3a7d"))
+_SRKPropertyPackage : IDispatch
+{};
+
+struct __declspec(uuid("7ee2f5d9-0a56-371c-b698-66d0b341c260"))
+_IAPWS_IF97 : IDispatch
+{};
+
+struct __declspec(uuid("9bbd811f-241c-369d-bbb7-c26dcf9b3c7f"))
+_SteamTablesPropertyPackage : IDispatch
+{};
+
+struct __declspec(uuid("0ac45879-f7be-332a-a82c-3fe9ec5ecad1"))
+_Unifac : IDispatch
+{};
+
+struct __declspec(uuid("bd2fba1b-91ab-3398-9dd3-c2fc3fa92551"))
+_UnifacLL : IDispatch
+{};
+
+struct __declspec(uuid("d3f3cd84-6f86-3bca-9244-c8004eb8753a"))
+_UnifacGroups : IDispatch
+{};
+
+struct __declspec(uuid("abb61af6-e208-3e58-a07a-e9645c609312"))
+_UnifacGroupsLL : IDispatch
+{};
+
+struct __declspec(uuid("48183de3-2bee-3750-b365-9d8324b96e91"))
+_UnifacGroup : IDispatch
+{};
+
+struct __declspec(uuid("c6783e75-ad9d-386a-bd6b-9466b2a15dfb"))
+_UNIFACPropertyPackage : IDispatch
+{};
+
+struct __declspec(uuid("a4c97f69-3802-3ed4-96f2-4e83e3f70295"))
+_UNIFACLLPropertyPackage : IDispatch
+{};
+
+struct __declspec(uuid("cc4780ba-21d3-38c9-86b9-e4890029a5c5"))
+_UNIQUAC_IPData : IDispatch
+{};
+
+struct __declspec(uuid("94661c8a-0667-3845-a245-562ece849b3d"))
+_UNIQUAC : IDispatch
+{};
+
+struct __declspec(uuid("f8a8dff4-4ace-3eef-9aca-b4d34bb64f16"))
+_UNIQUACPropertyPackage : IDispatch
+{};
+
+//
+// Named GUID constants initializations
+//
+
+extern "C" const GUID __declspec(selectany) LIBID_DTL =
+    {0x3fa25e7a,0xc06d,0x4743,{0x8e,0x7c,0x06,0x6b,0x82,0xf8,0x32,0x10}};
+extern "C" const GUID __declspec(selectany) CLSID_Calculator =
+    {0x5f2b671e,0xfa61,0x401e,{0x8d,0x14,0x71,0xfb,0x5b,0x32,0x8f,0x9b}};
+extern "C" const GUID __declspec(selectany) CLSID_Substancia =
+    {0xc62913ef,0x02af,0x3d3b,{0x8c,0xd7,0x5f,0x89,0x4c,0xe3,0xba,0xbd}};
+extern "C" const GUID __declspec(selectany) CLSID_DTL_DTL_ClassesBasicasTermodinamica_Fase =
+    {0x41089dfd,0x3b46,0x33bc,{0x9c,0xcb,0x76,0xe7,0xb0,0x35,0xdc,0xc0}};
+extern "C" const GUID __declspec(selectany) CLSID_TemperatureDependentProperties =
+    {0x4457c827,0x79da,0x3a98,{0x8d,0x1d,0x7b,0xed,0x96,0xff,0x6c,0xf9}};
+extern "C" const GUID __declspec(selectany) CLSID_PressureDependentProperties =
+    {0x8f1afe2f,0xbc4a,0x3f10,{0xa4,0x42,0x31,0x3c,0x9c,0x5d,0xa1,0xa0}};
+extern "C" const GUID __declspec(selectany) CLSID_SinglePhaseMixtureProperties =
+    {0xd8b9bbe3,0x8eea,0x31d0,{0xa9,0x85,0xb3,0x21,0x78,0xdb,0x51,0x13}};
+extern "C" const GUID __declspec(selectany) CLSID_TwoPhaseMixtureProperties =
+    {0x6dfe631e,0x2916,0x33a2,{0x9c,0x0f,0x5b,0xde,0x27,0x04,0x43,0x08}};
+extern "C" const GUID __declspec(selectany) CLSID_InteractionParameter =
+    {0xb248e407,0x65f5,0x3cae,{0x9f,0xe2,0xff,0x84,0xc8,0xc7,0x53,0xd9}};
+extern "C" const GUID __declspec(selectany) CLSID_ConstantProperties =
+    {0xd8fdee12,0x7eb3,0x35b8,{0x84,0x68,0xb0,0xb3,0x65,0x2c,0xe1,0x8f}};
+extern "C" const GUID __declspec(selectany) CLSID_ConstantPropertiesCollection =
+    {0xf9030cc9,0xdd83,0x34a8,{0xb6,0x21,0xd9,0x5b,0x81,0xbe,0x79,0xa4}};
+extern "C" const GUID __declspec(selectany) CLSID_UNIFACGroupCollection =
+    {0x164b4de1,0x4c0d,0x3b4e,{0x82,0x64,0xb9,0xef,0xae,0xa2,0x6f,0xcc}};
+extern "C" const GUID __declspec(selectany) CLSID_ElementCollection =
+    {0x2015126b,0xebc4,0x3e15,{0xb5,0xdc,0xc4,0x8b,0xb6,0x25,0x56,0x22}};
+extern "C" const GUID __declspec(selectany) CLSID_ChemSepNameIDPair =
+    {0x8122af78,0x8c05,0x3921,{0x97,0x1a,0xd9,0x47,0x21,0x1e,0xce,0x85}};
+extern "C" const GUID __declspec(selectany) CLSID_ChemSep =
+    {0x725cc037,0xf04c,0x31e4,{0xb3,0xc9,0xa0,0xc7,0xe9,0x32,0x85,0xbd}};
+extern "C" const GUID __declspec(selectany) CLSID_DWSIM =
+    {0x3ecf73af,0xc66c,0x3f5e,{0x8c,0x50,0xd0,0xb3,0x57,0xac,0xef,0x36}};
+extern "C" const GUID __declspec(selectany) CLSID_Biodiesel =
+    {0xd161a21c,0x8dfc,0x389b,{0x82,0x22,0x10,0x8b,0xb3,0x30,0x65,0x2a}};
+extern "C" const GUID __declspec(selectany) CLSID_UserDB =
+    {0x41ba9ccb,0xde41,0x3546,{0xb5,0x8b,0x38,0x9c,0x08,0x6f,0x87,0x38}};
+extern "C" const GUID __declspec(selectany) CLSID_UserIPDB =
+    {0xe92c15a9,0x7f0f,0x3e5d,{0xa8,0x8f,0x5d,0x09,0x59,0x8f,0xa1,0x0d}};
+extern "C" const GUID __declspec(selectany) CLSID_Electrolyte =
+    {0xc2d16cab,0x5119,0x3c1c,{0x85,0x0b,0xf8,0x85,0x9e,0x78,0x83,0x51}};
+extern "C" const GUID __declspec(selectany) CLSID_MathEx =
+    {0xccfce234,0x6c3f,0x30d5,{0xbd,0x64,0x21,0x92,0x0f,0x53,0x4f,0x5d}};
+extern "C" const GUID __declspec(selectany) CLSID_Brent =
+    {0x3be08637,0x51a7,0x34f9,{0x8f,0x6a,0xd9,0x00,0xa6,0xd4,0xb0,0x2b}};
+extern "C" const GUID __declspec(selectany) CLSID_funcdelegate =
+    {0xfba98527,0x5633,0x3f01,{0xa3,0xa9,0x87,0xd5,0x2b,0xc1,0xa9,0x01}};
+extern "C" const GUID __declspec(selectany) CLSID_BrentMinimize =
+    {0x52b1311c,0xf734,0x3145,{0xb3,0x39,0x3c,0xc7,0xd6,0x4d,0x4e,0xeb}};
+extern "C" const GUID __declspec(selectany) CLSID_Broyden =
+    {0x5ca1b53b,0x04b7,0x3e91,{0xab,0xba,0x82,0xa7,0x65,0xb4,0x71,0xb6}};
+extern "C" const GUID __declspec(selectany) CLSID_bulirschstoer =
+    {0x594dc4a9,0x50a3,0x383a,{0x8a,0xac,0x73,0x10,0x68,0x82,0x01,0x10}};
+extern "C" const GUID __declspec(selectany) CLSID_fdelegate =
+    {0xc6676eed,0x9adb,0x311d,{0xbd,0x72,0x97,0x42,0x1e,0x48,0xa0,0x66}};
+extern "C" const GUID __declspec(selectany) CLSID_MatLib =
+    {0xded59535,0xe550,0x3c16,{0x98,0x19,0xd3,0x97,0x11,0x04,0xaa,0xf0}};
+extern "C" const GUID __declspec(selectany) CLSID_igammaf =
+    {0x0b6a64f6,0xf9ad,0x3e64,{0x82,0x88,0xd1,0x4a,0x70,0x5c,0xd0,0xf8}};
+extern "C" const GUID __declspec(selectany) CLSID_gammaf =
+    {0x2a968eb7,0x0149,0x391f,{0xb9,0xc9,0x92,0x01,0xf7,0x12,0x25,0xb7}};
+extern "C" const GUID __declspec(selectany) CLSID_Common =
+    {0x6dcb0204,0x1b97,0x3f66,{0xac,0x4c,0xa3,0xbc,0x50,0xcf,0xc8,0x7f}};
+extern "C" const GUID __declspec(selectany) CLSID_lbfgs =
+    {0xadcd17c2,0x77ec,0x313a,{0x96,0x48,0xa5,0x25,0x17,0xf0,0x46,0x03}};
+extern "C" const GUID __declspec(selectany) CLSID_funcgraddelegate =
+    {0x4c83f15d,0xaeee,0x380b,{0xa9,0x7e,0xfd,0x60,0x72,0x63,0x46,0x5c}};
+extern "C" const GUID __declspec(selectany) CLSID_newiterdelegate =
+    {0x89175212,0x4085,0x31b6,{0xb3,0x56,0x61,0x57,0xc9,0x11,0xb8,0xfe}};
+extern "C" const GUID __declspec(selectany) CLSID_lbfgsb =
+    {0xe5233778,0x53fd,0x3a61,{0x9b,0x42,0xcc,0x35,0x3a,0x95,0x9c,0x2c}};
+extern "C" const GUID __declspec(selectany) CLSID_levenbergmarquardt =
+    {0x5b0ce00f,0xcef5,0x3e18,{0x89,0x6e,0x27,0x92,0x01,0x9c,0xe8,0x44}};
+extern "C" const GUID __declspec(selectany) CLSID_funcvecjacdelegate =
+    {0x7b20f99e,0x5894,0x3e88,{0xaa,0x67,0x66,0x3d,0xe8,0x09,0x42,0x6e}};
+extern "C" const GUID __declspec(selectany) CLSID_Determinant =
+    {0x9ea688ea,0x2064,0x3a4d,{0x92,0x69,0x43,0x9a,0xd3,0x29,0x92,0x23}};
+extern "C" const GUID __declspec(selectany) CLSID_Inverse =
+    {0x0ebd03ca,0xa2f8,0x3384,{0xb6,0x51,0xa2,0xdd,0x91,0x59,0x8d,0x88}};
+extern "C" const GUID __declspec(selectany) CLSID_TRInverse =
+    {0x0551ee7c,0x0f3d,0x3523,{0xbd,0x97,0xe5,0x6b,0x1d,0xc2,0xb0,0x9b}};
+extern "C" const GUID __declspec(selectany) CLSID_rsolve =
+    {0x18e5b092,0xd50d,0x39d5,{0xbf,0x2f,0xd2,0x30,0x4d,0x87,0x4b,0xef}};
+extern "C" const GUID __declspec(selectany) CLSID_lu =
+    {0x2b5a5f37,0x7098,0x321d,{0x93,0x4e,0xdd,0x7f,0x5e,0xfa,0xe8,0x3e}};
+extern "C" const GUID __declspec(selectany) CLSID_yves =
+    {0xad2dae32,0x025f,0x3d04,{0x97,0xd8,0x9f,0xd7,0x7e,0xd7,0x21,0x82}};
+extern "C" const GUID __declspec(selectany) CLSID_SolveNonLinearError =
+    {0x1019ca6a,0x5bc2,0x306f,{0xbd,0x26,0x02,0xad,0xf4,0x98,0x46,0xb3}};
+extern "C" const GUID __declspec(selectany) CLSID_App =
+    {0xda9b6bd8,0x0c19,0x30d6,{0x96,0x70,0x8e,0xa0,0xbb,0x47,0xc2,0x1d}};
+extern "C" const GUID __declspec(selectany) CLSID_Unidades =
+    {0x0c7394c4,0x5e55,0x3648,{0xb3,0x1c,0x59,0xc7,0x9e,0x78,0x41,0x38}};
+extern "C" const GUID __declspec(selectany) CLSID_UnidadesSI =
+    {0x195f849a,0xc01c,0x36b5,{0x8b,0xc6,0xd5,0xdc,0x37,0x78,0x77,0x11}};
+extern "C" const GUID __declspec(selectany) CLSID_UnidadesSI_Deriv1 =
+    {0x21c2523d,0x81aa,0x37cb,{0x89,0xf4,0xc7,0x0f,0xb2,0x70,0x1b,0xcb}};
+extern "C" const GUID __declspec(selectany) CLSID_UnidadesSI_Deriv2 =
+    {0x1027717e,0xb1b5,0x33d9,{0x90,0x1f,0xe5,0x42,0x5b,0x82,0xd9,0x5c}};
+extern "C" const GUID __declspec(selectany) CLSID_UnidadesSI_Deriv3 =
+    {0xb7261633,0x39d8,0x3b22,{0xa1,0x6c,0xd5,0xe0,0x0d,0x16,0x64,0xf7}};
+extern "C" const GUID __declspec(selectany) CLSID_UnidadesSI_Deriv4 =
+    {0xa5b3cbc2,0xbd70,0x33ae,{0x96,0x90,0xe0,0xc9,0x47,0x3d,0x9d,0x62}};
+extern "C" const GUID __declspec(selectany) CLSID_UnidadesINGLES =
+    {0x62cfb573,0xa5f3,0x3851,{0xa5,0xfd,0x02,0xce,0x17,0x9f,0x1d,0x96}};
+extern "C" const GUID __declspec(selectany) CLSID_UnidadesCGS =
+    {0x15c811f6,0x7aa8,0x38ae,{0x8f,0xa0,0xf9,0xa4,0x3c,0x14,0x39,0x35}};
+extern "C" const GUID __declspec(selectany) CLSID_Conversor =
+    {0xadae7349,0xd1bf,0x3ad8,{0xb6,0x91,0x8e,0x51,0xa9,0xe5,0xcb,0x5f}};
+extern "C" const GUID __declspec(selectany) CLSID_FlashAlgorithm =
+    {0x6ff17e01,0xf31e,0x3566,{0x92,0x53,0x88,0x45,0x7b,0x2b,0x5a,0xd9}};
+extern "C" const GUID __declspec(selectany) CLSID_BostonBrittInsideOut =
+    {0x14b68bdc,0x174b,0x371f,{0xa5,0x45,0x99,0x2b,0x59,0x6a,0x19,0xe5}};
+extern "C" const GUID __declspec(selectany) CLSID_BostonFournierInsideOut3P =
+    {0x82216b3e,0xdc98,0x37c1,{0xae,0x43,0xaf,0xcb,0xe8,0xa8,0xed,0xcc}};
+extern "C" const GUID __declspec(selectany) CLSID_GibbsMinimization3P =
+    {0xf9d38765,0x254b,0x38d5,{0x86,0x82,0x4d,0x35,0xd6,0xdb,0x8d,0x7b}};
+extern "C" const GUID __declspec(selectany) CLSID_DWSIMDefault =
+    {0xc23ba1ff,0x8ab8,0x39bd,{0xb6,0x16,0xde,0x23,0x45,0xc5,0x9c,0xe9}};
+extern "C" const GUID __declspec(selectany) CLSID_NestedLoops3P =
+    {0xde588c74,0xc763,0x3ce9,{0x87,0xb7,0x00,0x85,0xf8,0x0e,0xfe,0x38}};
+extern "C" const GUID __declspec(selectany) CLSID_NestedLoops3PV2 =
+    {0x5c3323b9,0x454d,0x3b1b,{0xae,0x7b,0x67,0xbe,0xcb,0xe6,0xf5,0x5d}};
+extern "C" const GUID __declspec(selectany) CLSID_NestedLoops3PV3 =
+    {0xbb745087,0xfcb5,0x390c,{0x85,0xf5,0xb7,0x7a,0x6b,0x39,0x7d,0x3c}};
+extern "C" const GUID __declspec(selectany) CLSID_NestedLoopsImmiscible =
+    {0x0c36194d,0x281d,0x39cd,{0x9f,0x54,0x6a,0x02,0x5c,0xae,0xc2,0x06}};
+extern "C" const GUID __declspec(selectany) CLSID_NestedLoopsSLE =
+    {0xacbb2ef2,0x6f59,0x380b,{0xab,0xad,0xbd,0xaa,0x9d,0xc5,0x8b,0xa8}};
+extern "C" const GUID __declspec(selectany) CLSID_SimpleLLE =
+    {0xc64d38f6,0xe0d5,0x3692,{0xba,0x4c,0xc2,0x0f,0x35,0x35,0x5c,0xa1}};
+extern "C" const GUID __declspec(selectany) CLSID_ThermoPlug =
+    {0x325608a4,0xfc50,0x3511,{0x8f,0xa2,0x1f,0xaa,0xc2,0xe0,0x06,0x17}};
+extern "C" const GUID __declspec(selectany) CLSID_MichelsenFlash =
+    {0xd2b66eae,0x9902,0x3416,{0xb8,0xe2,0xcf,0x36,0x5e,0x89,0x12,0x26}};
+extern "C" const GUID __declspec(selectany) CLSID_PropertyPackage =
+    {0xa60d9423,0x8fbc,0x32b3,{0xaf,0x8b,0xf5,0xf0,0x2b,0xd1,0x79,0x06}};
+extern "C" const GUID __declspec(selectany) CLSID_PhaseInfo =
+    {0xc103e780,0x6bd9,0x3e20,{0xa1,0x65,0xa2,0x7f,0x37,0xf5,0x1e,0x3a}};
+extern "C" const GUID __declspec(selectany) CLSID_ComStreamWrapper =
+    {0x0ec26784,0xca47,0x3180,{0x91,0x8b,0xae,0x66,0xd9,0x3f,0x44,0x79}};
+extern "C" const GUID __declspec(selectany) CLSID_HenryParam =
+    {0x82cb5d18,0x2d93,0x3607,{0xb1,0x9f,0xd7,0x2f,0x79,0x55,0xf8,0x70}};
+extern "C" const GUID __declspec(selectany) CLSID_ChaoSeaderPropertyPackage =
+    {0x8079d263,0x219c,0x4df6,{0xbb,0x7d,0xd0,0x34,0xde,0xe9,0xc4,0x64}};
+extern "C" const GUID __declspec(selectany) CLSID_CS =
+    {0x03436744,0xefce,0x3641,{0x92,0x38,0xc3,0x26,0x5b,0x5e,0x7d,0x0a}};
+extern "C" const GUID __declspec(selectany) CLSID_GraysonStreedPropertyPackage =
+    {0x5c1eefab,0x8e68,0x48d5,{0x8d,0x63,0x69,0x30,0x4b,0x47,0xce,0x7f}};
+extern "C" const GUID __declspec(selectany) CLSID_GS =
+    {0xf27a8cf2,0xf922,0x39ef,{0x9c,0x87,0xe2,0x6f,0xdc,0x6b,0xe9,0x84}};
+extern "C" const GUID __declspec(selectany) CLSID_LKP_IPData =
+    {0x63c7bdf9,0x68be,0x3627,{0xbb,0x1c,0xf2,0x9f,0x21,0x7e,0x29,0xdc}};
+extern "C" const GUID __declspec(selectany) CLSID_LeeKeslerPlocker =
+    {0x615d2596,0xa56e,0x3cc5,{0x8b,0xd4,0x6e,0xed,0x72,0x2a,0xa5,0x4e}};
+extern "C" const GUID __declspec(selectany) CLSID_LKPPropertyPackage =
+    {0xdf7c2420,0x1fbb,0x4b35,{0x9d,0x87,0x6e,0xcf,0x53,0x0f,0xed,0x7a}};
+extern "C" const GUID __declspec(selectany) CLSID_Modfac =
+    {0x0314bf5c,0xd023,0x3cc6,{0xb9,0x5a,0x3a,0x8e,0x49,0xb7,0x1d,0x86}};
+extern "C" const GUID __declspec(selectany) CLSID_ModfacGroups =
+    {0x06d4086b,0xaf7e,0x382c,{0xbd,0x1c,0xfd,0x04,0x9d,0x8c,0x32,0xdd}};
+extern "C" const GUID __declspec(selectany) CLSID_ModfacGroup =
+    {0x19eb685e,0x36e8,0x3611,{0x87,0xad,0x4c,0x6b,0xf4,0x33,0xfc,0x7b}};
+extern "C" const GUID __declspec(selectany) CLSID_MODFACPropertyPackage =
+    {0x519eb917,0x0b2e,0x4ac1,{0x9a,0xf2,0x2d,0x1a,0x2a,0x55,0x01,0x1f}};
+extern "C" const GUID __declspec(selectany) CLSID_NISTMFAC =
+    {0x5346cdee,0x98b7,0x3bbf,{0x9f,0x6c,0x48,0x07,0x61,0xbc,0xe2,0xac}};
+extern "C" const GUID __declspec(selectany) CLSID_NistModfacGroups =
+    {0x272b7c6f,0x813a,0x373a,{0xaa,0xa3,0x60,0x15,0xc4,0x67,0x33,0xbb}};
+extern "C" const GUID __declspec(selectany) CLSID_NISTMFACPropertyPackage =
+    {0x519eb917,0x0b2e,0x4ac1,{0x9a,0xf2,0x2d,0x1a,0x2a,0x55,0x06,0x7f}};
+extern "C" const GUID __declspec(selectany) CLSID_NRTL_IPData =
+    {0x27e73e57,0x4bf1,0x3a3c,{0xb8,0x66,0xed,0xb8,0xb6,0xea,0xbd,0xe7}};
+extern "C" const GUID __declspec(selectany) CLSID_ObjectConverter =
+    {0xc0669f2e,0x06a4,0x3618,{0x9e,0x16,0x8c,0xf6,0x3a,0x6a,0xe7,0x79}};
+extern "C" const GUID __declspec(selectany) CLSID_NRTL =
+    {0x0e474dc6,0xfeec,0x316e,{0x8c,0xc5,0xaa,0x42,0xa2,0x99,0x1e,0xd3}};
+extern "C" const GUID __declspec(selectany) CLSID_NRTLPropertyPackage =
+    {0xd42f0157,0x5750,0x4c89,{0xa9,0x4e,0x63,0x4a,0x04,0x70,0x15,0x68}};
+extern "C" const GUID __declspec(selectany) CLSID_PR_IPData =
+    {0x077776dd,0x4fb9,0x3449,{0x8a,0x02,0x91,0x8f,0xbb,0xe0,0x20,0x19}};
+extern "C" const GUID __declspec(selectany) CLSID_PengRobinson =
+    {0x3c3e5d6a,0xcb1b,0x39d6,{0xbb,0x17,0x30,0x84,0x19,0xd0,0x18,0xa6}};
+extern "C" const GUID __declspec(selectany) CLSID_PR =
+    {0xe9cf0de6,0xcc45,0x36e6,{0xb4,0x6f,0x98,0x2c,0x91,0xac,0x87,0x23}};
+extern "C" const GUID __declspec(selectany) CLSID_PengRobinsonPropertyPackage =
+    {0x2a322ab7,0x2256,0x495d,{0x86,0xc7,0x79,0x7a,0xd1,0x9f,0xde,0x22}};
+extern "C" const GUID __declspec(selectany) CLSID_LeeKesler =
+    {0xf016f3b0,0x33fb,0x3698,{0xbc,0x84,0xfe,0x22,0x30,0xdc,0x08,0x93}};
+extern "C" const GUID __declspec(selectany) CLSID_PengRobinsonLKPropertyPackage =
+    {0x8544e0dc,0x5d07,0x44e5,{0x8a,0xc9,0x77,0xef,0xb1,0xac,0xd9,0x11}};
+extern "C" const GUID __declspec(selectany) CLSID_PRSV2VL =
+    {0x7a54865d,0x11fe,0x3080,{0x9c,0x6f,0xcd,0x75,0x93,0x45,0x6d,0x3b}};
+extern "C" const GUID __declspec(selectany) CLSID_PRSV2Param =
+    {0x8b8868bb,0x589f,0x325b,{0xa7,0xc7,0xa9,0x65,0x53,0x4f,0xb1,0xbb}};
+extern "C" const GUID __declspec(selectany) CLSID_PRSV2_IPData =
+    {0xb58c4ced,0x0438,0x3cac,{0xb5,0x7c,0x79,0xba,0x96,0xa7,0xdb,0x04}};
+extern "C" const GUID __declspec(selectany) CLSID_PRSV2 =
+    {0x71a0692d,0x83fd,0x36c3,{0x84,0x02,0x73,0x55,0x3e,0x03,0xc7,0xa9}};
+extern "C" const GUID __declspec(selectany) CLSID_PRSV2PropertyPackage =
+    {0x2e821a14,0x64d2,0x30d0,{0x84,0xbb,0x66,0x09,0x56,0x54,0x31,0xfa}};
+extern "C" const GUID __declspec(selectany) CLSID_PRSV2VLPropertyPackage =
+    {0x1918d29f,0x5630,0x35d1,{0xa2,0xff,0xf0,0x18,0x24,0x3a,0x24,0x3f}};
+extern "C" const GUID __declspec(selectany) CLSID_Ideal =
+    {0xa771a811,0xc0f2,0x37a7,{0xa8,0x8d,0x84,0x99,0x47,0x0b,0xac,0x4f}};
+extern "C" const GUID __declspec(selectany) CLSID_RaoultPropertyPackage =
+    {0x407a13ec,0x1c55,0x462a,{0xae,0xa4,0x97,0x09,0xb1,0x13,0x67,0xb0}};
+extern "C" const GUID __declspec(selectany) CLSID_DTL_DTL_SimulationObjects_PropertyPackages_Auxiliary_SRK =
+    {0xf15467fb,0xdf27,0x3c0f,{0xad,0x86,0xc9,0xc3,0x44,0x5c,0xb8,0x6b}};
+extern "C" const GUID __declspec(selectany) CLSID_DTL_DTL_SimulationObjects_PropertyPackages_ThermoPlugs_SRK =
+    {0xdaa7c845,0xe36c,0x36a0,{0xbe,0xcb,0x13,0xc7,0x82,0xb0,0x90,0xd9}};
+extern "C" const GUID __declspec(selectany) CLSID_SRKPropertyPackage =
+    {0x920d043c,0xf640,0x4cca,{0xb3,0x01,0x22,0x8e,0x77,0x3d,0x4e,0x35}};
+extern "C" const GUID __declspec(selectany) CLSID_IAPWS_IF97 =
+    {0x5631d33a,0x5e3f,0x3400,{0x94,0x09,0x93,0x2a,0xfb,0x6f,0xd0,0x88}};
+extern "C" const GUID __declspec(selectany) CLSID_SteamTablesPropertyPackage =
+    {0x170d6e8a,0x8880,0x4bf9,{0xb7,0xa0,0xe4,0xa3,0xfd,0xbf,0xd5,0x89}};
+extern "C" const GUID __declspec(selectany) CLSID_Unifac =
+    {0xb1222edb,0xeecc,0x361f,{0x86,0xff,0xa1,0x7c,0x23,0x42,0xaf,0x6b}};
+extern "C" const GUID __declspec(selectany) CLSID_UnifacLL =
+    {0x3accefbd,0x8e64,0x305c,{0x93,0x6a,0x6d,0x84,0x4e,0x0d,0xff,0x41}};
+extern "C" const GUID __declspec(selectany) CLSID_UnifacGroups =
+    {0xe46dc718,0xa847,0x356f,{0xa1,0xff,0x57,0x1a,0x85,0x0e,0xe0,0xb9}};
+extern "C" const GUID __declspec(selectany) CLSID_UnifacGroupsLL =
+    {0x92049716,0xf03f,0x3133,{0x8e,0xa2,0x5b,0x56,0xca,0x9c,0xf4,0xe9}};
+extern "C" const GUID __declspec(selectany) CLSID_UnifacGroup =
+    {0x8fb4187c,0xe032,0x373c,{0xb6,0x1e,0x31,0x9d,0x23,0x49,0x08,0xfb}};
+extern "C" const GUID __declspec(selectany) CLSID_UNIFACPropertyPackage =
+    {0xb20e8a1d,0x6cb5,0x43a1,{0x87,0xe2,0x14,0x8e,0xbb,0x25,0x23,0x5a}};
+extern "C" const GUID __declspec(selectany) CLSID_UNIFACLLPropertyPackage =
+    {0xe48b580b,0x82e4,0x4bd7,{0x84,0x1a,0x64,0x7a,0x24,0xa4,0x47,0xb5}};
+extern "C" const GUID __declspec(selectany) CLSID_UNIQUAC_IPData =
+    {0x754cb384,0xa9aa,0x3d91,{0xbe,0xde,0x03,0x95,0x68,0x52,0x23,0x67}};
+extern "C" const GUID __declspec(selectany) CLSID_UNIQUAC =
+    {0x1f939ae9,0x0eee,0x3294,{0xae,0x6d,0xae,0xc2,0x1d,0x28,0x28,0x01}};
+extern "C" const GUID __declspec(selectany) CLSID_UNIQUACPropertyPackage =
+    {0x5265f953,0x8825,0x4a80,{0x91,0x12,0xa3,0xb6,0x8c,0x32,0x9e,0x4c}};
+extern "C" const GUID __declspec(selectany) CLSID_funcdelegate_2 =
+    {0xe776046d,0xe3b2,0x3b0b,{0xaa,0x38,0x0a,0x0c,0xc7,0xba,0xa1,0x70}};
+extern "C" const GUID __declspec(selectany) CLSID_funcgraddelegate_2 =
+    {0x92d0736f,0xd5d8,0x3d3a,{0x89,0x86,0xbc,0x3e,0xec,0x2d,0x11,0x11}};
+extern "C" const GUID __declspec(selectany) CLSID_newiterdelegate_2 =
+    {0x232c4508,0x5b5e,0x3019,{0x87,0xe6,0xec,0x02,0x44,0x10,0xc3,0xc9}};
+extern "C" const GUID __declspec(selectany) IID__Substancia =
+    {0x06bc0985,0xe229,0x3b16,{0x89,0xf0,0x3f,0x38,0x31,0x49,0x08,0x33}};
+extern "C" const GUID __declspec(selectany) IID__DTL_DTL_ClassesBasicasTermodinamica_Fase =
+    {0x6d98db00,0x3d85,0x3597,{0xb9,0xac,0x28,0xb0,0xb7,0x5e,0x5c,0xad}};
+extern "C" const GUID __declspec(selectany) IID__TemperatureDependentProperties =
+    {0x7758ee1f,0xe5e5,0x3d63,{0x95,0x13,0x1d,0x3e,0xde,0xc5,0x11,0xcf}};
+extern "C" const GUID __declspec(selectany) IID__PressureDependentProperties =
+    {0xce2aa662,0xc45e,0x3590,{0xa2,0xfd,0xa3,0x1a,0x1e,0x5e,0xbe,0x9e}};
+extern "C" const GUID __declspec(selectany) IID__SinglePhaseMixtureProperties =
+    {0x31038d7a,0x0626,0x35ed,{0x8d,0x8a,0x48,0xf8,0x4a,0x01,0x2c,0x1d}};
+extern "C" const GUID __declspec(selectany) IID__TwoPhaseMixtureProperties =
+    {0x41620e07,0xf6d9,0x36a1,{0xa7,0xd5,0xaa,0xe1,0xcd,0xbc,0xad,0xae}};
+extern "C" const GUID __declspec(selectany) IID__InteractionParameter =
+    {0xbeb64e1c,0x4cdc,0x37b3,{0x93,0x9f,0xd6,0x7e,0x02,0x58,0x32,0x1f}};
+extern "C" const GUID __declspec(selectany) IID__ConstantProperties =
+    {0xd2b6460a,0xf4c3,0x3e84,{0x86,0xe7,0x1a,0x66,0x47,0x14,0x18,0xed}};
+extern "C" const GUID __declspec(selectany) IID__ConstantPropertiesCollection =
+    {0x84f3d50d,0x56f9,0x3043,{0x8a,0xb0,0xd5,0x3a,0xcf,0xc7,0x74,0x6f}};
+extern "C" const GUID __declspec(selectany) IID__UNIFACGroupCollection =
+    {0x45e9fa36,0xbec5,0x386d,{0x83,0x92,0x9b,0xcf,0xaa,0xa6,0x9d,0x64}};
+extern "C" const GUID __declspec(selectany) IID__ElementCollection =
+    {0x6f45668a,0x88e4,0x3d99,{0x97,0x2d,0xab,0xb3,0xee,0x6d,0x9f,0xba}};
+extern "C" const GUID __declspec(selectany) IID__ChemSepNameIDPair =
+    {0x6dd49d99,0xfc85,0x3e5f,{0x95,0x49,0x17,0xd2,0xbe,0x6d,0xe0,0x23}};
+extern "C" const GUID __declspec(selectany) IID__ChemSep =
+    {0xa9606df6,0x4d17,0x3aa3,{0xa9,0xb4,0x88,0x20,0xb6,0x09,0xc2,0x8e}};
+extern "C" const GUID __declspec(selectany) IID__DWSIM =
+    {0xe646d6b1,0xf85e,0x3a95,{0x92,0x9f,0x71,0xae,0xc8,0x40,0x9d,0x07}};
+extern "C" const GUID __declspec(selectany) IID__Biodiesel =
+    {0x329ab126,0xbefa,0x3728,{0xaa,0xc9,0x3c,0x9a,0x81,0xa9,0xd1,0x57}};
+extern "C" const GUID __declspec(selectany) IID__UserDB =
+    {0x038c9a66,0x8d86,0x3863,{0xbb,0x89,0x5e,0x53,0xe8,0x35,0x17,0x6d}};
+extern "C" const GUID __declspec(selectany) IID__UserIPDB =
+    {0x78b4c3ef,0x44c8,0x368a,{0x9b,0x27,0x96,0x99,0xa5,0xd7,0xfd,0x60}};
+extern "C" const GUID __declspec(selectany) IID__Electrolyte =
+    {0x9bf5e86e,0x8d7b,0x34b2,{0x87,0xf8,0xf8,0x28,0x52,0x26,0xff,0x80}};
+extern "C" const GUID __declspec(selectany) IID__MathEx =
+    {0x82df6e0d,0xee9c,0x3a6e,{0x9e,0x16,0x47,0x19,0x8b,0xd3,0x85,0x8c}};
+extern "C" const GUID __declspec(selectany) IID__Brent =
+    {0x76123ae8,0xfcb2,0x36a2,{0xb4,0x23,0x7e,0x33,0x21,0x60,0xb4,0x8e}};
+extern "C" const GUID __declspec(selectany) IID__funcdelegate =
+    {0x6d95b837,0x3d16,0x36cd,{0x92,0x5e,0x26,0x38,0x88,0x34,0x54,0xa8}};
+extern "C" const GUID __declspec(selectany) IID__BrentMinimize =
+    {0xd05b6bad,0xbd11,0x3f93,{0xbe,0x44,0xdb,0x61,0xaa,0x62,0xe7,0xab}};
+extern "C" const GUID __declspec(selectany) IID__funcdelegate_2 =
+    {0x3632dd92,0x75f7,0x3b12,{0xbc,0xf4,0x71,0x99,0x20,0xb5,0xdd,0x08}};
+extern "C" const GUID __declspec(selectany) IID__Broyden =
+    {0xdfdac568,0x23cd,0x3f91,{0x80,0xe1,0xd4,0x42,0x5f,0xab,0x9e,0x4d}};
+extern "C" const GUID __declspec(selectany) IID__bulirschstoer =
+    {0x5a73bab4,0xebf4,0x362d,{0xaa,0xbf,0x29,0x54,0xdf,0x1a,0x83,0x1d}};
+extern "C" const GUID __declspec(selectany) IID__fdelegate =
+    {0xd42fc17f,0xc754,0x37e9,{0x97,0x0c,0xf1,0x68,0x41,0x0e,0x83,0x21}};
+extern "C" const GUID __declspec(selectany) IID__MatLib =
+    {0xdbc7b42e,0x6d04,0x3a6c,{0x84,0xad,0xe2,0x20,0x89,0x8a,0x02,0x54}};
+extern "C" const GUID __declspec(selectany) IID__igammaf =
+    {0x41b194d8,0xa81c,0x3485,{0x9b,0x15,0xd8,0xd7,0xbf,0x8e,0x99,0x83}};
+extern "C" const GUID __declspec(selectany) IID__gammaf =
+    {0x6c2e146a,0xcd27,0x3c46,{0xa4,0xe6,0xfe,0x1e,0xc6,0x7f,0xa3,0x3d}};
+extern "C" const GUID __declspec(selectany) IID__Common =
+    {0xbecaf2c2,0xa6ad,0x3709,{0x80,0xb3,0x60,0x70,0x19,0x18,0x62,0x07}};
+extern "C" const GUID __declspec(selectany) IID__lbfgs =
+    {0xd0209991,0xab54,0x3c80,{0xba,0xc8,0x7b,0x7f,0x3d,0xca,0xef,0x16}};
+extern "C" const GUID __declspec(selectany) IID__funcgraddelegate =
+    {0x8c24490d,0xe3ac,0x3d33,{0x8d,0x97,0x8f,0x5a,0x83,0xce,0xb0,0xae}};
+extern "C" const GUID __declspec(selectany) IID__newiterdelegate =
+    {0xde554272,0xdfbc,0x3cf6,{0xb4,0x68,0xa4,0x82,0x11,0xf9,0xe3,0xab}};
+extern "C" const GUID __declspec(selectany) IID__lbfgsb =
+    {0xe7ab779f,0xb139,0x3511,{0x94,0x1b,0xc9,0xab,0x55,0x18,0x48,0xb3}};
+extern "C" const GUID __declspec(selectany) IID__funcgraddelegate_2 =
+    {0x30c0814e,0x3263,0x392e,{0xba,0x18,0x33,0x33,0x12,0x87,0x37,0x5b}};
+extern "C" const GUID __declspec(selectany) IID__newiterdelegate_2 =
+    {0xc99770de,0xc74d,0x363b,{0xbf,0xb4,0x36,0x05,0xa0,0x81,0xce,0x2d}};
+extern "C" const GUID __declspec(selectany) IID__levenbergmarquardt =
+    {0xbd88835f,0x0c4a,0x3d38,{0x8e,0xa2,0xf3,0xa9,0x3e,0x3a,0x15,0x8e}};
+extern "C" const GUID __declspec(selectany) IID__funcvecjacdelegate =
+    {0x1631ea7e,0x8805,0x3fde,{0x9c,0xcd,0x3b,0x5a,0x19,0xb1,0xfc,0x21}};
+extern "C" const GUID __declspec(selectany) IID__Determinant =
+    {0xd0682da4,0x580d,0x37cc,{0xbe,0x34,0xae,0xeb,0x1e,0x6c,0x20,0x28}};
+extern "C" const GUID __declspec(selectany) IID__Inverse =
+    {0x33e4f097,0x6603,0x3dd8,{0xbd,0xbe,0xb5,0x72,0x58,0xc7,0xcf,0xf5}};
+extern "C" const GUID __declspec(selectany) IID__TRInverse =
+    {0x634b659d,0x5e11,0x3cd5,{0xbf,0x19,0xc1,0x13,0x27,0xfa,0x5c,0xc2}};
+extern "C" const GUID __declspec(selectany) IID__rsolve =
+    {0x039b1959,0xb2d8,0x36ee,{0x87,0x5a,0x9d,0x21,0x45,0x91,0x9f,0xd5}};
+extern "C" const GUID __declspec(selectany) IID__lu =
+    {0x2aa5f385,0xfa1f,0x3e1b,{0x86,0x06,0x38,0x14,0xf6,0x3d,0x7c,0xd0}};
+extern "C" const GUID __declspec(selectany) IID__yves =
+    {0x48782514,0xfd5e,0x3d2d,{0x81,0x2c,0x6b,0x76,0xa3,0xe7,0xe0,0x94}};
+extern "C" const GUID __declspec(selectany) IID__SolveNonLinearError =
+    {0x5750c14e,0xcf60,0x3560,{0xb9,0x80,0x51,0x79,0x70,0x64,0x83,0x69}};
+extern "C" const GUID __declspec(selectany) IID__App =
+    {0x278d3891,0xa751,0x3098,{0x90,0x79,0x1e,0x12,0x21,0x47,0x33,0x99}};
+extern "C" const GUID __declspec(selectany) IID__Unidades =
+    {0xd508ff47,0xba2b,0x333f,{0xbc,0x20,0x5d,0x61,0x1b,0x04,0xf2,0xc3}};
+extern "C" const GUID __declspec(selectany) IID__UnidadesSI =
+    {0x8eef9abe,0xc274,0x379b,{0xbd,0x61,0xd3,0x5a,0x9e,0x45,0x06,0x60}};
+extern "C" const GUID __declspec(selectany) IID__UnidadesSI_Deriv1 =
+    {0x04744202,0xdded,0x3e71,{0xa7,0xd9,0x2f,0x71,0xbf,0x03,0xe8,0xf6}};
+extern "C" const GUID __declspec(selectany) IID__UnidadesSI_Deriv2 =
+    {0x38270eb7,0xce21,0x3e57,{0xb7,0x0c,0x68,0xbc,0x3d,0x43,0x6a,0x50}};
+extern "C" const GUID __declspec(selectany) IID__UnidadesSI_Deriv3 =
+    {0x519acee0,0x20f2,0x344c,{0x9c,0x12,0xfd,0x09,0x96,0x78,0x7b,0x92}};
+extern "C" const GUID __declspec(selectany) IID__UnidadesSI_Deriv4 =
+    {0x3106479b,0x07d7,0x355c,{0x9f,0xea,0xef,0xfe,0x40,0x79,0xa8,0x3c}};
+extern "C" const GUID __declspec(selectany) IID__UnidadesINGLES =
+    {0x77e19fe1,0x04dd,0x3f21,{0x9b,0x07,0x0e,0xfb,0xe2,0x88,0xf8,0x64}};
+extern "C" const GUID __declspec(selectany) IID__UnidadesCGS =
+    {0xd0c214a8,0xc5c0,0x3f29,{0xa8,0xbd,0xba,0x7a,0xc2,0xca,0x81,0x70}};
+extern "C" const GUID __declspec(selectany) IID__Conversor =
+    {0xe3570e2a,0xfce3,0x34d8,{0x91,0x33,0x9d,0x8a,0x86,0x8f,0xd2,0xb8}};
+extern "C" const GUID __declspec(selectany) IID__FlashAlgorithm =
+    {0xb272bbf0,0x506c,0x3c6b,{0xbb,0x53,0xa7,0x8e,0x07,0x5a,0x9f,0x07}};
+extern "C" const GUID __declspec(selectany) IID__BostonBrittInsideOut =
+    {0x0e3260ee,0x0555,0x38ad,{0x95,0xaf,0x23,0xe0,0x59,0x29,0x43,0x7f}};
+extern "C" const GUID __declspec(selectany) IID__BostonFournierInsideOut3P =
+    {0x2ae9809d,0xb934,0x3d42,{0xa2,0x95,0xfa,0x35,0x1e,0x65,0xcc,0x40}};
+extern "C" const GUID __declspec(selectany) IID__GibbsMinimization3P =
+    {0x957df91c,0xd1c7,0x38d3,{0x93,0x78,0x87,0x7e,0xa9,0x65,0x52,0xfe}};
+extern "C" const GUID __declspec(selectany) IID__DWSIMDefault =
+    {0x97a758bc,0xb34b,0x35fa,{0xa6,0x01,0x82,0xdd,0xe1,0x19,0x5a,0x28}};
+extern "C" const GUID __declspec(selectany) IID__NestedLoops3P =
+    {0x816c205c,0x2026,0x3787,{0x93,0x29,0xb5,0x8a,0xe7,0x31,0x7c,0xc6}};
+extern "C" const GUID __declspec(selectany) IID__NestedLoops3PV2 =
+    {0x3a3311b6,0x5b60,0x35be,{0x8d,0x84,0xe1,0xf4,0x06,0xd7,0xca,0x37}};
+extern "C" const GUID __declspec(selectany) IID__NestedLoops3PV3 =
+    {0x4328c00d,0xf0c3,0x38f5,{0x99,0x59,0x9d,0x5c,0x1e,0xe9,0xb3,0xe1}};
+extern "C" const GUID __declspec(selectany) IID__NestedLoopsImmiscible =
+    {0x6ce643af,0x1dc7,0x3a25,{0xad,0xbe,0xed,0xb9,0x3f,0xea,0x72,0xdc}};
+extern "C" const GUID __declspec(selectany) IID__NestedLoopsSLE =
+    {0x828654aa,0x1c87,0x3639,{0xa7,0xc7,0xb3,0x3e,0xe6,0xec,0x93,0x69}};
+extern "C" const GUID __declspec(selectany) IID__SimpleLLE =
+    {0x16177286,0xa9b6,0x3cb7,{0x95,0x97,0xe7,0xec,0x68,0xa4,0xc7,0x83}};
+extern "C" const GUID __declspec(selectany) IID__ThermoPlug =
+    {0xd7ef4782,0x8903,0x3088,{0x93,0xf4,0x00,0xd4,0x47,0xa4,0xd9,0xfb}};
+extern "C" const GUID __declspec(selectany) IID__MichelsenFlash =
+    {0xb7a41e0e,0x8538,0x32b1,{0xbc,0xe4,0x4f,0x3e,0x77,0xd7,0xb6,0x8c}};
+extern "C" const GUID __declspec(selectany) IID__PropertyPackage =
+    {0x4c871702,0x00f8,0x3f12,{0x8c,0x2d,0xdf,0xe8,0x9e,0x48,0x2d,0x73}};
+extern "C" const GUID __declspec(selectany) IID__Calculator =
+    {0x0ea44ede,0xad65,0x435c,{0xb8,0xcc,0x0d,0x11,0x46,0xbd,0x18,0x2b}};
+extern "C" const GUID __declspec(selectany) IID__PhaseInfo =
+    {0x403caafb,0xbe38,0x3df0,{0x90,0x63,0x98,0xe7,0xea,0x94,0x6a,0x4b}};
+extern "C" const GUID __declspec(selectany) IID__ComStreamWrapper =
+    {0x1f8e00c0,0xf138,0x321a,{0x8f,0x6a,0x65,0x1c,0x6e,0xae,0x39,0x42}};
+extern "C" const GUID __declspec(selectany) IID__HenryParam =
+    {0x404d8615,0x3f5b,0x3089,{0xad,0xc4,0x5f,0x3e,0xfa,0x8a,0xfb,0xf0}};
+extern "C" const GUID __declspec(selectany) IID__ChaoSeaderPropertyPackage =
+    {0x95de211b,0x8976,0x32ed,{0x81,0xa1,0x0d,0xcd,0x72,0x91,0x16,0x70}};
+extern "C" const GUID __declspec(selectany) IID__CS =
+    {0x0325f10a,0x0dd5,0x3855,{0xb3,0xa7,0x7f,0xf7,0xad,0xd2,0x25,0xf5}};
+extern "C" const GUID __declspec(selectany) IID__GraysonStreedPropertyPackage =
+    {0x1fb88a22,0xde03,0x34e9,{0xb2,0x6a,0x90,0x3b,0x3d,0x16,0x42,0x19}};
+extern "C" const GUID __declspec(selectany) IID__GS =
+    {0x64cf3938,0x2520,0x3591,{0xb0,0x50,0x24,0x61,0xd6,0x57,0xe2,0x1d}};
+extern "C" const GUID __declspec(selectany) IID__LKP_IPData =
+    {0x9bad26e7,0x9cb9,0x303c,{0xa2,0xcd,0xa5,0x0e,0x8b,0xc8,0xb9,0x5c}};
+extern "C" const GUID __declspec(selectany) IID__LeeKeslerPlocker =
+    {0x9afcca6e,0xa773,0x336a,{0xbc,0x2a,0x06,0xa7,0xe8,0x21,0x6f,0xb9}};
+extern "C" const GUID __declspec(selectany) IID__LKPPropertyPackage =
+    {0xaacd907b,0xd75c,0x3b05,{0xb7,0x6e,0x48,0xad,0xaa,0xce,0xdc,0xe7}};
+extern "C" const GUID __declspec(selectany) IID__Modfac =
+    {0x9189efed,0x95e4,0x37f1,{0x9c,0xe3,0xce,0x36,0xfe,0x7a,0x41,0x82}};
+extern "C" const GUID __declspec(selectany) IID__ModfacGroups =
+    {0x54dfb9dc,0x1853,0x3c52,{0xa7,0x11,0xa9,0xa3,0xcf,0x89,0x87,0xfa}};
+extern "C" const GUID __declspec(selectany) IID__ModfacGroup =
+    {0x4a40b34a,0xb6dd,0x35a0,{0xac,0x50,0xa1,0x21,0xda,0xbd,0x41,0x5b}};
+extern "C" const GUID __declspec(selectany) IID__MODFACPropertyPackage =
+    {0x782e555a,0x8a51,0x3c5c,{0xb8,0x16,0x5c,0x0c,0x8b,0xc6,0xe2,0xbc}};
+extern "C" const GUID __declspec(selectany) IID__NISTMFAC =
+    {0x6c9a30a9,0x7118,0x3981,{0xa2,0x5d,0x78,0x26,0x84,0x8a,0x92,0xa2}};
+extern "C" const GUID __declspec(selectany) IID__NistModfacGroups =
+    {0x187daf2c,0xd09e,0x3aaa,{0x82,0x25,0xf0,0x89,0x71,0xa9,0x40,0xfd}};
+extern "C" const GUID __declspec(selectany) IID__NISTMFACPropertyPackage =
+    {0xab499969,0xe65b,0x3e34,{0xb5,0x7a,0xf0,0x4a,0x78,0xd2,0x71,0x2f}};
+extern "C" const GUID __declspec(selectany) IID__NRTL_IPData =
+    {0x03f96f8b,0x4a5e,0x39d8,{0x81,0xc1,0xbf,0xe5,0xa4,0x9c,0xdd,0xe3}};
+extern "C" const GUID __declspec(selectany) IID__ObjectConverter =
+    {0x9eba3776,0x719b,0x33e4,{0x94,0xf3,0x0f,0x06,0x3a,0xb0,0x45,0x54}};
+extern "C" const GUID __declspec(selectany) IID__NRTL =
+    {0x25bea463,0x2215,0x3fdd,{0xaf,0x83,0xe2,0x94,0x97,0xc9,0xf2,0xe6}};
+extern "C" const GUID __declspec(selectany) IID__NRTLPropertyPackage =
+    {0xa0435aa3,0x942f,0x3672,{0x81,0x44,0x88,0xaf,0x45,0x44,0x6f,0xe0}};
+extern "C" const GUID __declspec(selectany) IID__PR_IPData =
+    {0x3d7cee9d,0xedaf,0x3aaf,{0x92,0x48,0xde,0x65,0xfd,0x82,0xa1,0x80}};
+extern "C" const GUID __declspec(selectany) IID__PengRobinson =
+    {0x558c9a5c,0x58d2,0x327b,{0x8b,0x2f,0x36,0x28,0x4a,0x69,0xed,0xa7}};
+extern "C" const GUID __declspec(selectany) IID__PR =
+    {0x6d5421ca,0xf5cd,0x3a5a,{0xb8,0x89,0xcc,0x14,0x47,0x55,0xf9,0x80}};
+extern "C" const GUID __declspec(selectany) IID__PengRobinsonPropertyPackage =
+    {0x0b5cadbe,0x5be8,0x34d8,{0xbe,0xb5,0xcb,0x45,0x97,0x52,0xf6,0xc2}};
+extern "C" const GUID __declspec(selectany) IID__LeeKesler =
+    {0x374fd6c6,0x6f5f,0x30ba,{0xba,0xba,0x7f,0x38,0x14,0x25,0xbd,0x8e}};
+extern "C" const GUID __declspec(selectany) IID__PengRobinsonLKPropertyPackage =
+    {0xfb111269,0xef89,0x3ff7,{0xa3,0x47,0x52,0x4a,0x52,0xb3,0x76,0x7c}};
+extern "C" const GUID __declspec(selectany) IID__PRSV2VL =
+    {0xfc6e5277,0x597f,0x32d5,{0xa4,0xf0,0x1c,0xd1,0x77,0xb8,0xe9,0x62}};
+extern "C" const GUID __declspec(selectany) IID__PRSV2Param =
+    {0x95a95ab4,0x6648,0x3656,{0x81,0x22,0x39,0xf6,0x70,0x60,0x15,0x13}};
+extern "C" const GUID __declspec(selectany) IID__PRSV2_IPData =
+    {0x87337280,0xb01d,0x30b5,{0xbe,0x0e,0xa4,0xd1,0x06,0xc4,0xf9,0x96}};
+extern "C" const GUID __declspec(selectany) IID__PRSV2 =
+    {0x1972d0a0,0x8c2b,0x33d8,{0xa7,0xbc,0x19,0xbd,0xc8,0x8c,0x9a,0x0e}};
+extern "C" const GUID __declspec(selectany) IID__PRSV2PropertyPackage =
+    {0x12a01d94,0x8c7c,0x3599,{0xa7,0x1e,0x8a,0xfb,0x6a,0x39,0x95,0x03}};
+extern "C" const GUID __declspec(selectany) IID__PRSV2VLPropertyPackage =
+    {0x83d4f2fa,0x4a63,0x3e5c,{0x92,0xbc,0xcd,0x09,0x54,0x4c,0x20,0x90}};
+extern "C" const GUID __declspec(selectany) IID__Ideal =
+    {0xd89207d0,0x9278,0x3e1e,{0x8f,0x7c,0x96,0x13,0x21,0x26,0x70,0xb1}};
+extern "C" const GUID __declspec(selectany) IID__RaoultPropertyPackage =
+    {0xb902d444,0xf065,0x3fdb,{0xa9,0xc0,0xb1,0x0b,0xc3,0x4f,0xe8,0x3a}};
+extern "C" const GUID __declspec(selectany) IID__DTL_DTL_SimulationObjects_PropertyPackages_Auxiliary_SRK =
+    {0x15248854,0x6b60,0x3b85,{0xa4,0x21,0x50,0xe6,0x30,0xb1,0x82,0x77}};
+extern "C" const GUID __declspec(selectany) IID__DTL_DTL_SimulationObjects_PropertyPackages_ThermoPlugs_SRK =
+    {0x33394485,0xfcff,0x3d4f,{0xad,0x90,0x58,0x2c,0x31,0xb7,0x4a,0xa6}};
+extern "C" const GUID __declspec(selectany) IID__SRKPropertyPackage =
+    {0x85e477f5,0x02b5,0x3a4d,{0xac,0x1d,0xed,0x53,0x22,0xbe,0x3a,0x7d}};
+extern "C" const GUID __declspec(selectany) IID__IAPWS_IF97 =
+    {0x7ee2f5d9,0x0a56,0x371c,{0xb6,0x98,0x66,0xd0,0xb3,0x41,0xc2,0x60}};
+extern "C" const GUID __declspec(selectany) IID__SteamTablesPropertyPackage =
+    {0x9bbd811f,0x241c,0x369d,{0xbb,0xb7,0xc2,0x6d,0xcf,0x9b,0x3c,0x7f}};
+extern "C" const GUID __declspec(selectany) IID__Unifac =
+    {0x0ac45879,0xf7be,0x332a,{0xa8,0x2c,0x3f,0xe9,0xec,0x5e,0xca,0xd1}};
+extern "C" const GUID __declspec(selectany) IID__UnifacLL =
+    {0xbd2fba1b,0x91ab,0x3398,{0x9d,0xd3,0xc2,0xfc,0x3f,0xa9,0x25,0x51}};
+extern "C" const GUID __declspec(selectany) IID__UnifacGroups =
+    {0xd3f3cd84,0x6f86,0x3bca,{0x92,0x44,0xc8,0x00,0x4e,0xb8,0x75,0x3a}};
+extern "C" const GUID __declspec(selectany) IID__UnifacGroupsLL =
+    {0xabb61af6,0xe208,0x3e58,{0xa0,0x7a,0xe9,0x64,0x5c,0x60,0x93,0x12}};
+extern "C" const GUID __declspec(selectany) IID__UnifacGroup =
+    {0x48183de3,0x2bee,0x3750,{0xb3,0x65,0x9d,0x83,0x24,0xb9,0x6e,0x91}};
+extern "C" const GUID __declspec(selectany) IID__UNIFACPropertyPackage =
+    {0xc6783e75,0xad9d,0x386a,{0xbd,0x6b,0x94,0x66,0xb2,0xa1,0x5d,0xfb}};
+extern "C" const GUID __declspec(selectany) IID__UNIFACLLPropertyPackage =
+    {0xa4c97f69,0x3802,0x3ed4,{0x96,0xf2,0x4e,0x83,0xe3,0xf7,0x02,0x95}};
+extern "C" const GUID __declspec(selectany) IID__UNIQUAC_IPData =
+    {0xcc4780ba,0x21d3,0x38c9,{0x86,0xb9,0xe4,0x89,0x00,0x29,0xa5,0xc5}};
+extern "C" const GUID __declspec(selectany) IID__UNIQUAC =
+    {0x94661c8a,0x0667,0x3845,{0xa2,0x45,0x56,0x2e,0xce,0x84,0x9b,0x3d}};
+extern "C" const GUID __declspec(selectany) IID__UNIQUACPropertyPackage =
+    {0xf8a8dff4,0x4ace,0x3eef,{0x9a,0xca,0xb4,0xd3,0x4b,0xb6,0x4f,0x16}};
+
+} // namespace DTL
+
+#pragma pack(pop)
